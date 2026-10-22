@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫 · 功能医学系列课程</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;background:#0B1526;overflow:hidden;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;color:#E8EEF5;-webkit-font-smoothing:antialiased}
+#viewport{position:fixed;inset:0}
+#stage{position:absolute;top:50%;left:50%;width:1280px;height:720px;transform:translate(-50%,-50%) scale(1);transform-origin:center}
+.slide{position:absolute;inset:0;padding:44px 56px 70px;background:linear-gradient(135deg,#1A2B45 0%,#162740 55%,#13223A 100%);opacity:0;pointer-events:none;transition:opacity .35s ease;border-radius:6px;overflow:hidden}
+.slide.active{opacity:1;pointer-events:auto}
+.slide::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#0E7C7B,#7FD1CF 45%,rgba(127,209,207,0) 90%)}
+.head{margin-bottom:20px;position:relative}
+.kicker{display:inline-block;font-size:12px;letter-spacing:.12em;color:#7FD1CF;border:1px solid rgba(127,209,207,.45);border-radius:999px;padding:3px 12px;margin-bottom:12px;background:rgba(14,124,123,.18)}
+h1.t{font-size:29px;font-weight:700;letter-spacing:.02em;line-height:1.25}
+h1.t em{font-style:normal;color:#7FD1CF}
+.sub{margin-top:7px;font-size:15px;color:#9AA8B5}
+.body{position:relative;height:calc(100% - 150px)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;height:100%}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;height:100%}
+.g72{display:grid;grid-template-columns:7fr 5fr;gap:18px;height:100%}
+.g53{display:grid;grid-template-columns:5fr 3fr;gap:18px;height:100%}
+.col{display:flex;flex-direction:column;gap:16px;min-height:0}
+.card{background:#223655;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:18px 20px;min-height:0;overflow:hidden}
+.card.hl{background:linear-gradient(160deg,#0E4E4D,#0E7C7B 140%);border-color:rgba(127,209,207,.35)}
+.card.warn{background:linear-gradient(160deg,#4A2B28,#5A3A34 140%);border-color:rgba(217,93,78,.35)}
+.card.soft{background:#2E4260}
+.card h4{font-size:16.5px;color:#FFFFFF;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.card h4::before{content:"";width:4px;height:16px;border-radius:2px;background:#7FD1CF;flex:none}
+.card.hl h4::before{background:#EAFBF9}
+.card.warn h4::before{background:#F0A297}
+.bullets{list-style:none;font-size:14.5px;line-height:1.62;color:#D6E1EC}
+.bullets li{padding-left:16px;position:relative;margin-bottom:8px}
+.bullets li::before{content:"▪";position:absolute;left:0;color:#7FD1CF;font-size:12px}
+.bullets li b{color:#fff}
+.bullets.sm{font-size:13.5px}
+.strip{position:absolute;left:0;right:0;bottom:0;background:rgba(14,124,123,.16);border:1px solid rgba(127,209,207,.3);border-radius:12px;padding:12px 18px;font-size:14.5px;line-height:1.55;color:#EAFBF9}
+.strip b{color:#7FD1CF}
+.strip.gold{background:rgba(184,138,46,.14);border-color:rgba(184,138,46,.4);color:#F7EFDC}
+.strip.danger{background:rgba(217,93,78,.12);border-color:rgba(217,93,78,.45);color:#FBEAE7}
+.strip.danger b{color:#F0A297}
+.badges{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.badge{flex:none;font-size:11.5px;font-weight:600;letter-spacing:.08em;border-radius:6px;padding:2px 9px;border:1px solid}
+.b-clin{color:#7FD1CF;border-color:rgba(127,209,207,.55);background:rgba(14,124,123,.22)}
+.b-meta{color:#F0C99A;border-color:rgba(184,138,46,.6);background:rgba(184,138,46,.16)}
+.b-animal{color:#F0A297;border-color:rgba(217,93,78,.55);background:rgba(217,93,78,.14)}
+.b-review{color:#B7C4D2;border-color:rgba(154,168,181,.5);background:rgba(90,107,123,.25)}
+.b-guide{color:#9FD3AC;border-color:rgba(63,125,78,.6);background:rgba(63,125,78,.2)}
+.b-hypo{color:#C9D6E2;border-style:dashed;border-color:rgba(201,214,226,.55);background:transparent}
+.foot{position:absolute;left:56px;right:56px;bottom:24px;display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:#7A8CA0;letter-spacing:.05em}
+.foot .fpn{font-variant-numeric:tabular-nums;color:#9AA8B5}
+.flow{display:flex;align-items:stretch;gap:10px}
+.fnode{flex:1;background:#2E4260;border:1px solid rgba(127,209,207,.25);border-radius:12px;padding:12px 14px;text-align:center;font-size:14px;line-height:1.45;display:flex;flex-direction:column;justify-content:center}
+.fnode b{color:#7FD1CF;font-size:15px}
+.fnode small{color:#9AA8B5;font-size:12px}
+.fnode.hot{background:linear-gradient(160deg,#0E5A57,#0E7C7B 150%);border-color:rgba(127,209,207,.5)}
+.farr{flex:none;display:flex;align-items:center;color:#7FD1CF;font-size:20px;font-weight:700}
+.qcard{background:#2E4260;border-radius:14px;padding:16px 20px;border-left:4px solid #7FD1CF}
+.qcard h5{font-size:15.5px;color:#fff;margin-bottom:8px}
+.mis{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;height:100%}
+.mis .card .wrong{font-size:14.5px;color:#F0A297;margin-bottom:10px;line-height:1.5}
+.mis .card .fix{font-size:13.8px;color:#D6E1EC;line-height:1.6}
+.mis .card .fix b{color:#7FD1CF}
+.num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;background:rgba(14,124,123,.3);border:1px solid rgba(127,209,207,.4);color:#7FD1CF;font-weight:700;font-size:14px;margin-right:8px;flex:none}
+.imgcard{background:#223655;border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.imgcard img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+.chartwrap{background:#1D3049;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:14px 16px 8px;height:100%}
+.legend{display:flex;gap:16px;font-size:12.5px;color:#C9D6E2;margin-bottom:4px;flex-wrap:wrap}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:18px;height:3px;border-radius:2px;display:inline-block}
+svg text{font-family:inherit}
+/* cover & divider */
+.cover{display:flex;flex-direction:column;justify-content:center;position:relative}
+.cover .brand{font-size:14px;letter-spacing:.35em;color:#7FD1CF;margin-bottom:26px}
+.cover h1{font-size:46px;line-height:1.3;font-weight:800}
+.cover h1 span{display:block;color:#7FD1CF}
+.cover .cta{margin-top:22px;font-size:17px;color:#9AA8B5}
+.cover .refs{margin-top:34px;max-width:640px;background:rgba(46,66,96,.6);border:1px solid rgba(127,209,207,.2);border-radius:12px;padding:14px 18px;font-size:13px;color:#C9D6E2;line-height:1.7}
+.cover .refs b{color:#7FD1CF}
+.orb{position:absolute;border-radius:50%;filter:blur(2px);opacity:.5}
+.divider{display:flex;flex-direction:column;justify-content:center;position:relative;padding-left:120px}
+.divider .sec{position:absolute;right:64px;top:50%;transform:translateY(-50%);font-size:190px;font-weight:800;color:rgba(127,209,207,.09);line-height:1;font-family:Georgia,serif}
+.divider .dlabel{color:#7FD1CF;font-size:15px;letter-spacing:.3em;margin-bottom:16px}
+.divider h1{font-size:40px;font-weight:800;margin-bottom:26px}
+.dlist{list-style:none;font-size:17.5px;color:#C9D6E2;line-height:2.05}
+.dlist li{padding-left:26px;position:relative}
+.dlist li::before{content:"◆";position:absolute;left:0;color:#0E7C7B;font-size:13px}
+.dlist li.ind{padding-left:52px;color:#9AA8B5;font-size:15.5px}
+.dlist li.ind::before{content:"";left:26px;top:50%;width:14px;height:1px;background:#5A6B7B}
+/* agenda */
+.agrow{display:flex;align-items:center;gap:14px;background:#2E4260;border-radius:12px;padding:12px 16px;font-size:15.5px}
+.agrow .num{margin-right:2px}
+.jbanner{width:100%;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.1)}
+.jbanner img{width:100%;display:block}
+/* toc overlay */
+#toc{position:fixed;inset:0;background:rgba(8,14,26,.92);z-index:60;display:none;overflow:auto;padding:44px 56px}
+#toc.open{display:block}
+#toc h2{font-size:22px;color:#7FD1CF;margin-bottom:22px;letter-spacing:.1em}
+#toc .groups{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;max-width:1200px;margin:0 auto}
+#toc h3{font-size:14px;color:#9AA8B5;border-bottom:1px solid rgba(255,255,255,.12);padding-bottom:6px;margin-bottom:10px;letter-spacing:.08em}
+#toc a{display:block;color:#D6E1EC;text-decoration:none;font-size:13.5px;padding:5px 8px;border-radius:7px;line-height:1.4}
+#toc a:hover{background:rgba(14,124,123,.25);color:#fff}
+#toc a.cur{background:rgba(14,124,123,.4);color:#fff}
+#toc a span{color:#7FD1CF;font-variant-numeric:tabular-nums;margin-right:8px}
+/* chrome */
+#chrome{position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;align-items:center;gap:14px;padding:10px 18px;background:linear-gradient(0deg,rgba(8,14,26,.95),rgba(8,14,26,0));user-select:none}
+#bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#0E7C7B,#7FD1CF);z-index:55;transition:width .3s}
+.nbtn{background:rgba(46,66,96,.85);border:1px solid rgba(255,255,255,.14);color:#D6E1EC;border-radius:9px;padding:7px 16px;font-size:14px;cursor:pointer;font-family:inherit}
+.nbtn:hover{background:rgba(14,124,123,.5);border-color:rgba(127,209,207,.5)}
+#pn{font-size:13px;color:#9AA8B5;font-variant-numeric:tabular-nums;min-width:74px;text-align:center}
+#hint{margin-left:auto;font-size:12px;color:#6E7F94}
+@media print{
+  html,body{overflow:visible;background:#fff}
+  #viewport{position:static}
+  #stage{position:static;transform:none!important;width:1280px;height:auto}
+  .slide{position:relative;opacity:1;pointer-events:auto;page-break-after:always;margin:0 auto 20px;height:720px}
+  #chrome,#bar,#toc{display:none!important}
+}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<div id="viewport"><div id="stage">
+
+<!-- S1 封面 -->
+<section class="slide cover" data-sec="导论" data-title="封面">
+  <div class="orb" style="width:420px;height:420px;right:-120px;top:-140px;background:radial-gradient(circle,rgba(14,124,123,.4),transparent 70%)"></div>
+  <div class="orb" style="width:260px;height:260px;right:180px;bottom:-60px;background:radial-gradient(circle,rgba(127,209,207,.22),transparent 70%)"></div>
+  <div style="display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center;height:100%">
+    <div>
+      <div class="brand">功 能 医 学 系 列 课 程</div>
+      <h1>情绪睡眠的共病底层<span>脑肠轴与神经内分泌免疫</span></h1>
+      <div class="cta">—— 从肠道菌群、HPA 轴、褪黑素到炎症因子的整合视角</div>
+      <div class="refs"><b>核心文献</b><br>Cell Metabolism 2025（菌群-昼夜节律-HPA轴） · Gut Microbes 2024（菌群-MyD88-褪黑素） · Prog NeuroPsychopharmacol Biol Psychiatry 2026（脑肠轴与难治性抑郁）</div>
+    </div>
+    <div class="imgcard" style="height:400px"><img src="assets/image1.png" alt="封面插图"></div>
+  </div>
+  <div class="foot"><span>功能医学系列课程</span><span class="fpn">01</span></div>
+</section>
+
+<!-- S2 病例 -->
+<section class="slide" data-sec="导论" data-title="从门诊病例开始">
+  <header class="head">
+    <h1 class="t">从门诊病例开始</h1>
+    <p class="sub">一位你在三分钟内就能“对上号”的患者</p>
+  </header>
+  <div class="body">
+    <div class="g72">
+      <div class="col">
+        <div class="card" style="flex:1">
+          <h4>病例：42 岁女性，金融行业</h4>
+          <ul class="bullets">
+            <li><b>主诉</b>：入睡困难＋凌晨 3–4 点早醒 8 个月，日间疲乏、注意力下降</li>
+            <li><b>情绪</b>：兴趣减退、易哭、工作压力大；PHQ-9 = 12（中度）</li>
+            <li><b>消化</b>：腹胀、腹泻-便秘交替多年；间断服用 PPI</li>
+            <li><b>治疗史</b>：2 次 SSRI 治疗“部分好转后停滞”；因怕依赖拒绝安眠药</li>
+            <li><b>生活方式</b>：23 点后刷手机；晚餐 21:30；每周饮酒助眠 2–3 次；不运动</li>
+            <li><b>外院检验</b>：hs-CRP 3.2 mg/L↑，甲状腺/血常规大致正常</li>
+          </ul>
+        </div>
+        <div class="imgcard" style="height:150px"><img src="assets/image2.png" alt="病例示意"></div>
+      </div>
+      <div class="col">
+        <div class="card warn" style="flex:1">
+          <h4>她在问你的三个问题</h4>
+          <ul class="bullets">
+            <li>① 先治睡眠还是先治情绪？</li>
+            <li>② 胃肠症状要不要一起管？</li>
+            <li>③ 为什么两次抗抑郁药都“差一点”？</li>
+          </ul>
+        </div>
+        <div class="card hl" style="flex:1">
+          <h4>本课的回答路径</h4>
+          <ul class="bullets">
+            <li>先看清共病的底层网络</li>
+            <li>再回到这次病例做闭环决策</li>
+            <li>最后 15 分钟门诊落地</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">02</span></div>
+</section>
+
+<!-- S3 流行病学 -->
+<section class="slide" data-sec="导论" data-title="共病不是巧合：流行病学事实">
+  <header class="head">
+    <h1 class="t">共病不是巧合：流行病学事实</h1>
+    <p class="sub">在谈论机制之前，先承认事实的分量 <span class="badges" style="display:inline-flex;margin-left:10px;vertical-align:middle"><span class="badge b-meta">Meta</span><span class="badge b-clin">临床</span></span></p>
+  </header>
+  <div class="body">
+    <div class="grid3">
+      <div class="card soft" style="grid-column:span 2">
+        <h4>流行病学证据</h4>
+        <ul class="bullets">
+          <li><b>睡眠×情绪</b>｜抑郁发作期约 90% 患者伴有睡眠症状（入睡困难 / 早醒 / 睡眠破碎）</li>
+          <li><b>前瞻</b>｜无抑郁人群中的失眠，使新发抑郁风险约为 2 倍</li>
+          <li><b>时间顺序</b>｜失眠常先于抑郁出现；残留失眠是抑郁复燃的最强预测因子之一</li>
+          <li><b>肠×情绪</b>｜IBS 患者抑郁/焦虑患病率约为普通人群 2–3 倍，且为双向</li>
+          <li><b>结构性提示</b>｜情绪、睡眠、肠道症状两两共病率都显著高于随机 → 提示共享机制</li>
+        </ul>
+        <div class="qcard" style="margin-top:14px">
+          <h5>结论</h5>
+          <div style="font-size:15px;line-height:1.6"><b style="color:#7FD1CF">共病是规则，不是例外。</b>需要一个能同时解释两组症状的共同底层。</div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="flex:1">
+          <h4>提醒</h4>
+          <ul class="bullets sm">
+            <li>教科书常按“抑郁→失眠”单向叙述</li>
+            <li>但时间顺序数据支持失眠在先居多</li>
+            <li>双向因果 = 共同底层网络的投影</li>
+          </ul>
+        </div>
+        <div class="imgcard" style="flex:1"><img src="assets/image3.png" alt="共病示意"></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">03</span></div>
+</section>
+
+<!-- S4 框架 -->
+<section class="slide" data-sec="导论" data-title="为什么需要“共同底层”视角">
+  <header class="head">
+    <h1 class="t">为什么需要“共同底层”视角</h1>
+    <p class="sub">从“两个诊断”到“一个网络”</p>
+  </header>
+  <div class="body">
+    <div class="grid2" style="grid-template-rows:auto auto;height:auto">
+      <div class="card warn">
+        <h4>旧框架：单向因果</h4>
+        <ul class="bullets sm">
+          <li>抑郁 → 失眠（对症：抗抑郁药＋安眠药）</li>
+          <li>解释不了：失眠为何常先于抑郁</li>
+          <li>解释不了：单纯睡眠治疗可改善抑郁</li>
+          <li>解释不了：胃肠与炎症共病为何聚集</li>
+        </ul>
+      </div>
+      <div class="card hl">
+        <h4>新框架：共同底层网络</h4>
+        <ul class="bullets sm">
+          <li>同一网络失衡 → 不同输出：情绪症状 ∥ 睡眠症状 ∥ 躯体症状</li>
+          <li>网络节点：菌群 · HPA轴 · 褪黑素 · 炎症</li>
+          <li>干预任一节点 → 同时改善多组症状</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top:20px;display:flex;align-items:center;gap:12px">
+      <div style="writing-mode:vertical-rl;text-align:center;background:rgba(14,124,123,.25);border:1px solid rgba(127,209,207,.4);border-radius:10px;padding:12px 8px;letter-spacing:.35em;font-size:15px;color:#7FD1CF;font-weight:700">共病底层</div>
+      <div class="flow" style="flex:1">
+        <div class="fnode"><b>① 肠道菌群</b></div><div class="farr">→</div>
+        <div class="fnode"><b>② HPA轴</b><small>皮质醇节律</small></div><div class="farr">→</div>
+        <div class="fnode"><b>③ 褪黑素</b><small>昼夜信号</small></div><div class="farr">→</div>
+        <div class="fnode"><b>④ 炎症因子</b><small>免疫</small></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">04</span></div>
+</section>
+
+<!-- S5 目录 -->
+<section class="slide" data-sec="导论" data-title="课程路线图">
+  <header class="head">
+    <h1 class="t">课程路线图</h1>
+    <p class="sub">六个模块 · 三篇文献深读 · 落地闭环</p>
+  </header>
+  <div class="body">
+    <div class="g72">
+      <div class="col" style="gap:10px">
+        <div class="agrow"><span class="num">0</span>病例与共病事实</div>
+        <div class="agrow"><span class="num">一</span>脑肠轴：不是比喻，是解剖实体</div>
+        <div class="agrow"><span class="num">二</span>HPA 轴 × 昼夜节律（① Tofani 2025）</div>
+        <div class="agrow"><span class="num">三</span>褪黑素 × 肠道（② Liu 2024）</div>
+        <div class="agrow"><span class="num">四</span>炎症因子 × 屏障 × 犬尿氨酸（③ Bertollo 2026）</div>
+        <div class="agrow"><span class="num">五</span>四节点整合模型</div>
+        <div class="agrow"><span class="num">六</span>门诊评估与干预落地 · 总结</div>
+      </div>
+      <div class="col" style="gap:12px">
+        <div class="card" style="padding:14px 18px">
+          <h4>阅读约定</h4>
+          <ul class="bullets sm" style="margin-bottom:0">
+            <li>每篇文献：问题、设计、发现</li>
+            <li>动物证据明确标注</li>
+            <li>转译到诊室</li>
+          </ul>
+        </div>
+        <div class="jbanner"><img src="assets/image4.png" alt="Cell Metabolism"></div>
+        <div class="jbanner"><img src="assets/image5.png" alt="Gut Microbes"></div>
+        <div class="jbanner"><img src="assets/image6.png" alt="PNPBP"></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">05</span></div>
+</section>
+<!-- S6 章节一 -->
+<section class="slide divider" data-sec="一·脑肠轴" data-title="一、脑肠轴：不是比喻，是解剖实体">
+  <div class="sec">壹</div>
+  <div class="dlabel">MODULE 01</div>
+  <h1>一、脑肠轴：不是比喻，是解剖实体</h1>
+  <ul class="dlist">
+    <li>五条双向通路</li>
+    <li class="ind">菌群代谢物：SCFA 与色氨酸分流</li>
+    <li class="ind">两道屏障：肠屏障与血脑屏障</li>
+  </ul>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">06</span></div>
+</section>
+
+<!-- S7 五条通路 -->
+<section class="slide" data-sec="一·脑肠轴" data-title="脑肠轴总览：五条双向通路">
+  <header class="head">
+    <span class="kicker">一·脑肠轴</span>
+    <h1 class="t">脑肠轴总览：五条双向通路</h1>
+    <p class="sub">Microbiota-Gut-Brain Axis（Cryan 2019, Physiol Rev）<span class="badges" style="display:inline-flex;margin-left:10px;vertical-align:middle"><span class="badge b-review">综述</span></span></p>
+  </header>
+  <div class="body">
+    <div class="grid2" style="grid-template-rows:auto 1fr;height:100%">
+      <div class="grid2" style="gap:14px;height:auto">
+        <div class="card soft" style="padding:13px 18px">
+          <h4>脑（中枢）</h4>
+          <ul class="bullets sm" style="margin-bottom:0">
+            <li>情绪/认知中枢：前额叶、杏仁核、海马</li>
+            <li>主时钟：SCN（视交叉上核）· 应激指挥：PVN（室旁核）</li>
+            <li>脑屏障：BBB</li>
+          </ul>
+        </div>
+        <div class="card soft" style="padding:13px 18px">
+          <h4>肠（外周）</h4>
+          <ul class="bullets sm" style="margin-bottom:0">
+            <li>肠腔菌群 ≈ 10¹⁴ · ENS 肠神经系统 ≈ 5 亿神经元</li>
+            <li>人体约 70% 免疫细胞在肠 · 90–95% 的 5-HT 产自肠嗜铬细胞</li>
+            <li>肠屏障</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card" style="padding:14px 20px">
+        <div class="flow" style="margin-bottom:9px"><div class="fnode" style="flex-direction:row;gap:10px;text-align:left;padding:9px 14px"><b style="flex:none">① 神经</b><span>迷走神经（传入为主）、ENS↔中枢</span></div></div>
+        <div class="flow" style="margin-bottom:9px"><div class="fnode" style="flex-direction:row;gap:10px;text-align:left;padding:9px 14px"><b style="flex:none">② 内分泌</b><span>HPA 轴：CRH→ACTH→皮质醇（模块二）</span></div></div>
+        <div class="flow" style="margin-bottom:9px"><div class="fnode" style="flex-direction:row;gap:10px;text-align:left;padding:9px 14px"><b style="flex:none">③ 免疫</b><span>细胞因子、免疫细胞与信号迁移</span></div></div>
+        <div class="flow" style="margin-bottom:9px"><div class="fnode" style="flex-direction:row;gap:10px;text-align:left;padding:9px 14px"><b style="flex:none">④ 代谢物</b><span>SCFA、色氨酸代谢物、胆汁酸、GABA</span></div></div>
+        <div class="flow"><div class="fnode" style="flex-direction:row;gap:10px;text-align:left;padding:9px 14px"><b style="flex:none">⑤ 屏障</b><span>肠屏障与 BBB 通透性的联动调控</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">07</span></div>
+</section>
+
+<!-- S8 迷走神经 -->
+<section class="slide" data-sec="一·脑肠轴" data-title="迷走神经：肠-脑之间的“高速专线”">
+  <header class="head">
+    <span class="kicker">一·脑肠轴</span>
+    <h1 class="t">迷走神经：肠-脑之间的“高速专线”</h1>
+    <p class="sub"><span class="badges"><span class="badge b-animal">动物</span><span class="badge b-clin">临床</span><span class="badge b-review">综述</span></span></p>
+  </header>
+  <div class="body">
+    <div class="grid2" style="grid-template-rows:1fr auto">
+      <div class="card">
+        <h4>四条要点</h4>
+        <ul class="bullets">
+          <li><b>解剖事实</b>：迷走传入末梢实时监测肠腔与粘膜状态：营养物、细菌产物、肠激素</li>
+          <li><b>动物证据</b>：特定菌株可经 迷走→脑干→PVN 通路改变应激相关行为（如 L. reuteri 与社会行为，Sgritta 2019）</li>
+          <li><b>临床初步</b>：迷走神经刺激（VNS）用于抑郁的治疗证据正在积累（难治性抑郁的器械通路）</li>
+          <li><b>术语</b>：Dinan 2013 提出 Psychobiotics：能产生精神健康获益的活菌（含益生菌）</li>
+        </ul>
+      </div>
+      <div class="card hl">
+        <h4>为什么这条通路重要</h4>
+        <ul class="bullets sm">
+          <li>它绕过血脑屏障——不需要进入脑的分子也能改变脑</li>
+          <li>信号延迟以秒-分钟计，快于内分泌通路</li>
+          <li>是“菌株特异性”效应的经典通路（后面会再遇到 L. reuteri）</li>
+        </ul>
+      </div>
+      <div class="imgcard" style="grid-column:span 2;height:150px"><img src="assets/image7.png" alt="迷走神经通路示意"></div>
+    </div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">08</span></div>
+</section>
+
+<!-- S9 代谢物 -->
+<section class="slide" data-sec="一·脑肠轴" data-title="菌群代谢物：脑肠轴的“信使分子”">
+  <header class="head">
+    <span class="kicker">一·脑肠轴</span>
+    <h1 class="t">菌群代谢物：脑肠轴的“信使分子”</h1>
+    <p class="sub">膳食结构 → 菌群功能 → 代谢物谱 → 脑肠信号（可控性最强的环节）<span class="badges" style="display:inline-flex;margin-left:10px;vertical-align:middle"><span class="badge b-review">综述</span><span class="badge b-animal">动物</span><span class="badge b-clin">临床</span></span></p>
+  </header>
+  <div class="body">
+    <div class="grid2" style="grid-template-rows:1fr auto">
+      <div class="card">
+        <h4>短链脂肪酸 SCFA（乙酸 C2 / 丙酸 C3 / 丁酸 C4）</h4>
+        <ul class="bullets sm">
+          <li>来源：不可消化膳食纤维的结肠发酵产物</li>
+          <li>丁酸：结肠细胞主燃料；HDAC 抑制剂（表观遗传调控）；抗炎</li>
+          <li>受体：GPR41/43（FFAR2/3）分布于免疫与神经细胞</li>
+          <li>丙酸：维护 BBB 完整性（动物模型）</li>
+          <li>临床相关：抑郁症状人群产丁酸菌（如 F. prausnitzii）减少（横断面宏基因组，Kim 2025）</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>色氨酸衍生物与其他</h4>
+        <ul class="bullets sm">
+          <li>吲哚类：菌群将 Trp 转为吲哚/IPA/IAA → AhR 信号 → 肠屏障与免疫稳态</li>
+          <li>次级胆汁酸：经 FXR/TGR5 影响代谢与情绪相关通路</li>
+          <li>GABA：乳杆菌/双歧杆菌部分菌株可产 GABA（肠腔局部与迷走信号）</li>
+          <li><b>关键观念</b>：菌群主要不是“替我们产神经递质”，而是改写可用的底物与信号环境</li>
+        </ul>
+      </div>
+      <div class="strip" style="position:relative;grid-column:span 2"><b>膳食是脑肠轴最大的“上游变量”</b>：纤维与发酵食品决定 SCFA 谱；蛋白与色氨酸摄入决定 Trp 底物量；进食时间决定菌群节律（模块二）。这三点都是门诊可处方的生活方式杠杆。</div>
+    </div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">09</span></div>
+</section>
+
+<!-- S10 色氨酸 -->
+<section class="slide" data-sec="一·脑肠轴" data-title="色氨酸：一个分子，三条命运">
+  <header class="head">
+    <span class="kicker">一·脑肠轴</span>
+    <h1 class="t">色氨酸：一个分子，三条命运</h1>
+    <p class="sub">情绪与睡眠共用的生化干线（全课核心图之一）<span class="badges" style="display:inline-flex;margin-left:10px;vertical-align:middle"><span class="badge b-review">综述</span><span class="badge b-animal">动物</span></span></p>
+  </header>
+  <div class="body">
+    <div style="display:grid;grid-template-columns:150px 1fr;gap:14px;height:56%">
+      <div class="fnode hot" style="font-size:17px"><b style="font-size:20px">色氨酸</b><small>Trp</small></div>
+      <div class="col" style="gap:10px">
+        <div class="flow"><div class="fnode" style="flex:1.1;flex-direction:row;text-align:left;gap:8px"><b style="flex:none">5-HT 途径</b><small>TPH1，肠嗜铬细胞</small></div><div class="farr">→</div><div class="fnode" style="flex:1.6;flex-direction:row;text-align:left;gap:8px"><span>5-HT → N-乙酰血清素 NAS → <b style="font-size:13px">褪黑素</b>（AANAT 限速酶）</span></div></div>
+        <div class="flow"><div class="fnode" style="flex:1.1;flex-direction:row;text-align:left;gap:8px"><b style="flex:none">犬尿氨酸途径</b><small>IDO / TDO</small></div><div class="farr">→</div><div class="fnode warn" style="flex:1.6;flex-direction:row;text-align:left;gap:8px;border-color:rgba(217,93,78,.4)"><span>犬尿氨酸 KYN → QA（NMDA 激动，神经毒）→ KA（受体拮抗）</span></div></div>
+        <div class="flow"><div class="fnode" style="flex:1.1;flex-direction:row;text-align:left;gap:8px"><b style="flex:none">菌群直接代谢</b><small>吲哚途径</small></div><div class="farr">→</div><div class="fnode" style="flex:1.6;flex-direction:row;text-align:left;gap:8px"><span>吲哚/IPA/IAA → AhR → 屏障保护</span></div></div>
+      </div>
+    </div>
+    <div class="grid2" style="margin-top:12px;height:19%">
+      <div class="card warn" style="padding:12px 18px"><ul class="bullets sm" style="margin-bottom:0"><li><b>炎症↑</b>（IL-1β/TNF-α/IFN-γ）＋ 应激皮质醇 → 打开 IDO/TDO 闸门</li></ul></div>
+      <div class="card hl" style="padding:12px 18px"><ul class="bullets sm" style="margin-bottom:0"><li><b>健康菌群</b> → 吲哚/AhR + SCFA → 抑制 IDO、护屏障</li></ul></div>
+    </div>
+    <div class="strip" style="margin-top:12px;position:relative"><b>要点</b>：炎症与菌群竞争性“劫持”色氨酸 → 5-HT/褪黑素合成↓ ＋ 神经毒 QA↑ —— 一条干线同时打击情绪与睡眠。</div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">10</span></div>
+</section>
+
+<!-- S11 5-HT 误区 -->
+<section class="slide" data-sec="一·脑肠轴" data-title="关于 5-羟色胺的三个临床误区">
+  <header class="head">
+    <span class="kicker">一·脑肠轴</span>
+    <h1 class="t">关于 5-羟色胺的三个临床误区</h1>
+    <p class="sub">把“肠脑血清素”讲准 <span class="badges" style="display:inline-flex;margin-left:10px;vertical-align:middle"><span class="badge b-review">综述</span></span></p>
+  </header>
+  <div class="body">
+    <div class="mis">
+      <div class="card">
+        <h4><span class="num">1</span>误区 1</h4>
+        <div class="wrong">“肠道产 90% 的 5-HT，所以肠在给大脑供 5-HT”</div>
+        <div class="fix"><b>✓ 纠正</b>：外周 5-HT 不能穿过 BBB（极性分子、缺乏转运体）。肠源 5-HT 作用于外周受体与迷走信号，不直接“补脑”。</div>
+      </div>
+      <div class="card">
+        <h4><span class="num">2</span>误区 2</h4>
+        <div class="wrong">“吃色氨酸/5-HTP 就能提升脑 5-HT”</div>
+        <div class="fix"><b>✓ 纠正</b>：Trp 入脑需与其他大分子中性氨基酸竞争同一转运体（LNAA）；胰岛素刺激的 LNAA 清除、炎症分流都会改变入脑比例。</div>
+      </div>
+      <div class="card">
+        <h4><span class="num">3</span>误区 3</h4>
+        <div class="wrong">“菌群与 5-HT 无关”</div>
+        <div class="fix"><b>✓ 纠正</b>：菌群调节肠 TPH1 表达与血浆 Trp 可用性，并通过犬尿氨酸分流间接影响脑 5-HT —— 是间接但真实的调控。</div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">11</span></div>
+</section>
+
+<!-- S12 两道屏障 -->
+<section class="slide" data-sec="一·脑肠轴" data-title="两道屏障，一个故事">
+  <header class="head">
+    <span class="kicker">一·脑肠轴</span>
+    <h1 class="t">两道屏障，一个故事</h1>
+    <p class="sub">肠屏障与血脑屏障是同一炎症通路的上下游 <span class="badges" style="display:inline-flex;margin-left:10px;vertical-align:middle"><span class="badge b-clin">临床</span><span class="badge b-animal">动物</span></span></p>
+  </header>
+  <div class="body">
+    <div class="grid2" style="grid-template-rows:1fr auto">
+      <div class="card">
+        <h4>第一道：肠屏障（“肠漏”）</h4>
+        <ul class="bullets sm">
+          <li>结构：紧密连接 claudin / occludin / ZO-1</li>
+          <li>失效时：LPS 等内毒素易位入血 → TLR4 → 系统性低度炎症</li>
+          <li>诱因：高脂/低纤饮食、酒精、慢性应激、NSAIDs、菌群失调</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>第二道：血脑屏障（BBB）</h4>
+        <ul class="bullets sm">
+          <li>结构：内皮紧密连接（claudin-5 / ZO-1）＋ 周细胞 ＋ 星形胶质细胞足突</li>
+          <li>失效时：细胞因子与白蛋白进入 CNS → 小胶质细胞激活</li>
+          <li>临床：青少年 MDD 患者肠屏障与 BBB 通透性标志物同时升高（横断面研究）</li>
+        </ul>
+      </div>
+      <div class="card soft" style="grid-column:span 2">
+        <h4>保护性因素（证据强度递减）</h4>
+        <ul class="bullets sm" style="margin-bottom:0">
+          <li>SCFA（丙酸护 BBB，动物）｜丁酸产菌丰富度（人群相关）｜膳食镁（动物：降低 BBB 通透性，Zhu 2018）｜应激管理</li>
+          <li>注：尚无“增密屏障”的确定性临床干预 —— 目前策略是移除损伤因素 ＋ 支持菌群代谢环境</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">12</span></div>
+</section>
+<!-- S13 章节二 -->
+<section class="slide divider" data-sec="二·HPA轴" data-title="二、HPA 轴：应激系统的时钟">
+  <div class="sec">贰</div>
+  <div class="dlabel">MODULE 02</div>
+  <h1>二、HPA 轴：应激系统的时钟</h1>
+  <ul class="dlist">
+    <li>HPA 生理与皮质醇昼夜节律</li>
+    <li class="ind">文献深读：菌群昼夜振荡如何驱动 HPA 节律（Tofani 2025, Cell Metabolism）</li>
+    <li class="ind">因果链与转译边界</li>
+  </ul>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">13</span></div>
+</section>
+
+<!-- S14 HPA生理 -->
+<section class="slide" data-sec="二·HPA轴" data-title="HPA 轴生理速览">
+  <header class="head">
+    <span class="kicker">二·HPA</span>
+    <h1 class="t">HPA 轴生理速览</h1>
+    <p class="sub">下丘脑-垂体-肾上腺：一条有时钟的内分泌级联 <span class="badges" style="display:inline-flex;margin-left:10px;vertical-align:middle"><span class="badge b-review">综述</span></span></p>
+  </header>
+  <div class="body">
+    <div class="flow" style="margin-bottom:12px">
+      <div class="fnode"><b>SCN 主时钟</b><small>相邻并互连（光同步）</small></div><div class="farr">→</div>
+      <div class="fnode"><b>PVN 室旁核</b><small>CRH ＋ AVP</small></div><div class="farr">→</div>
+      <div class="fnode"><b>垂体前叶</b><small>ACTH</small></div><div class="farr">→</div>
+      <div class="fnode"><b>肾上腺皮质</b><small>合成释放</small></div><div class="farr">→</div>
+      <div class="fnode hot"><b>皮质醇</b></div>
+    </div>
+    <div class="qcard" style="margin-bottom:14px"><h5>负反馈：皮质醇 → GR（海马/前额叶/PVN/垂体）→ 关闸</h5></div>
+    <div class="grid2" style="height:38%">
+      <div class="card">
+        <h4>三个关键点</h4>
+        <ul class="bullets sm">
+          <li><b>皮质醇急性效应</b>：觉醒↑、葡萄糖动员、免疫再分布（先抗炎后促炎）</li>
+          <li><b>失代偿·慢性升高</b>：海马 GR 下调/耐受 → 负反馈失灵 → 皮质醇持续偏高</li>
+          <li><b>关键</b>：GR（Nr3c1）的表达与敏感性 = 反馈质量的“暗物质”，比单次皮质醇数值更重要</li>
+        </ul>
+      </div>
+      <div class="card hl">
+        <h4>为什么它在“共病底层”里</h4>
+        <ul class="bullets sm">
+          <li>应激系统的总输出 = 情绪与睡眠共同的上游</li>
+          <li>皮质醇节律是外周组织的对时信号</li>
+          <li>菌群是它的新晋调节者</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">14</span></div>
+</section>
+
+<!-- S15 皮质醇节律图表 -->
+<section class="slide" data-sec="二·HPA轴" data-title="皮质醇的昼夜节律：形态比单点更重要">
+  <header class="head">
+    <span class="kicker">二·HPA</span>
+    <h1 class="t">皮质醇的昼夜节律：形态比单点更重要</h1>
+    <p class="sub">人类 24 小时示意（示意图，非个体数据）<span class="badges" style="display:inline-flex;margin-left:10px;vertical-align:middle"><span class="badge b-meta">Meta</span><span class="badge b-clin">临床</span></span></p>
+  </header>
+  <div class="body">
+    <div class="g53">
+      <div class="chartwrap">
+        <div class="legend"><span><i style="background:#7FD1CF"></i>皮质醇（相对水平）</span><span><i style="background:#A78BDB"></i>褪黑素（相对水平）</span></div>
+        <svg viewBox="0 0 620 280" style="width:100%;height:calc(100% - 22px)">
+          <g stroke="rgba(255,255,255,.09)"><line x1="48" y1="18" x2="606" y2="18"/><line x1="48" y1="75" x2="606" y2="75"/><line x1="48" y1="132" x2="606" y2="132"/><line x1="48" y1="189" x2="606" y2="189"/></g>
+          <line x1="48" y1="246" x2="606" y2="246" stroke="rgba(255,255,255,.35)"/>
+          <g font-size="10" fill="#9AA8B5" text-anchor="end"><text x="42" y="250">0</text><text x="42" y="193">25</text><text x="42" y="136">50</text><text x="42" y="79">75</text><text x="42" y="22">100</text></g>
+          <g font-size="10" fill="#9AA8B5" text-anchor="middle"><text x="48" y="262">0</text><text x="187.5" y="262">6</text><text x="327" y="262">12</text><text x="466.5" y="262">18</text><text x="606" y="262">24</text></g>
+          <text x="327" y="277" font-size="11" fill="#9AA8B5" text-anchor="middle">时间（示意，小时）</text>
+          <polyline fill="none" stroke="#A78BDB" stroke-width="2.5" points="48.0,138.8 59.6,118.5 71.2,101.7 82.9,90.3 94.5,86.4 106.1,90.3 117.8,101.7 129.4,118.5 141.0,138.8 152.6,160.0 164.2,180.3 175.9,197.7 187.5,211.8 199.1,222.3 210.8,229.8 222.4,234.6 234.0,237.8 245.6,239.4 257.2,240.5 268.9,241.0 280.5,241.2 292.1,241.4 303.8,241.4 315.4,241.4 327.0,241.4 338.6,241.4 350.2,241.4 361.9,241.4 373.5,241.4 385.1,241.4 396.8,241.4 408.4,241.4 420.0,241.4 431.6,241.4 443.2,241.4 454.9,241.4 466.5,241.4 478.1,241.4 489.8,241.4 501.4,241.4 513.0,241.4 524.6,241.4 536.2,241.4 547.9,241.4 559.5,241.4 571.1,241.4 582.8,241.4 594.4,241.4 606.0,241.4"/>
+          <polyline fill="none" stroke="#7FD1CF" stroke-width="2.5" points="48.0,214.8 59.6,210.7 71.2,205.4 82.9,198.6 94.5,189.7 106.1,179.0 117.8,166.0 129.4,151.2 141.0,134.5 152.6,116.7 164.2,98.3 175.9,80.5 187.5,63.8 199.1,49.5 210.8,38.7 222.4,31.7 234.0,29.4 245.6,31.7 257.2,38.7 268.9,49.5 280.5,63.8 292.1,80.5 303.8,98.3 315.4,116.7 327.0,134.5 338.6,151.2 350.2,166.0 361.9,179.0 373.5,189.7 385.1,198.6 396.8,205.4 408.4,210.7 420.0,214.8 431.6,217.5 443.2,219.6 454.9,220.9 466.5,221.8 478.1,222.3 489.8,222.7 501.4,223.0 513.0,223.0 524.6,223.2 536.2,223.2 547.9,223.2 559.5,223.2 571.1,223.2 582.8,223.2 594.4,223.2 606.0,223.2"/>
+          <circle cx="234" cy="29.4" r="4" fill="#7FD1CF"/><text x="234" y="20" font-size="11" fill="#7FD1CF" text-anchor="middle">CAR 峰</text>
+          <circle cx="94.5" cy="86.4" r="4" fill="#A78BDB"/><text x="120" y="78" font-size="11" fill="#A78BDB" text-anchor="middle">夜间脉冲</text>
+        </svg>
+      </div>
+      <div class="card">
+        <h4>形态怎么读</h4>
+        <ul class="bullets sm">
+          <li><b>形态</b>：睡-醒转换时达峰（皮质醇觉醒反应 CAR），午夜最低</li>
+          <li><b>配对</b>：与褪黑素严格反相：一个开门，一个关门</li>
+          <li><b>时间依赖</b>：同一应激在不同时段引发的皮质醇反应幅度不同（1970s 起已知）</li>
+          <li><b>临床·Meta</b>：昼夜斜率平坦化与不良心理/躯体结局相关（Adam 2017 荟萃）</li>
+          <li><b>病理</b>：失眠/抑郁常见：夜间皮质醇偏高、CAR 异常、斜率平坦</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">15</span></div>
+</section>
+
+<!-- S16 文献①总览 -->
+<section class="slide" data-sec="二·HPA轴" data-title="文献① 菌群：应激系统与时钟系统的整合者">
+  <header class="head">
+    <span class="kicker">二·HPA</span>
+    <h1 class="t">菌群是应激系统与时钟系统的整合者</h1>
+    <p class="sub">Tofani GSS, Leigh SJ, …, Clarke G, Cryan JF. Cell Metabolism 2025;37:138–153 <span class="badges" style="display:inline-flex;margin-left:10px;vertical-align:middle"><span class="badge b-animal">动物</span></span></p>
+  </header>
+  <div class="body">
+    <div class="grid3" style="height:58%">
+      <div class="card">
+        <h4>团队与问题</h4>
+        <ul class="bullets sm">
+          <li>APC Microbiome Ireland（科克大学；Cryan/Dinan 系，脑肠轴领域头部团队）</li>
+          <li>应激系统与时钟系统共享 HPA 轴与自主神经，但两者如何被整合——未知</li>
+          <li><b>核心问题</b>：肠道菌群是否是这个整合者？</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>设计精妙处</h4>
+        <ul class="bullets sm">
+          <li>三组：CV（正常）/ ABX（4 联抗生素 2 周）/ GF（无菌）</li>
+          <li>4 个时间点取材（ZT5/11/17/23，覆盖全昼夜）</li>
+          <li>血浆激素 ＋ SCN/海马/杏仁核 RNA-seq ＋ 代谢组 ＋ 宏基因组</li>
+          <li>加：粪菌移植 FMT、单菌株灌胃、美替拉酮药理学、在体 BBB 通透性、行为学</li>
+        </ul>
+      </div>
+      <div class="card hl">
+        <h4>五个发现</h4>
+        <ul class="bullets sm">
+          <li><b>1</b>｜菌群自身有昼夜振荡；乳杆菌属占振幅 top10 之 7</li>
+          <li><b>2</b>｜菌群破坏 → 皮质酮节律变形（峰时相漂移/振幅异常）</li>
+          <li><b>3</b>｜SCN 主时钟与海马/杏仁核应激通路的节律崩塌</li>
+          <li><b>4</b>｜HPA 轴三站式过度激活 ＋ 下丘脑 BBB 定时渗漏</li>
+          <li><b>5</b>｜因果链闭合：美替拉酮/FMT/单菌株 L. reuteri</li>
+        </ul>
+      </div>
+    </div>
+    <div class="imgcard" style="height:34%;margin-top:14px"><img src="assets/image8.png" alt="Tofani 2025 图文摘要"></div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">16</span></div>
+</section>
+
+<!-- S17 发现1 -->
+<section class="slide" data-sec="二·HPA轴" data-title="发现 1：菌群自己就有“作息”">
+  <header class="head">
+    <span class="kicker">二·HPA</span>
+    <h1 class="t">发现 1：菌群自己就有“作息”</h1>
+    <p class="sub"><span class="badges"><span class="badge b-animal">动物</span></span></p>
+  </header>
+  <div class="body">
+    <div class="g72">
+      <div class="card">
+        <h4>证据</h4>
+        <ul class="bullets">
+          <li><b>振荡面广</b>：宏基因组（菌株水平）显示大量菌株丰度昼夜振荡；振幅 top10 中 7 个属乳杆菌属</li>
+          <li><b>明星菌株</b>：L. reuteri（罗伊氏乳杆菌）为振幅最大候选之一；L. jensenii 亦入选</li>
+          <li><b>总量也振荡</b>：盲肠细菌负荷本身呈昼夜波动；ABX 后在 ZT11 异常成峰</li>
+          <li><b>膳食时点</b>：进食时间是菌群振荡的重要驱动（Thaiss 2014/2016 系列）</li>
+          <li><b>反向也成立</b>：昼夜节律紊乱（倒班/时差）→ 菌群振荡弱化（既有动物与人群证据）</li>
+        </ul>
+      </div>
+      <div class="card hl">
+        <h4>门诊语言</h4>
+        <ul class="bullets">
+          <li>“肠道里也有生物钟。”</li>
+          <li>不规律进食 = 给菌群发混乱的作息表</li>
+          <li>固定进食窗口是零成本的节律干预（模块六）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">17</span></div>
+</section>
+
+<!-- S18 发现2 图表 -->
+<section class="slide" data-sec="二·HPA轴" data-title="发现 2：破坏菌群 → 皮质酮节律变形">
+  <header class="head">
+    <span class="kicker">二·HPA</span>
+    <h1 class="t">发现 2：破坏菌群 → 皮质酮节律变形</h1>
+    <p class="sub">血浆皮质酮全昼夜曲线（小鼠，示意重绘）<span class="badges" style="display:inline-flex;margin-left:10px;vertical-align:middle"><span class="badge b-animal">动物</span></span></p>
+  </header>
+  <div class="body">
+    <div class="g53">
+      <div class="chartwrap">
+        <div class="legend"><span><i style="background:#7FD1CF"></i>CV 正常对照</span><span><i style="background:#E0705F"></i>ABX 抗生素组</span><span><i style="background:#E2C069"></i>GF 无菌组</span></div>
+        <svg viewBox="0 0 620 280" style="width:100%;height:calc(100% - 22px)">
+          <rect x="327" y="18" width="279" height="228" fill="rgba(255,255,255,.045)"/>
+          <text x="187" y="32" font-size="11" fill="#9AA8B5" text-anchor="middle">光期（小鼠睡眠）</text>
+          <text x="466" y="32" font-size="11" fill="#9AA8B5" text-anchor="middle">暗期（小鼠活动）</text>
+          <g stroke="rgba(255,255,255,.09)"><line x1="48" y1="18" x2="606" y2="18"/><line x1="48" y1="75" x2="606" y2="75"/><line x1="48" y1="132" x2="606" y2="132"/><line x1="48" y1="189" x2="606" y2="189"/></g>
+          <line x1="48" y1="246" x2="606" y2="246" stroke="rgba(255,255,255,.35)"/>
+          <line x1="327" y1="18" x2="327" y2="246" stroke="rgba(255,255,255,.2)" stroke-dasharray="4 4"/>
+          <line x1="315.4" y1="18" x2="315.4" y2="246" stroke="rgba(224,112,95,.35)" stroke-dasharray="4 4"/>
+          <g font-size="10" fill="#9AA8B5" text-anchor="end"><text x="42" y="250">0</text><text x="42" y="193">25</text><text x="42" y="136">50</text><text x="42" y="79">75</text><text x="42" y="22">100</text></g>
+          <g font-size="10" fill="#9AA8B5" text-anchor="middle"><text x="48" y="262">ZT0</text><text x="187.5" y="262">6</text><text x="327" y="262">12</text><text x="466.5" y="262">18</text><text x="606" y="262">24</text></g>
+          <text x="327" y="277" font-size="11" fill="#9AA8B5" text-anchor="middle">ZT（Zeitgeber 时间，小时）</text>
+          <polyline fill="none" stroke="#E2C069" stroke-width="2.2" points="48.0,205.0 59.6,205.0 71.2,205.0 82.9,205.0 94.5,205.0 106.1,205.0 117.8,205.0 129.4,205.0 141.0,205.0 152.6,205.0 164.2,205.0 175.9,205.0 187.5,204.7 199.1,204.7 210.8,204.5 222.4,204.0 234.0,203.4 245.6,202.5 257.2,201.1 268.9,199.0 280.5,196.1 292.1,192.0 303.8,186.5 315.4,179.4 327.0,170.8 338.6,160.5 350.2,148.6 361.9,135.6 373.5,122.0 385.1,108.3 396.8,95.5 408.4,84.3 420.0,75.5 431.6,70.0 443.2,68.2 454.9,70.0 466.5,75.5 478.1,84.3 489.8,95.5 501.4,108.3 513.0,122.0 524.6,135.6 536.2,148.6 547.9,160.5 559.5,170.8 571.1,179.4 582.8,186.5 594.4,192.0 606.0,196.1"/>
+          <polyline fill="none" stroke="#7FD1CF" stroke-width="2.2" points="48.0,218.6 59.6,218.6 71.2,218.6 82.9,218.6 94.5,218.4 106.1,218.2 117.8,218.0 129.4,217.5 141.0,216.6 152.6,215.0 164.2,212.7 175.9,209.1 187.5,204.0 199.1,197.2 210.8,188.1 222.4,176.7 234.0,163.5 245.6,148.4 257.2,132.5 268.9,117.0 280.5,102.8 292.1,91.6 303.8,84.3 315.4,81.8 327.0,84.3 338.6,91.6 350.2,102.8 361.9,117.0 373.5,132.5 385.1,148.4 396.8,163.5 408.4,176.7 420.0,188.1 431.6,197.2 443.2,204.0 454.9,209.1 466.5,212.7 478.1,215.0 489.8,216.6 501.4,217.5 513.0,218.0 524.6,218.2 536.2,218.4 547.9,218.6 559.5,218.6 571.1,218.6 582.8,218.6 594.4,218.6 606.0,218.6"/>
+          <polyline fill="none" stroke="#E0705F" stroke-width="2.5" points="48.0,211.8 59.6,211.8 71.2,211.8 82.9,211.8 94.5,211.8 106.1,211.8 117.8,211.8 129.4,211.8 141.0,211.6 152.6,211.3 164.2,210.4 175.9,208.8 187.5,205.9 199.1,200.4 210.8,191.1 222.4,177.1 234.0,157.3 245.6,132.2 257.2,103.0 268.9,73.2 280.5,47.0 292.1,28.9 303.8,22.6 315.4,28.9 327.0,47.0 338.6,73.2 350.2,103.0 361.9,132.2 373.5,157.3 385.1,177.1 396.8,191.1 408.4,200.4 420.0,205.9 431.6,208.8 443.2,210.4 454.9,211.3 466.5,211.6 478.1,211.8 489.8,211.8 501.4,211.8 513.0,211.8 524.6,211.8 536.2,211.8 547.9,211.8 559.5,211.8 571.1,211.8 582.8,211.8 594.4,211.8 606.0,211.8"/>
+          <text x="303" y="14" font-size="11" fill="#E0705F" text-anchor="middle">ABX·ZT11 超峰</text>
+          <text x="470" y="60" font-size="11" fill="#E2C069" text-anchor="middle">GF·峰值漂移至暗期</text>
+        </svg>
+      </div>
+      <div class="card">
+        <h4>读图五点</h4>
+        <ul class="bullets sm">
+          <li>① <b>ABX</b>：ZT11（睡醒转换前）异常高峰，节律振幅增大</li>
+          <li>② <b>GF</b>：峰值漂移进入活动期（暗期），时相错位</li>
+          <li>③ 肾上腺素节律同步改变；去甲肾上腺素不变 → <b>HPA 特异性</b></li>
+          <li>④ 停抗生素＋正常垫料 1 周 → 节律恢复（<b>可逆！</b>）</li>
+          <li>⑤ 含义：菌群作用靶点是节律“形态”，而非简单的“高/低”</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">18</span></div>
+</section>
+
+<!-- S19 发现3 -->
+<section class="slide" data-sec="二·HPA轴" data-title="发现 3：从主时钟到边缘系统的“节律崩塌”">
+  <header class="head">
+    <span class="kicker">二·HPA</span>
+    <h1 class="t">发现 3：从主时钟到边缘系统的“节律崩塌”</h1>
+    <p class="sub"><span class="badges"><span class="badge b-animal">动物</span></span></p>
+  </header>
+  <div class="body">
+    <div class="grid2" style="grid-template-rows:1fr auto">
+      <div class="grid2" style="gap:14px">
+        <div class="card">
+          <h4>SCN（主时钟）</h4>
+          <ul class="bullets sm">
+            <li>GF 鼠 Bmal1 / Clock 失去节律（arrhythmic）</li>
+            <li>ABX 鼠 Cry2 失节律 ＋ Bmal1 相位反转（暗峰→光峰）</li>
+            <li>富含“昼夜节律调控/光周期导入”通路的基因失节律</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>海马 / 杏仁核（情绪中枢）</h4>
+          <ul class="bullets sm">
+            <li>海马 1,524 个、杏仁核 505 个转录本失去昼夜节律</li>
+            <li>失节律基因富集于“应激应答 / 糖皮质激素应答”通路</li>
+            <li>核心脑区时钟基因（Bmal1/Clock/Per2/Cry2）节律同步紊乱</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card warn" style="grid-column:span 2">
+        <h4>机器学习点名的两个基因（连接应激与神经炎症）</h4>
+        <ul class="bullets sm">
+          <li>海马 <b>Gsk3a</b>：GSK3 依赖的 TLR4 信号介导应激诱导的神经炎症 → 抑郁样行为易感</li>
+          <li>杏仁核 <b>Hmgb1</b>：警报素 HMGB1 参与应激诱导的抑郁与神经炎症启动</li>
+        </ul>
+      </div>
+    </div>
+    <div class="strip" style="position:relative;margin-top:14px"><b>旁支</b>：海马/杏仁核的谷氨酸代谢（三突触结构）昼夜节律同步紊乱 —— 记住这一点，模块四犬尿氨酸-谷氨酸轴会与之汇合。</div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">19</span></div>
+</section>
+
+<!-- S20 发现4 -->
+<section class="slide" data-sec="二·HPA轴" data-title="发现 4：HPA“三站式”过度激活＋下丘脑 BBB 定时渗漏">
+  <header class="head">
+    <span class="kicker">二·HPA</span>
+    <h1 class="t">发现 4：HPA 轴“三站式”过度激活 ＋ 下丘脑 BBB 定时渗漏</h1>
+    <p class="sub"><span class="badges"><span class="badge b-animal">动物</span></span></p>
+  </header>
+  <div class="body">
+    <div class="flow" style="margin-bottom:14px">
+      <div class="fnode"><b>PVN</b><small>CRH↑ AVP↑（ZT11）</small></div><div class="farr">→</div>
+      <div class="fnode"><b>垂体</b><small>Pomc / Crhr1 / Crhr2 ↑</small></div><div class="farr">→</div>
+      <div class="fnode"><b>肾上腺</b><small>Mc2r↑；GR 节律破坏×3 站</small></div><div class="farr">→</div>
+      <div class="fnode hot"><b>皮质酮</b><small>ZT11 超峰</small></div>
+    </div>
+    <div class="grid2" style="height:47%">
+      <div class="card warn">
+        <h4>同一时刻：下丘脑 BBB “开闸”</h4>
+        <ul class="bullets sm">
+          <li>PVN 区紧密连接 Tjp1 / Ocln 失去节律</li>
+          <li>ZT11 在体通透性 ↑（荧光示踪）；ZT23 反而 ↓</li>
+          <li>解读：恰在 HPA 超激活的时刻，循环微生物信号更易进入下丘脑</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>时间特异性的“放大器”模型</h4>
+        <ul class="bullets sm">
+          <li>菌群缺失 → 细菌负荷在 ZT11 异常成峰</li>
+          <li>＋ BBB 在 ZT11 变漏</li>
+          <li>＋ HPA 在 ZT11 过度激活</li>
+          <li><b>三者同钟 = 应激反应在该时段被系统性扭曲</b></li>
+        </ul>
+      </div>
+    </div>
+    <div class="strip" style="position:relative;margin-top:14px"><b>一句话</b>：肠脑信号不仅“传什么”重要，“几点传”同样重要 —— 疾病是时间维度的失调。</div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">20</span></div>
+</section>
+
+<!-- S21 发现5 -->
+<section class="slide" data-sec="二·HPA轴" data-title="发现 5：因果链闭合——三步证明">
+  <header class="head">
+    <span class="kicker">二·HPA</span>
+    <h1 class="t">发现 5：因果链闭合——三步证明</h1>
+    <p class="sub"><span class="badges"><span class="badge b-animal">动物</span></span></p>
+  </header>
+  <div class="body">
+    <div class="grid3" style="height:72%">
+      <div class="card">
+        <h4><span class="num">①</span>药理学</h4>
+        <ul class="bullets sm">
+          <li>美替拉酮（阻断皮质酮合成）预处理 → 应激所致社会行为缺陷消失</li>
+          <li>→ <b>皮质酮是必要中介</b></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="num">②</span>移植</h4>
+        <ul class="bullets sm">
+          <li>ZT11 供体粪菌 → GF 受体鼠皮质酮更高（垂体 Pomc↑、PVN Oxt↓）；ZT23 供体则否</li>
+          <li>→ <b>菌群的时间信息可传递</b></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="num">③</span>单菌株</h4>
+        <ul class="bullets sm">
+          <li>单次灌胃 L. reuteri 6h 后：ZT11 皮质酮↑，ZT23 无变化（且 L. reuteri 已知经迷走神经作用于 PVN）</li>
+          <li>→ <b>菌株水平可复现时间特异效应</b></li>
+        </ul>
+      </div>
+    </div>
+    <div class="strip" style="position:relative;margin-top:14px"><b>结论</b>：菌群昼夜振荡 → HPA 节律 → 时间特异性的应激反应与社交行为改变；心理益生菌可能需要“看时间服药”（作者明确提出）。</div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">21</span></div>
+</section>
+
+<!-- S22 HPA转译 -->
+<section class="slide" data-sec="二·HPA轴" data-title="转译到诊室：HPA 模块的临床边界与用法">
+  <header class="head">
+    <span class="kicker">二·HPA</span>
+    <h1 class="t">转译到诊室：HPA 模块的临床边界与用法</h1>
+    <p class="sub"><span class="badges"><span class="badge b-clin">临床</span><span class="badge b-animal">动物</span></span></p>
+  </header>
+  <div class="body">
+    <div class="g72">
+      <div class="card">
+        <h4>六条落地</h4>
+        <ul class="bullets sm">
+          <li><b>提问升级</b>：从“皮质醇高不高”→“节律形态如何”：夜间偏高？斜率平坦？</li>
+          <li><b>评估顺序</b>：先零成本评估：睡眠日记、作息规律性（工作日 vs 周末睡眠中点漂移 &gt;1h？）</li>
+          <li><b>进阶检测</b>：必要时 4 点唾液皮质醇/CAR（方法学敏感：采样时点、应激日、单点不可下结论）</li>
+          <li><b>干预锚点</b>：固定起床时间＋晨光 10–30 min（重置 SCN→HPA 轴，成本最低、证据最扎实）</li>
+          <li><b>移除反向锚</b>：避免夜间应激源：深夜工作邮件、22 点后高强度运动、深夜大餐</li>
+          <li><b>诚实边界</b>：全部因果证据来自小鼠；人类队列验证是作者自述的下一步（证据边界要向患者如实交代）</li>
+        </ul>
+      </div>
+      <div class="card hl">
+        <h4>给患者的解释模板</h4>
+        <ul class="bullets">
+          <li>“你的压力激素是有作息的。菌群参与给这个作息上发条。”</li>
+          <li>“我们不只看它高不高，更看它晚上有没有降下来。”</li>
+          <li>“把起床时间固定住，就是先给这套系统对表。”</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">22</span></div>
+</section>
+<!-- S23 章节三 -->
+<section class="slide divider" data-sec="三·褪黑素" data-title="三、褪黑素：被低估的“胃肠激素”">
+  <div class="sec">叁</div>
+  <div class="dlabel">MODULE 03</div>
+  <h1>三、褪黑素：被低估的“胃肠激素”</h1>
+  <ul class="dlist">
+    <li>褪黑素生理：松果体路线图</li>
+    <li class="ind">松果体之外：肠道是褪黑素大库房</li>
+    <li class="ind">文献②深读：菌群-MyD88-AANAT 机制（Liu 2024, Gut Microbes）</li>
+  </ul>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">23</span></div>
+</section>
+
+<!-- S24 褪黑素生理 -->
+<section class="slide" data-sec="三·褪黑素" data-title="褪黑素生理速览：一个“时间信号”，不是安眠药">
+  <header class="head">
+    <span class="kicker">三·褪黑素</span>
+    <h1 class="t">褪黑素生理速览：一个“时间信号”，不是安眠药</h1>
+    <p class="sub"><span class="badges"><span class="badge b-guide">指南</span><span class="badge b-review">综述</span></span></p>
+  </header>
+  <div class="body">
+    <div class="col" style="height:auto;gap:10px;margin-bottom:14px">
+      <div class="flow">
+        <div class="fnode"><b>Trp</b></div><div class="farr">→</div>
+        <div class="fnode"><b>5-HTP</b></div><div class="farr">→</div>
+        <div class="fnode"><b>5-HT</b></div><div class="farr">→</div>
+        <div class="fnode"><b>NAS</b></div><div class="farr">→</div>
+        <div class="fnode hot"><b>褪黑素</b></div>
+      </div>
+      <div class="flow">
+        <div class="fnode" style="flex:1;border-style:dashed"><small><b style="font-size:13px">AANAT = 限速酶（夜晚上调）</b></small></div>
+        <div class="fnode" style="flex:2.2;border-style:dashed"><small><b style="font-size:13px">夜间</b>：去甲肾上腺素 → cAMP → p-CREB → 启动 AANAT 转录（SCN 经多突触通路指挥松果体）</small></div>
+      </div>
+    </div>
+    <div class="grid2" style="height:47%">
+      <div class="card">
+        <h4>生理要点</h4>
+        <ul class="bullets sm">
+          <li><b>受体</b>：MT1/MT2（GPCR）：SCN、血管、免疫细胞、胃肠道广泛分布</li>
+          <li><b>功能定位</b>：核心功能是“对时”（相位转移）＞ 直接催眠；半衰期 30–50 min（速释）</li>
+          <li><b>节律角色</b>：与皮质醇严格反相；夜间脉冲是“睡眠许可信号”之一</li>
+          <li><b>额外功能</b>：兼有抗氧化与免疫调节作用</li>
+        </ul>
+      </div>
+      <div class="card warn">
+        <h4>门诊常见误用</h4>
+        <ul class="bullets sm">
+          <li>把它当“强安眠药”大剂量睡前倒</li>
+          <li>晨间/白天服用（可能相位后移）</li>
+          <li>不看适应证（慢性失眠单用效果有限）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">24</span></div>
+</section>
+
+<!-- S25 肠道库房 -->
+<section class="slide" data-sec="三·褪黑素" data-title="松果体之外：肠道是褪黑素的大库房">
+  <header class="head">
+    <span class="kicker">三·褪黑素</span>
+    <h1 class="t">松果体之外：肠道是褪黑素的大库房</h1>
+    <p class="sub"><span class="badges"><span class="badge b-review">综述</span><span class="badge b-animal">动物</span></span></p>
+  </header>
+  <div class="body">
+    <div class="g72">
+      <div class="card">
+        <h4>四个事实</h4>
+        <ul class="bullets">
+          <li><b>储量</b>：胃肠道（肠嗜铬细胞/上皮）褪黑素含量远超松果体 —— 动物与人体组织研究，综述估计可达数百倍</li>
+          <li><b>局部功能</b>：粘膜保护、抗氧化、胃肠动力与分泌调节；与 IBS 样症状相关</li>
+          <li><b>膳食来源</b>：食物（燕麦、酸樱桃、坚果、蛋）含褪黑素 —— 膳食可影响肠腔与血中水平</li>
+          <li><b>关键空白</b>：肠源褪黑素对人类睡眠节律的净贡献 —— 尚未定量（诚实地说：未知）</li>
+        </ul>
+      </div>
+      <div class="card hl">
+        <h4>为什么这件事重要</h4>
+        <ul class="bullets">
+          <li>睡眠医学长期只看松果体-视网膜轴</li>
+          <li>肠道库房的存在 → 菌群、饮食、屏障都有了影响“时间激素”的接口</li>
+          <li>文献②正是第一个把这个接口做成机制的工作</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">25</span></div>
+</section>
+
+<!-- S26 文献②导读 -->
+<section class="slide" data-sec="三·褪黑素" data-title="文献② 导读：菌群经上皮 MyD88 调控宿主褪黑素合成">
+  <header class="head">
+    <span class="kicker">三·褪黑素</span>
+    <h1 class="t">文献② 导读：菌群经上皮 MyD88 调控宿主褪黑素合成</h1>
+    <p class="sub">Liu B, Fan L, …, Ge L, Ren W. Gut Microbes 2024;16:2313769 <span class="badges" style="display:inline-flex;margin-left:10px;vertical-align:middle"><span class="badge b-animal">动物</span></span></p>
+  </header>
+  <div class="body">
+    <div class="grid3">
+      <div class="card">
+        <h4>问题与模型</h4>
+        <ul class="bullets sm">
+          <li>褪黑素合成由 AANAT 限速；已知调控者：NE/cAMP/p-CREB（松果体）、膳食（肠）</li>
+          <li>菌群是否调控宿主褪黑素合成？——此前未知</li>
+          <li>模型：5 种单抗生素 / 抗生素鸡尾酒 / GF 小鼠；靶向代谢组测 Trp-5-HT 通路全链</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>验证手段（层层递进）</h4>
+        <ul class="bullets sm">
+          <li>共居实验（co-housing）→ 表型趋同？</li>
+          <li>粪菌移植 FMT → 表型随菌群转移？</li>
+          <li>16S 相关性 → 哪些菌与褪黑素相关？</li>
+          <li>单菌株定殖（伪无菌鼠）→ 菌株颗粒度</li>
+          <li>肠上皮 MyD88 条件性敲除 → 机制闭环</li>
+        </ul>
+      </div>
+      <div class="card hl">
+        <h4>为什么值得精读</h4>
+        <ul class="bullets sm">
+          <li>第一个把“菌群 → 固有免疫受体 → 褪黑素限速酶”串成完整机制链的工作</li>
+          <li>与文献①互补：一个讲菌群调 HPA 节律，一个讲菌群调褪黑素合成 —— 两端昼夜信号都被菌群接管</li>
+          <li>L. reuteri 在两篇文献中都出现（HPA 与褪黑素）→ 讲菌株特异性的绝佳素材</li>
+          <li>动物模型（猪鼠为主），人体证据待建</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">26</span></div>
+</section>
+
+<!-- S27 文献②发现 -->
+<section class="slide" data-sec="三·褪黑素" data-title="文献② 发现：菌群缺失 → 血清褪黑素↓、结肠褪黑素↑">
+  <header class="head">
+    <span class="kicker">三·褪黑素</span>
+    <h1 class="t">文献② 发现：菌群缺失 → 血清褪黑素↓、结肠褪黑素↑</h1>
+    <p class="sub"><span class="badges"><span class="badge b-animal">动物</span></span></p>
+  </header>
+  <div class="body">
+    <div class="grid3">
+      <div class="card">
+        <h4>核心表型（一致且可传递）</h4>
+        <ul class="bullets sm">
+          <li>甲硝唑/氨苄西林处理鼠与 GF 鼠：血清褪黑素 ↓、结肠褪黑素 ↑</li>
+          <li>共居饲养 → 两组表型趋同（菌群是因）</li>
+          <li>FMT 双向传递表型；鸡尾酒鼠接受 FMT 后复现供体样改变</li>
+          <li>抗生素特异性：不同抗生素影响方向一致但强度不同</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>菌株相关性（16S + Spearman）</h4>
+        <ul class="bullets sm">
+          <li>乳杆菌属（L. murinus / intestinalis / johnsonii / reuteri）与血清褪黑素正相关、与结肠负相关</li>
+          <li>E. coli 与血清褪黑素负相关</li>
+          <li>甲硝唑处理后：乳杆菌 ↓、E. coli ↑（菌群结构被改写）</li>
+        </ul>
+      </div>
+      <div class="card hl">
+        <h4>定殖实验（菌株颗粒度）</h4>
+        <ul class="bullets sm">
+          <li>L. reuteri、E. coli 定殖 → 复现“血清↓＋结肠↑”；L. murinus 定殖无效 → <b>菌株特异性</b></li>
+          <li>细菌培养上清中检测不到褪黑素 → 不是细菌自己产褪黑素，而是宿主合成被调控（<b>关键鉴别！</b>）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">27</span></div>
+</section>
+
+<!-- S28 文献②机制 -->
+<section class="slide" data-sec="三·褪黑素" data-title="文献② 机制：TLR2/4 – MyD88 – NF-κB – AANAT 轴">
+  <header class="head">
+    <span class="kicker">三·褪黑素</span>
+    <h1 class="t">文献② 机制：TLR2/4 – MyD88 – NF-κB – AANAT 轴</h1>
+    <p class="sub"><span class="badges"><span class="badge b-animal">动物</span></span></p>
+  </header>
+  <div class="body">
+    <div class="flow" style="margin-bottom:14px">
+      <div class="fnode"><b>菌群</b><small>L. reuteri / E. coli</small></div><div class="farr">→</div>
+      <div class="fnode"><b>TLR2 / TLR4</b><small>识别</small></div><div class="farr">→</div>
+      <div class="fnode"><b>肠上皮 MyD88</b></div><div class="farr">→</div>
+      <div class="fnode"><b>NF-κB 信号</b></div><div class="farr">→</div>
+      <div class="fnode"><b>AANAT ↑</b></div><div class="farr">→</div>
+      <div class="fnode hot"><b>结肠褪黑素 ↑</b><small>血清重新分布</small></div>
+    </div>
+    <div class="g53" style="height:52%">
+      <div class="card">
+        <h4>三个机制结论</h4>
+        <ul class="bullets sm">
+          <li><b>敲除闭环</b>：肠上皮 MyD88 条件敲除 → 菌群对结肠褪黑素的影响消失（必要条件确认）</li>
+          <li><b>排除代谢物</b>：乳酸/培养上清灌胃不能复现血清效应 → 更可能需要菌体相关的结构性配体（活菌接触）</li>
+          <li><b>内部张力</b>：作者自述：定殖实验与相关性分析方向不完全一致 → 复杂菌群背景下调节非单向（诚实）</li>
+        </ul>
+      </div>
+      <div class="imgcard"><img src="assets/image9.png" alt="MyD88-AANAT 机制图"></div>
+    </div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">28</span></div>
+</section>
+
+<!-- S29 褪黑素转译 -->
+<section class="slide" data-sec="三·褪黑素" data-title="转译到诊室：褪黑素模块的用法与边界">
+  <header class="head">
+    <span class="kicker">三·褪黑素</span>
+    <h1 class="t">转译到诊室：褪黑素模块的用法与边界</h1>
+    <p class="sub"><span class="badges"><span class="badge b-guide">指南</span><span class="badge b-meta">Meta</span><span class="badge b-animal">动物</span></span></p>
+  </header>
+  <div class="body">
+    <div class="g72">
+      <div class="card">
+        <h4>用法五条</h4>
+        <ul class="bullets sm">
+          <li><b>适应证排序</b>：昼夜节律睡眠-觉醒障碍、时差、倒班 ＞ 老年失眠 ＞ 原发性失眠辅助</li>
+          <li><b>剂量观念</b>：小剂量 0.5–3 mg、定时服用 ＞ 大剂量；它是“对时器”不是“催眠药”</li>
+          <li><b>时点</b>：目标相位前移 → 睡前 1–2 h 服；避免晨间服（相位后移风险）</li>
+          <li><b>内源性优先</b>：支持内源性合成：白天强光/夜间暗光、限制蓝光、晚餐不过晚（两条线都受益）</li>
+          <li><b>边界</b>：肠源褪黑素的人体证据不足 → 避免“补褪黑素=修复菌群”的过度推断</li>
+        </ul>
+      </div>
+      <div class="card hl">
+        <h4>与本模块证据的关系</h4>
+        <ul class="bullets sm">
+          <li>MyD88-AANAT 机制：动物，未在人体验证</li>
+          <li>外源褪黑素的 RCT/Meta：临床证据充分</li>
+          <li>两者不冲突：机制解释“内源性从哪来”，RCT 回答“外源性怎么用”</li>
+          <li>向客户分层交代，避免混为一谈</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">29</span></div>
+</section>
+<!-- S30 章节四 -->
+<section class="slide divider" data-sec="四·炎症" data-title="四、炎症因子：情绪与睡眠的公共语言">
+  <div class="sec">肆</div>
+  <div class="dlabel">MODULE 04</div>
+  <h1>四、炎症因子：情绪与睡眠的公共语言</h1>
+  <ul class="dlist">
+    <li>炎症-抑郁：从相关到预后</li>
+    <li class="ind">睡眠-炎症：另一半循环</li>
+    <li class="ind">肠漏→LPS→神经炎症→犬尿氨酸（文献③整合）</li>
+  </ul>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">30</span></div>
+</section>
+
+<!-- S31 炎症-抑郁 -->
+<section class="slide" data-sec="四·炎症" data-title="炎症-抑郁：从“相关”到“预后因子”">
+  <header class="head">
+    <span class="kicker">四·炎症</span>
+    <h1 class="t">炎症-抑郁：从“相关”到“预后因子”</h1>
+    <p class="sub"><span class="badges"><span class="badge b-meta">Meta</span><span class="badge b-clin">临床</span></span></p>
+  </header>
+  <div class="body">
+    <div class="g72">
+      <div class="card">
+        <h4>证据四级跳</h4>
+        <ul class="bullets">
+          <li><b>标志物</b>：抑郁患者（尤其难治性 TRD）IL-6、TNF-α、IL-1β、CRP 升高（多项队列＋Meta，如 Strawbridge 2019）</li>
+          <li><b>预后价值</b>：炎症高的抑郁患者对 SSRI/SNRI 应答更差 → 炎症成为疗效预测因子</li>
+          <li><b>动态轨迹</b>：治疗有效者炎症标志物多回落；无效者持续偏高（纵向随访）</li>
+          <li><b>定性升级</b>：机制定位：炎症不只是伴随现象，而参与维持症状（下两页因果通路）</li>
+        </ul>
+      </div>
+      <div class="card hl">
+        <h4>门诊可用的三个数字</h4>
+        <ul class="bullets">
+          <li><b>hs-CRP &gt; 3 mg/L</b>：心血管风险阈值，也被多项研究用作“炎症型抑郁”分层线</li>
+          <li>该层患者：抗炎策略（生活方式/营养）的潜在应答人群</li>
+          <li>注意：hs-CRP 特异性低（感染/肥胖/牙周病均升）→ <b>只做分层，不做诊断</b></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">31</span></div>
+</section>
+
+<!-- S32 睡眠-炎症 -->
+<section class="slide" data-sec="四·炎症" data-title="睡眠-炎症：循环的另一半">
+  <header class="head">
+    <span class="kicker">四·炎症</span>
+    <h1 class="t">睡眠-炎症：循环的另一半</h1>
+    <p class="sub"><span class="badges"><span class="badge b-clin">临床</span><span class="badge b-meta">Meta</span></span></p>
+  </header>
+  <div class="body">
+    <div class="g72">
+      <div class="card">
+        <h4>双向证据</h4>
+        <ul class="bullets">
+          <li><b>缺觉致炎</b>：实验性睡眠剥夺 → IL-6 / TNF-α / CRP 升高（人类实验医学）</li>
+          <li><b>失眠人群</b>：失眠者 CRP / IL-6 偏高（尤其中老年；Meta 支持）</li>
+          <li><b>生理学</b>：N3 慢波睡眠是“免疫修复窗”：睡眠越深越完整，夜间炎症信号被压制越好</li>
+          <li><b>炎症扰眠</b>：IL-1β / TNF-α 生理量促 NREM；过量 → 睡眠碎片化、主观睡感差、日间疲乏</li>
+          <li><b>闭环</b>：失眠与抑郁共享“低度炎症”底座，且互相供能</li>
+        </ul>
+      </div>
+      <div class="card hl">
+        <h4>把睡眠“当抗炎处方”</h4>
+        <ul class="bullets">
+          <li>睡眠时长 <b>AND</b> 规律性都要（新的证据更看重规律性）</li>
+          <li>N3 保护要素：酒精（晚）、深夜运动、过热卧室都会破坏</li>
+          <li>CBT-I 改善睡眠后炎症标志物回落（临床研究）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">32</span></div>
+</section>
+
+<!-- S33 肠漏通路 -->
+<section class="slide" data-sec="四·炎症" data-title="从肠漏到神经炎症：一条完整通路（文献③核心图）">
+  <header class="head">
+    <span class="kicker">四·炎症</span>
+    <h1 class="t">从肠漏到神经炎症：一条完整通路（文献③核心图）</h1>
+    <p class="sub">Bertollo 2026, Prog Neuropsychopharmacol Biol Psychiatry <span class="badges" style="display:inline-flex;margin-left:10px;vertical-align:middle"><span class="badge b-review">综述</span><span class="badge b-clin">临床</span><span class="badge b-animal">动物</span></span></p>
+  </header>
+  <div class="body">
+    <div class="flow" style="margin-bottom:10px">
+      <div class="fnode" style="padding:10px 10px;font-size:13px"><b style="font-size:13.5px">菌群失调</b><small>产SCFA菌↓等</small></div><div class="farr" style="font-size:17px">→</div>
+      <div class="fnode" style="padding:10px 10px;font-size:13px"><b style="font-size:13.5px">肠屏障渗漏</b><small>claudin/ZO-1 ↓</small></div><div class="farr" style="font-size:17px">→</div>
+      <div class="fnode" style="padding:10px 10px;font-size:13px"><b style="font-size:13.5px">LPS 易位入血</b></div><div class="farr" style="font-size:17px">→</div>
+      <div class="fnode warn" style="padding:10px 10px;font-size:13px;border-color:rgba(217,93,78,.4)"><b style="font-size:13.5px">TLR4 → NF-κB/MAPK</b><small>IL-1β · IL-6 · TNF-α ↑</small></div>
+    </div>
+    <div class="flow" style="margin-bottom:16px">
+      <div class="fnode" style="padding:10px 10px;font-size:13px"><b style="font-size:13.5px">BBB 通透性 ↑</b><small>粘附分子、VEGF</small></div><div class="farr" style="font-size:17px">→</div>
+      <div class="fnode" style="padding:10px 10px;font-size:13px"><b style="font-size:13.5px">小胶质细胞激活</b><small>海马/前额叶</small></div><div class="farr" style="font-size:17px">→</div>
+      <div class="fnode hot" style="padding:10px 10px;font-size:13px"><b style="font-size:13.5px">突触可塑性↓ · BDNF↓ · 海马萎缩</b><small>→ 情绪认知症状 ＋ 睡眠核团功能改变</small></div>
+    </div>
+    <div class="grid2" style="height:34%">
+      <div class="card">
+        <h4>证据分级</h4>
+        <ul class="bullets sm" style="margin-bottom:0"><li>两端（人群炎症标志物、动物机制）扎实；中段因果（人）主要来自横断面与动物模型</li></ul>
+      </div>
+      <div class="card hl">
+        <h4>干预杠杆</h4>
+        <ul class="bullets sm" style="margin-bottom:0"><li>可干预环节：<b>菌群与肠屏障</b>（最上游、门诊杠杆最大）＞ 细胞因子（尚无成熟临床手段）</li></ul>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">33</span></div>
+</section>
+
+<!-- S34 犬尿氨酸 -->
+<section class="slide" data-sec="四·炎症" data-title="犬尿氨酸通路：炎症对情绪与睡眠的“化学劫持”">
+  <header class="head">
+    <span class="kicker">四·炎症</span>
+    <h1 class="t">犬尿氨酸通路：炎症对情绪与睡眠的“化学劫持”</h1>
+    <p class="sub">回到模块一色氨酸图的②号支线，放大 <span class="badges" style="display:inline-flex;margin-left:10px;vertical-align:middle"><span class="badge b-clin">临床</span><span class="badge b-animal">动物</span></span></p>
+  </header>
+  <div class="body">
+    <div class="grid2" style="grid-template-rows:1fr auto">
+      <div class="card">
+        <h4>打开闸门</h4>
+        <ul class="bullets sm">
+          <li>炎症因子（IL-1β / IFN-γ / TNF-α）＋ 应激皮质醇 → 诱导 IDO</li>
+          <li>肝内 TDO 同步分流 → 色氨酸离开 5-HT/褪黑素路线</li>
+          <li>结果：情绪介质（5-HT）与睡眠介质（褪黑素）前体同时被抽走</li>
+        </ul>
+      </div>
+      <div class="card warn">
+        <h4>两种毒性结局</h4>
+        <ul class="bullets sm">
+          <li><b>QA（喹啉酸）</b>：NMDA 受体激动 ＋ 自由基生成 → 谷氨酸兴奋毒性（与文献①海马谷氨酸节律紊乱汇合！）</li>
+          <li><b>KA（犬尿喹啉酸）</b>：过量时干扰感觉门控与认知</li>
+          <li>QA/KA 比值是“神经毒平衡”的关键指标（研究场景）</li>
+        </ul>
+      </div>
+      <div class="card soft" style="grid-column:span 2">
+        <h4>临床旁证与门诊含义</h4>
+        <ul class="bullets sm" style="margin-bottom:0">
+          <li><b>临床旁证</b>：TRD 患者神经毒支（QA）偏高；电休克治疗有效者该支回落（Schwieler 2016，临床小样本）</li>
+          <li><b>治疗探索</b>：米诺环素（抗炎）辅助治疗的信号见于犬尿氨酸-自杀意念相关研究（Nettis 2023，小样本）</li>
+          <li><b>门诊含义</b>：检测犬尿氨酸分支（尿有机酸）可解释“为什么抗抑郁药差一口气”</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">34</span></div>
+</section>
+
+<!-- S35 TRD -->
+<section class="slide" data-sec="四·炎症" data-title="难治性抑郁（TRD）：脑肠轴“失代偿”模型">
+  <header class="head">
+    <span class="kicker">四·炎症</span>
+    <h1 class="t">难治性抑郁（TRD）：脑肠轴“失代偿”模型</h1>
+    <p class="sub">文献③的临床落点 <span class="badges" style="display:inline-flex;margin-left:10px;vertical-align:middle"><span class="badge b-review">综述</span><span class="badge b-clin">临床</span><span class="badge b-hypo">假说</span></span></p>
+  </header>
+  <div class="body">
+    <div class="grid3">
+      <div class="card">
+        <h4>TRD 定义与负担</h4>
+        <ul class="bullets sm">
+          <li>≥2 次足量足疗程、不同类别抗抑郁药无充分应答</li>
+          <li>占 MDD 相当比例；医疗资源消耗与致残显著升高</li>
+          <li>炎症假说：慢性低度神经炎症是治疗抵抗的核心机制之一</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>TRD 的菌群证据（人群）</h4>
+        <ul class="bullets sm">
+          <li>菌群多样性 ↓、物种丰度模式改变</li>
+          <li>产 SCFA 菌减少（如 F. prausnitzii，Kim 2025 宏基因组）</li>
+          <li>肠屏障与 BBB 通透性标志物升高（Wu 2023 等）</li>
+        </ul>
+      </div>
+      <div class="card warn">
+        <h4>反直觉事实：抗抑郁药本身改变菌群</h4>
+        <ul class="bullets sm">
+          <li>SSRIs / SNRIs 具有抗菌活性 → 可重塑菌群组成与多样性</li>
+          <li>假说：基线菌群-炎症表型不佳者，药物无法纠正生态性底层 → 表现为“治疗抵抗”</li>
+          <li>证据状态：机制假说 ＋ 小样本临床；缺乏前瞻分层 RCT → 定位“研究前沿”，不是诊疗标准</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">35</span></div>
+</section>
+
+<!-- S36 抗炎防线 -->
+<section class="slide" data-sec="四·炎症" data-title="抗炎防线：SCFA 与生活方式证据分层">
+  <header class="head">
+    <span class="kicker">四·炎症</span>
+    <h1 class="t">抗炎防线：SCFA 与生活方式证据分层</h1>
+  </header>
+  <div class="body">
+    <div class="grid3" style="grid-template-rows:1fr 1fr;height:78%">
+      <div class="card"><div class="badges" style="margin-bottom:8px"><span class="badge b-animal">动物</span></div><div style="font-size:14px;line-height:1.5">SCFA 补充逆转 TRD-FMT 大鼠焦虑/抑郁样表型</div><div style="margin-top:6px;font-size:12px;color:#9AA8B5">Palepu 2024</div></div>
+      <div class="card"><div class="badges" style="margin-bottom:8px"><span class="badge b-animal">动物</span></div><div style="font-size:14px;line-height:1.5">脑内 SCFA → ACSS2–PPARγ–TPH2 → 5-HT 合成↑</div><div style="margin-top:6px;font-size:12px;color:#9AA8B5">Chen 2024</div></div>
+      <div class="card"><div class="badges" style="margin-bottom:8px"><span class="badge b-clin">临床</span></div><div style="font-size:14px;line-height:1.5">地中海饮食改善抑郁症状（RCT，效应量中小）</div><div style="margin-top:6px;font-size:12px;color:#9AA8B5">SMILES 等</div></div>
+      <div class="card"><div class="badges" style="margin-bottom:8px"><span class="badge b-guide">指南推荐</span></div><div style="font-size:14px;line-height:1.5">规律运动：抗抑郁＋抗炎（多项 RCT）</div><div style="margin-top:6px;font-size:12px;color:#9AA8B5">指南推荐</div></div>
+      <div class="card"><div class="badges" style="margin-bottom:8px"><span class="badge b-meta">多Meta</span></div><div style="font-size:14px;line-height:1.5">EPA 为主的 Ω-3：抑郁辅助（Meta 支持但异质性大）</div><div style="margin-top:6px;font-size:12px;color:#9AA8B5">多项 Meta</div></div>
+      <div class="card"><div class="badges" style="margin-bottom:8px"><span class="badge b-clin">临床</span></div><div style="font-size:14px;line-height:1.5">规律睡眠本身 = 抗炎干预</div><div style="margin-top:6px;font-size:12px;color:#9AA8B5">Irwin 系列</div></div>
+    </div>
+    <div class="strip gold" style="position:relative;margin-top:14px"><b>门诊策略</b>：先把零成本的“抗炎生活方式”做满（饮食/运动/睡眠节律），再考虑营养补充——证据梯度与成本梯度恰好同向。</div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">36</span></div>
+</section>
+<!-- S37 章节五 -->
+<section class="slide divider" data-sec="五·整合" data-title="五、整合模型：四节点，一个网络">
+  <div class="sec">伍</div>
+  <div class="dlabel">MODULE 05</div>
+  <h1>五、整合模型：四节点，一个网络</h1>
+  <ul class="dlist">
+    <li>四节点整合图（把三篇文献焊在一起）</li>
+    <li class="ind">同一网络的恶性/良性循环</li>
+    <li class="ind">时间医学：一天的干预窗口</li>
+  </ul>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">37</span></div>
+</section>
+
+<!-- S38 四节点整合 -->
+<section class="slide" data-sec="五·整合" data-title="四节点整合模型：情绪-睡眠共病的底层网络">
+  <header class="head">
+    <span class="kicker">五·整合</span>
+    <h1 class="t">四节点整合模型：情绪-睡眠共病的底层网络</h1>
+    <p class="sub">本课三篇文献在此汇合 <span class="badges" style="display:inline-flex;margin-left:10px;vertical-align:middle"><span class="badge b-hypo">假说</span><span class="badge b-animal">动物</span></span></p>
+  </header>
+  <div class="body">
+    <div style="display:flex;justify-content:center;margin-bottom:14px">
+      <div class="fnode" style="flex:none;padding:8px 26px;border-style:dashed"><b>SCN / 生物钟（主时钟）</b><small>统一对时</small></div>
+    </div>
+    <div class="flow" style="margin-bottom:8px">
+      <div class="fnode hot"><b>① 肠道菌群</b><small>SCFA · 色氨酸分流 · 昼夜振荡</small></div><div class="farr">⇄</div>
+      <div class="fnode"><b>② HPA 轴</b><small>皮质醇节律 · 负反馈</small></div><div class="farr">⇄</div>
+      <div class="fnode"><b>③ 褪黑素</b><small>昼夜激素输出 · MT1/2</small></div><div class="farr">⇄</div>
+      <div class="fnode"><b>④ 免疫炎症</b><small>IL-6/TNF/CRP · 小胶质细胞</small></div>
+    </div>
+    <div class="badges" style="justify-content:center;margin-bottom:16px">
+      <span class="badge b-animal">菌群→HPA（文献①·动物）</span>
+      <span class="badge b-animal">菌群→褪黑素（文献②·动物）</span>
+      <span class="badge b-clin">炎症→HPA（文献③）</span>
+      <span class="badge b-review">炎症↔菌群（LPS/TLR4）</span>
+    </div>
+    <div style="display:flex;justify-content:center">
+      <div class="fnode" style="flex:none;padding:12px 40px;background:rgba(217,93,78,.15);border-color:rgba(217,93,78,.45)"><b style="color:#F0A297">输出：情绪症状 ∥ 睡眠症状（共病）</b></div>
+    </div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">38</span></div>
+</section>
+
+<!-- S39 两个环 -->
+<section class="slide" data-sec="五·整合" data-title="同一网络，两个方向：恶性环 vs 良性环">
+  <header class="head">
+    <span class="kicker">五·整合</span>
+    <h1 class="t">同一网络，两个方向：恶性环 vs 良性环</h1>
+  </header>
+  <div class="body">
+    <div class="grid2" style="grid-template-rows:1fr auto">
+      <div class="card warn">
+        <h4>恶性环（病例的惯性路径）</h4>
+        <ul class="bullets sm">
+          <li>慢性应激 ＋ 夜间蓝光 ＋ 晚餐过晚 ＋ 低纤维/酒精</li>
+          <li>→ 菌群振荡弱化 · 肠屏障渗漏</li>
+          <li>→ 皮质醇夜间偏高 ＋ 褪黑素脉冲被压</li>
+          <li>→ 睡眠破碎（N3↓）</li>
+          <li>→ 炎症↑ ＋ IDO 分流色氨酸</li>
+          <li>→ 情绪下坠 ＋ 更严重失眠 →（回到起点）</li>
+        </ul>
+      </div>
+      <div class="card hl">
+        <h4>良性环（干预的复利路径）</h4>
+        <ul class="bullets sm">
+          <li>固定起床 ＋ 晨光 ＋ 进食窗口 ＋ 纤维/发酵食品</li>
+          <li>→ 菌群节律稳固 · 屏障修复</li>
+          <li>→ 皮质醇形态正常 ＋ 褪黑素脉冲恢复</li>
+          <li>→ 睡眠结构修复（N3↑）</li>
+          <li>→ 炎症回落 · 色氨酸回到 5-HT/褪黑素支线</li>
+          <li>→ 情绪与睡眠互为杠杆 →（自我强化）</li>
+        </ul>
+      </div>
+      <div class="strip" style="position:relative;grid-column:span 2"><b>核心命题</b>：干预任一节点都有网络级收益；同时撬动的节点越多，环转得越快 —— 这就是“整合干预”的理论根据。</div>
+    </div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">39</span></div>
+</section>
+
+<!-- S40 章节六 -->
+<section class="slide divider" data-sec="六·门诊落地" data-title="六、门诊落地：评估与干预路径">
+  <div class="sec">陆</div>
+  <div class="dlabel">MODULE 06</div>
+  <h1>六、门诊落地：评估与干预路径</h1>
+  <ul class="dlist">
+    <li>三层评估（病史 → 基础检验 → 进阶功能检测）</li>
+    <li class="ind">四层干预（节律 → 抗炎生活 → 靶向营养 → 益生菌）</li>
+    <li class="ind">如何与患者谈循证、如何与精神科协作</li>
+  </ul>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">40</span></div>
+</section>
+
+<!-- S41 三层评估 -->
+<section class="slide" data-sec="六·门诊落地" data-title="评估路径：三层递进">
+  <header class="head">
+    <span class="kicker">六·落地</span>
+    <h1 class="t">评估路径：三层递进</h1>
+    <p class="sub">先结构后实验室，实验室不替代精神科评估 <span class="badges" style="display:inline-flex;margin-left:10px;vertical-align:middle"><span class="badge b-clin">临床</span></span></p>
+  </header>
+  <div class="body">
+    <div class="grid3" style="height:74%">
+      <div class="card">
+        <h4>第 1 层｜病史（0 成本，最重要）</h4>
+        <ul class="bullets sm">
+          <li>睡眠-情绪-胃肠三联问诊（谁先出现？）</li>
+          <li>作息规律性：工作日 vs 周末睡眠中点漂移 &gt;1h？</li>
+          <li>应激源盘点（工作/家庭/经济）</li>
+          <li>物质：咖啡因时点、酒精、夜间屏幕</li>
+          <li>用药史：抗生素频次、PPI、SSRI</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>第 2 层｜基础实验室</h4>
+        <ul class="bullets sm">
+          <li>hs-CRP（炎症分层线）</li>
+          <li>HbA1c / 空腹血糖·胰岛素</li>
+          <li>铁蛋白 ＋ 转铁蛋白饱和度（不宁腿/周期性肢体运动相关）</li>
+          <li>TSH、25(OH)D、B12／叶酸</li>
+          <li>每个项目都有明确处理路径才开</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>第 3 层｜进阶功能检测（按需）</h4>
+        <ul class="bullets sm">
+          <li>4 点唾液皮质醇 / CAR：看形态（方法学敏感）</li>
+          <li>尿有机酸：色氨酸-犬尿氨酸分支旁证</li>
+          <li>粪便菌群＋钙卫蛋白：描述性；跨平台一致性差 → 不建议直接“对菌下药”</li>
+          <li>原则：向患者说明证据等级与局限</li>
+        </ul>
+      </div>
+    </div>
+    <div class="strip danger" style="position:relative;margin-top:14px"><b>红线</b>：中重度抑郁、自杀风险、双相线索、精神病性症状 → 精神科共诊优先，功能医学评估随后跟上。</div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">41</span></div>
+</section>
+
+<!-- S42 四层干预 -->
+<section class="slide" data-sec="六·门诊落地" data-title="干预路径：四层推进，每 2–4 周进阶一层">
+  <header class="head">
+    <span class="kicker">六·落地</span>
+    <h1 class="t">干预路径：四层推进，每 2–4 周进阶一层</h1>
+  </header>
+  <div class="body">
+    <div class="col" style="height:auto;gap:11px">
+      <div class="flow"><div class="fnode" style="flex:none;width:250px;flex-direction:row"><b>第 1 层｜节律与睡眠结构</b></div><div class="fnode" style="flex:1;flex-direction:row;text-align:left"><span>CBT-I（刺激控制＋睡眠限制＋固定起床）· 晨光 · 睡眠卫生</span></div><div class="fnode" style="flex:none;border-color:rgba(127,209,207,.5);color:#7FD1CF;font-weight:600">临床·强</div></div>
+      <div class="flow"><div class="fnode" style="flex:none;width:250px;flex-direction:row"><b>第 2 层｜抗炎生活方式</b></div><div class="fnode" style="flex:1;flex-direction:row;text-align:left"><span>地中海式饮食 · 纤维/发酵食品 · 运动 150 min/周 · 限酒精与夜间进食</span></div><div class="fnode" style="flex:none;border-color:rgba(127,209,207,.5);color:#7FD1CF;font-weight:600">临床·中</div></div>
+      <div class="flow"><div class="fnode" style="flex:none;width:250px;flex-direction:row"><b>第 3 层｜靶向营养（按指征）</b></div><div class="fnode" style="flex:1;flex-direction:row;text-align:left"><span>褪黑素 0.5–3 mg 定时（昼夜节律障碍）· 镁（夜间）· EPA 为主 Ω-3（炎症偏高者）</span></div><div class="fnode" style="flex:none;border-color:rgba(127,209,207,.5);color:#7FD1CF;font-weight:600">临床·中</div></div>
+      <div class="flow"><div class="fnode" style="flex:none;width:250px;flex-direction:row"><b>第 4 层｜益生菌/益生元</b></div><div class="fnode" style="flex:1;flex-direction:row;text-align:left"><span>菌株特异 · 时点固定 · 记录应答 · 定位为辅助而非替代</span></div><div class="fnode" style="flex:none;border-style:dashed;color:#C9D6E2;font-weight:600">证据发展中</div></div>
+    </div>
+    <div class="strip" style="position:relative;margin-top:16px"><b>顺序不可倒置</b>：先把 1–2 层做满（它们同时作用于四个节点），再叠加 3–4 层；每次只加 1–2 个变量，才能归因疗效。</div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">42</span></div>
+</section>
+
+<!-- S43 心理益生菌 -->
+<section class="slide" data-sec="六·门诊落地" data-title="心理益生菌（Psychobiotics）：如何在门诊谈循证">
+  <header class="head">
+    <span class="kicker">六·落地</span>
+    <h1 class="t">心理益生菌（Psychobiotics）：如何在门诊谈循证</h1>
+    <p class="sub"><span class="badges"><span class="badge b-clin">临床</span><span class="badge b-animal">动物</span></span></p>
+  </header>
+  <div class="body">
+    <div class="grid3" style="height:72%">
+      <div class="card">
+        <h4>证据现状（截至 2026）</h4>
+        <ul class="bullets sm">
+          <li><b>人体</b>：小样本 RCT 信号（B. longum 1714、多菌株组合降低皮质醇/改善情绪评分等）</li>
+          <li><b>动物</b>：机制强证据 —— L. reuteri（本课两篇文献都在场：HPA＋褪黑素）</li>
+          <li><b>缺失</b>：大样本、菌株特异、时间固定给药的人体 RCT</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>三要素（缺一不可）</h4>
+        <ul class="bullets sm">
+          <li><b>菌株</b>：报告到株号（不是“益生菌”三个字）</li>
+          <li><b>剂量</b>：CFU 数量级</li>
+          <li><b>时点</b>：动物证据强烈提示时间敏感（文献①）</li>
+        </ul>
+      </div>
+      <div class="card hl">
+        <h4>话术示范（对纠结的患者）</h4>
+        <div style="font-size:13.5px;line-height:1.7;color:#EAFBF9">“这类干预的证据正在积累，目前定位是配合节律和饮食的辅助。我们用 4 周做客观记录——睡眠日记＋PHQ-9＋（如有）复查 hs-CRP。有改善我们继续，没有就换思路。”</div>
+        <div style="margin-top:10px;font-size:13px;color:#F7EFDC">避免：益生菌＋褪黑素＋轻断食同时上 → 无法归因，也无法建立患者信任。</div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">43</span></div>
+</section>
+
+<!-- S44 参考文献 -->
+<section class="slide" data-sec="附录" data-title="核心参考文献">
+  <header class="head">
+    <span class="kicker">附录</span>
+    <h1 class="t">核心参考文献</h1>
+    <p class="sub">三篇深读文献 ＋ 关键支撑文献</p>
+  </header>
+  <div class="body">
+    <div class="card" style="height:82%">
+      <ol style="padding-left:22px;font-size:13.5px;line-height:1.95;color:#D6E1EC">
+        <li><b style="color:#7FD1CF">Tofani GSS, Leigh SJ, Gheorghe CE, et al.</b> Gut microbiota regulates stress responsivity via the circadian system. <i>Cell Metabolism</i>. 2025;37:138–153.</li>
+        <li><b style="color:#7FD1CF">Liu B, Fan L, Wang Y, et al.</b> Gut microbiota regulates host melatonin production through epithelial cell MyD88. <i>Gut Microbes</i>. 2024;16(1):2313769.</li>
+        <li><b style="color:#7FD1CF">Bertollo AG, Puntel CF, Scaini G, et al.</b> The interplay between microbiota and the gut-brain axis in treatment-resistant depression. <i>Prog Neuropsychopharmacol Biol Psychiatry</i>. 2026;148:111782.</li>
+        <li>Baglioni C, Battagliese G, Feige B, et al. Insomnia as a predictor of depression: a meta-analytic evaluation. <i>J Affect Disord</i>. 2011;135:10–19.</li>
+        <li>Adam EK, Quinn ME, Tavernier R, et al. Diurnal cortisol slopes and mental and physical health outcomes. <i>Psychoneuroendocrinology</i>. 2017;83:25–41.</li>
+        <li>Strawbridge R, Hodsoll J, Powell TR, et al. Inflammatory profiles of severe treatment-resistant depression. <i>J Affect Disord</i>. 2019;246:42–51.</li>
+        <li>Sudo N, Chida Y, Aiba Y, et al. Postnatal microbial colonization programs the hypothalamic-pituitary-adrenal system for stress response in mice. <i>J Physiol</i>. 2004;558:263–275.</li>
+        <li>Cryan JF, O'Riordan KJ, Cowan CSM, et al. The microbiota-gut-brain axis. <i>Physiol Rev</i>. 2019;99:1877–2013.</li>
+      </ol>
+    </div>
+    <div class="strip" style="position:relative;margin-top:14px">其余支撑文献（Sudo、Thaiss、Zarrinpar、Irwin、Kim 2025、Schwieler、Nettis、Palepu、Chen 2024、Wu 2023、Matsuno 2022 等）见各页标注；综述总览见 Cryan 2019 与 Long-Smith 2020。</div>
+  </div>
+  <div class="foot"><span>情绪睡眠的共病底层：脑肠轴与神经内分泌免疫</span><span class="fpn">44</span></div>
+</section>
+
+<!-- S45 谢谢 -->
+<section class="slide cover" data-sec="附录" data-title="谢谢">
+  <div class="orb" style="width:520px;height:520px;left:-160px;bottom:-180px;background:radial-gradient(circle,rgba(14,124,123,.38),transparent 70%)"></div>
+  <div class="orb" style="width:300px;height:300px;right:60px;top:-80px;background:radial-gradient(circle,rgba(127,209,207,.2),transparent 70%)"></div>
+  <div style="text-align:center">
+    <div style="font-size:60px;font-weight:800;letter-spacing:.2em;margin-bottom:36px">谢 谢</div>
+    <div style="max-width:760px;margin:0 auto;font-size:19px;line-height:2;color:#C9D6E2;border-top:1px solid rgba(127,209,207,.3);border-bottom:1px solid rgba(127,209,207,.3);padding:26px 30px">“治疗睡眠，常常就是在治疗情绪；<br>而两者的开关，有一半在肠道与时间里。”</div>
+  </div>
+  <div class="foot"><span>功能医学系列课程</span><span class="fpn">45</span></div>
+</section>
+
+</div></div>
+
+<div id="toc"><h2>目录 · CONTENTS</h2><div class="groups" id="tocgroups"></div></div>
+
+<div id="chrome">
+  <button class="nbtn" id="prev">‹ 上一页</button>
+  <span id="pn">01 / 45</span>
+  <button class="nbtn" id="next">下一页 ›</button>
+  <button class="nbtn" id="tocbtn">目录</button>
+  <button class="nbtn" id="fsbtn">全屏</button>
+  <span id="hint">← → 翻页 · T 目录 · F 全屏 · 底部进度条</span>
+</div>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+const bar=document.getElementById('bar'),pn=document.getElementById('pn'),stage=document.getElementById('stage'),toc=document.getElementById('toc');
+let cur=0;
+function fit(){const s=Math.min(innerWidth/1280,(innerHeight-46)/720);stage.style.transform=`translate(-50%,-50%) scale(${s})`;}
+addEventListener('resize',fit);fit();
+function pad(n){return String(n).padStart(2,'0')}
+function go(n,hash=true){cur=Math.max(0,Math.min(slides.length-1,n));slides.forEach((s,i)=>s.classList.toggle('active',i===cur));bar.style.width=((cur+1)/slides.length*100)+'%';pn.textContent=pad(cur+1)+' / '+slides.length;if(hash)history.replaceState(null,'','#/'+(cur+1));[...toc.querySelectorAll('a')].forEach((a,i)=>a.classList.toggle('cur',i===cur));}
+const next=()=>go(cur+1),prev=()=>go(cur-1);
+document.getElementById('next').onclick=next;
+document.getElementById('prev').onclick=prev;
+document.getElementById('fsbtn').onclick=()=>{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()};
+const groups=[];const seen={};
+slides.forEach((s,i)=>{const sec=s.dataset.sec||'其他';if(!seen[sec]){seen[sec]=[];groups.push(sec)}seen[sec].push(i)});
+const tg=document.getElementById('tocgroups');
+groups.forEach(g=>{const d=document.createElement('div');d.innerHTML=`<h3>${g}</h3>`+seen[g].map(i=>`<a href="#/${i+1}" data-i="${i}"><span>${pad(i+1)}</span>${slides[i].dataset.title||''}</a>`).join('');tg.appendChild(d)});
+toc.addEventListener('click',e=>{const a=e.target.closest('a');if(a){go(+a.dataset.i);toc.classList.remove('open')}});
+document.getElementById('tocbtn').onclick=()=>toc.classList.toggle('open');
+addEventListener('keydown',e=>{if(e.target.tagName==='INPUT')return;const k=e.key;
+if(k==='ArrowRight'||k==='ArrowDown'||k===' '||k==='PageDown'){e.preventDefault();next()}
+else if(k==='ArrowLeft'||k==='ArrowUp'||k==='PageUp'){e.preventDefault();prev()}
+else if(k==='Home'){go(0)}else if(k==='End'){go(slides.length-1)}
+else if(k==='t'||k==='T'){toc.classList.toggle('open')}
+else if(k==='f'||k==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+else if(k==='Escape'){toc.classList.remove('open')}});
+addEventListener('hashchange',()=>{const m=location.hash.match(/#\/(\d+)/);if(m)go(+m[1]-1,false)});
+const m=location.hash.match(/#\/(\d+)/);
+go(m?Math.min(slides.length-1,+m[1]-1):0,false);
+</script>
+</body>
+</html>
