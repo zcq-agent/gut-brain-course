@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>血液健康：组分及评估 · SuperiorMed 功能医学系列课程</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;background:#100A0D;overflow:hidden;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;color:#F5ECE7;-webkit-font-smoothing:antialiased}
+#viewport{position:fixed;inset:0}
+#stage{position:absolute;top:50%;left:50%;width:1280px;height:720px;transform:translate(-50%,-50%) scale(1);transform-origin:center}
+.slide{position:absolute;inset:0;padding:44px 56px 70px;background:linear-gradient(135deg,#2A1219 0%,#1E0E15 55%,#170A10 100%);opacity:0;pointer-events:none;transition:opacity .35s ease;border-radius:6px;overflow:hidden}
+.slide.active{opacity:1;pointer-events:auto}
+.slide::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#B3362E,#E4634F 45%,rgba(228,99,79,0) 90%)}
+.head{margin-bottom:20px;position:relative}
+.kicker{display:inline-block;font-size:12px;letter-spacing:.12em;color:#F2948A;border:1px solid rgba(242,148,138,.45);border-radius:999px;padding:3px 12px;margin-bottom:12px;background:rgba(179,54,46,.18)}
+h1.t{font-size:29px;font-weight:700;letter-spacing:.02em;line-height:1.25}
+h1.t em{font-style:normal;color:#F2948A}
+.sub{margin-top:7px;font-size:15px;color:#C7B2AC}
+.body{position:relative;height:calc(100% - 150px)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;height:100%}
+.g64{display:grid;grid-template-columns:6fr 4fr;gap:18px;height:100%}
+.g46{display:grid;grid-template-columns:4fr 6fr;gap:18px;height:100%}
+.g55{display:grid;grid-template-columns:1fr 1fr;gap:18px;height:100%}
+.col{display:flex;flex-direction:column;gap:16px;min-height:0}
+.card{background:#2B151D;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:18px 20px;min-height:0;overflow:hidden}
+.card.hl{background:linear-gradient(160deg,#7E241F,#A63B31 140%);border-color:rgba(242,148,138,.35)}
+.card.gold{background:linear-gradient(160deg,#4E3714,#6B4A1E 140%);border-color:rgba(216,162,94,.35)}
+.card.soft{background:#371A23}
+.card h4{font-size:16.5px;color:#FFFFFF;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.card h4::before{content:"";width:4px;height:16px;border-radius:2px;background:#E4634F;flex:none}
+.card.hl h4::before{background:#FFE3DD}
+.card.gold h4::before{background:#F3D9AE}
+.bullets{list-style:none;font-size:14.5px;line-height:1.62;color:#E9D9D2}
+.bullets li{padding-left:16px;position:relative;margin-bottom:8px}
+.bullets li::before{content:"▪";position:absolute;left:0;color:#F2948A;font-size:12px}
+.bullets li b{color:#fff}
+.bullets.sm{font-size:13.5px}
+.strip{position:absolute;left:0;right:0;bottom:0;background:rgba(179,54,46,.16);border:1px solid rgba(242,148,138,.3);border-radius:12px;padding:12px 18px;font-size:14.5px;line-height:1.55;color:#FBEFEA}
+.strip b{color:#F2948A}
+.strip.gold{background:rgba(216,162,94,.14);border-color:rgba(216,162,94,.4);color:#F7EFDC}
+.strip.gold b{color:#F3D9AE}
+.foot{position:absolute;left:56px;right:56px;bottom:24px;display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:#A08484;letter-spacing:.05em}
+.foot .fpn{font-variant-numeric:tabular-nums;color:#C7A9A3}
+.imgcard{background:#F7F2EE;border:1px solid rgba(255,255,255,.14);border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:8px;position:relative}
+.imgcard img{max-width:100%;max-height:100%;object-fit:contain;display:block;cursor:zoom-in;border-radius:6px}
+.imgcard .cap{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(20,8,12,.88) 55%);color:#F5ECE7;font-size:12px;padding:22px 12px 8px;text-align:center;letter-spacing:.03em}
+.flow{display:flex;align-items:stretch;gap:10px}
+.fnode{flex:1;background:#371A23;border:1px solid rgba(242,148,138,.25);border-radius:12px;padding:12px 14px;text-align:center;font-size:14px;line-height:1.45;display:flex;flex-direction:column;justify-content:center}
+.fnode b{color:#F2948A;font-size:15px}
+.fnode small{color:#C7B2AC;font-size:12px}
+.fnode.hot{background:linear-gradient(160deg,#7E241F,#A63B31 150%);border-color:rgba(242,148,138,.5)}
+.farr{flex:none;display:flex;align-items:center;color:#F2948A;font-size:20px;font-weight:700}
+.badges{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.badge{flex:none;font-size:11.5px;font-weight:600;letter-spacing:.08em;border-radius:6px;padding:2px 9px;border:1px solid}
+.b-clin{color:#F2948A;border-color:rgba(242,148,138,.55);background:rgba(179,54,46,.22)}
+.b-meta{color:#F3D9AE;border-color:rgba(216,162,94,.6);background:rgba(216,162,94,.16)}
+.b-warn{color:#FFB4A6;border-color:rgba(255,122,102,.6);background:rgba(166,59,49,.2)}
+.cover{display:flex;flex-direction:column;justify-content:center;position:relative}
+.cover .brand{font-size:14px;letter-spacing:.35em;color:#F2948A;margin-bottom:26px}
+.cover h1{font-size:47px;line-height:1.3;font-weight:800}
+.cover h1 span{display:block;color:#F2948A;font-size:30px;margin-top:10px;font-weight:600}
+.cover .cta{margin-top:24px;font-size:17px;color:#C7B2AC}
+.cover .meta{margin-top:36px;max-width:660px;background:rgba(55,26,35,.6);border:1px solid rgba(242,148,138,.2);border-radius:12px;padding:14px 18px;font-size:13.5px;color:#E9D9D2;line-height:1.8}
+.divider{display:flex;flex-direction:column;justify-content:center}
+.divider .chp{font-size:15px;letter-spacing:.5em;color:#F2948A;margin-bottom:18px}
+.divider h1{font-size:42px;font-weight:800;line-height:1.25}
+.divider .en{margin-top:10px;font-size:16px;letter-spacing:.22em;color:#C7B2AC}
+.divider .desc{margin-top:26px;max-width:720px;font-size:15.5px;line-height:1.8;color:#E9D9D2}
+#bar{position:fixed;left:0;bottom:0;height:4px;background:linear-gradient(90deg,#B3362E,#E4634F);width:0%;z-index:60;transition:width .3s ease}
+#hud{position:fixed;right:18px;bottom:14px;z-index:60;font-size:12px;color:#C7A9A3;background:rgba(23,10,16,.85);border:1px solid rgba(242,148,138,.3);border-radius:999px;padding:5px 14px;letter-spacing:.06em;user-select:none}
+#hud b{color:#F2948A;font-variant-numeric:tabular-nums}
+#navhint{position:fixed;left:18px;bottom:14px;z-index:60;font-size:11.5px;color:#8A6E70;background:rgba(23,10,16,.85);border:1px solid rgba(242,148,138,.2);border-radius:999px;padding:5px 12px;letter-spacing:.05em}
+#toc{position:fixed;top:14px;right:14px;z-index:70}
+#tocBtn{background:rgba(23,10,16,.9);color:#F2948A;border:1px solid rgba(242,148,138,.4);border-radius:999px;font-size:12.5px;letter-spacing:.1em;padding:7px 16px;cursor:pointer}
+#tocPanel{position:absolute;top:44px;right:0;background:rgba(23,10,16,.97);border:1px solid rgba(242,148,138,.35);border-radius:12px;padding:14px;display:none;max-height:70vh;overflow:auto;min-width:240px}
+#tocPanel.open{display:block}
+#tocPanel a{display:block;color:#E9D9D2;text-decoration:none;font-size:13px;line-height:1.5;padding:6px 10px;border-radius:8px}
+#tocPanel a:hover{background:rgba(179,54,46,.3);color:#fff}
+#tocPanel a b{color:#F2948A;margin-right:8px;font-variant-numeric:tabular-nums}
+#lb{position:fixed;inset:0;background:rgba(10,4,7,.94);z-index:100;display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px;cursor:zoom-out;padding:30px}
+#lb.on{display:flex}
+#lb img{max-width:94vw;max-height:88vh;border-radius:8px;box-shadow:0 18px 70px rgba(0,0,0,.6)}
+#lb .lbcap{color:#C7B2AC;font-size:13px;letter-spacing:.04em}
+#prev,#next{position:fixed;top:50%;transform:translateY(-50%);z-index:55;background:rgba(23,10,16,.55);border:1px solid rgba(242,148,138,.25);color:#F2948A;font-size:22px;width:44px;height:64px;border-radius:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s}
+#prev{left:12px}#next{right:12px}
+#prev:hover,#next:hover{background:rgba(179,54,46,.45)}
+@media (max-width:760px){
+ html,body{overflow:auto;height:auto;background:#100A0D}
+ #viewport{position:static}
+ #stage{position:static;width:100%;height:auto;transform:none}
+ .slide{position:relative;opacity:1;pointer-events:auto;height:auto;min-height:100vh;border-radius:0;margin-bottom:10px;padding:34px 22px 56px}
+ .body{height:auto;display:block}
+ .grid2,.g64,.g46,.g55{display:block}
+ .col{gap:14px}
+ .card{margin-bottom:14px}
+ .imgcard{max-height:78vh}
+ .strip{position:relative;margin-top:16px}
+ .foot{display:none}
+ #prev,#next,#hud,#navhint{display:none}
+ .cover h1{font-size:34px}.cover h1 span{font-size:22px}
+ .divider h1{font-size:30px}
+ #tocPanel{min-width:200px}
+}
+</style>
+</head>
+<body>
+<div id="viewport"><div id="stage">
+
+<!-- 01 封面 -->
+<section class="slide cover active">
+ <div class="brand">SUPERRIORMED · 功能医学系列课程</div>
+ <h1>血液健康：组分及评估<span>Blood Health: Components and Evaluation</span></h1>
+ <div class="cta">凝血 · 血常规 · 乙肝五项 · 细胞疗法 · 血浆置换 —— 从一张化验单读出全身的健康叙事</div>
+ <div class="meta">
+  主讲：张楚乔<br>
+  免疫调控与抗衰医学中心<br>
+  2026.02.26
+ </div>
+</section>
+
+<!-- 02 理念 -->
+<section class="slide cover">
+ <div class="brand">OUR PHILOSOPHY</div>
+ <h1>前瞻的 · 专属的 · 卓越的<em style="font-style:normal;color:#F2948A">「生命管理艺术」</em></h1>
+ <div class="cta" style="margin-top:18px">与公立体系遵循完全不同的哲学——</div>
+ <div class="meta" style="font-size:20px;text-align:center;padding:26px 18px;letter-spacing:.14em">「 工匠精神，精益求精。 」</div>
+ <div class="cta" style="font-size:14px">血液，是全身唯一贯穿每个器官的组织。读懂血液，就是读懂免疫、营养、凝血、衰老的全景。</div>
+</section>
+
+<!-- 03 章节：凝血功能 -->
+<section class="slide divider">
+ <div class="chp">CHAPTER 01 · COAGULATION FUNCTION TEST</div>
+ <h1>凝血功能</h1>
+ <div class="en">内源途径 · 外源途径 · 共同通路</div>
+ <div class="desc">
+  <div class="badges" style="margin-bottom:14px"><span class="badge b-clin">APTT</span><span class="badge b-clin">PT / INR</span><span class="badge b-clin">纤维蛋白原</span><span class="badge b-meta">临床案例：IV 后淤青</span></div>
+  一份正常的凝血四项（APTT 28.8s · PT 11.6s · INR 0.98 · Fib 2.51 g/L），是所有静脉输注治疗（IV）前的安全底线。
+ </div>
+ <div class="body" style="height:auto;margin-top:22px;max-width:900px">
+  <div class="imgcard" style="height:250px"><img src="assets/s04__2.jpg" alt="正常凝血四项化验单"><div class="cap">凝血功能筛查（正常示例）：APTT 28.8s / TT 20.2s / Fib 2.51 g/L / PT 11.6s / INR 0.98</div></div>
+ </div>
+</section>
+
+<!-- 04 内源/外源途径 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 01 · 凝血功能（1）</span>
+  <h1 class="t">两条启动路径：<em>内源性</em> 与 <em>外源性</em> 凝血途径</h1>
+  <div class="sub">Intrinsic &amp; Extrinsic Pathway —— 级联反应的两把钥匙</div></div>
+ <div class="body g64">
+  <div class="col">
+   <div class="card hl">
+    <h4>内源性途径（Intrinsic Pathway）</h4>
+    <ul class="bullets">
+     <li><b>触发：</b>血管内损伤——血液接触「带负电的异物表面」（血管内皮下暴露的胶原；实验室用硅藻土/玻璃珠模拟）</li>
+     <li><b>意义：</b>反映<b>血管内自身凝血因子</b>的功能状态</li>
+     <li><b>对应指标：</b>APTT</li>
+    </ul>
+   </div>
+   <div class="card">
+    <h4>外源性途径（Extrinsic Pathway）</h4>
+    <ul class="bullets">
+     <li><b>触发：</b>血管外组织损伤——外伤、手术致组织细胞坏死，释放<b>组织因子（TF，因子Ⅲ）</b>，血管外特有的凝血启动因子</li>
+     <li><b>意义：</b>评估<b>组织因子、因子Ⅶ</b>功能及共同通路完整性</li>
+     <li><b>对应指标：</b>PT / INR</li>
+    </ul>
+   </div>
+  </div>
+  <div class="imgcard"><img src="assets/s05__2.jpg" alt="凝血级联反应示意图"><div class="cap">凝血级联：内外源途径汇合于共同通路 → 纤维蛋白原 → 纤维蛋白多聚体</div></div>
+ </div>
+</section>
+
+<!-- 05 因子/APTT/PT/INR -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 01 · 凝血功能（2）</span>
+  <h1 class="t">因子、APTT / PT / INR <em>到底在看什么</em></h1>
+  <div class="sub">两个时间指标，两条途径的「秒表」</div></div>
+ <div class="body g64">
+  <div class="col">
+   <div class="card">
+    <h4>核心因子</h4>
+    <div class="flow">
+     <div class="fnode"><b>因子Ⅰ</b><small>纤维蛋白原</small></div>
+     <div class="farr">→</div>
+     <div class="fnode"><b>因子Ⅱ</b><small>凝血酶原</small></div>
+     <div class="farr">→</div>
+     <div class="fnode hot"><b>纤维蛋白</b><small>止血栓最终形态</small></div>
+    </div>
+   </div>
+   <div class="card">
+    <h4>两大秒表</h4>
+    <ul class="bullets">
+     <li><b>APTT</b>（活化部分凝血活酶时间）：内源性途径 + 共同通路<b>早期</b></li>
+     <li><b>PT</b>（凝血酶原时间）：外源性途径 + 共同通路<b>后期</b></li>
+    </ul>
+   </div>
+   <div class="card gold">
+    <h4>INR —— 华法林疗效金标准</h4>
+    <ul class="bullets sm">
+     <li>国际标准化比值（International Normalized Ratio），由 PT 校正而来</li>
+     <li>房颤 / 静脉血栓目标 <b>2–3</b>；机械心脏瓣膜 <b>2.5–3.5</b></li>
+    </ul>
+   </div>
+  </div>
+  <div class="imgcard"><img src="assets/s06__3.jpg" alt="ABO血型鉴定玻片法示意图"><div class="cap">延伸：ABO 血型鉴定玻片法——受检红细胞 × 标准血清的凝集判定</div></div>
+ </div>
+</section>
+
+<!-- 06 一期/二期止血 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 01 · 凝血功能（3）</span>
+  <h1 class="t">一期止血 vs 二期止血：<em>抗板与抗凝的分界线</em></h1>
+  <div class="sub">为什么「抗血小板」和「抗凝」是两类完全不同的药</div></div>
+ <div class="body g46">
+  <div class="col">
+   <div class="card hl">
+    <h4>抗血小板 —— 针对血小板</h4>
+    <ul class="bullets sm"><li>氯吡格雷、阿司匹林</li><li>作用于<b>一期止血</b>（血管收缩 + 血小板栓形成）</li></ul>
+   </div>
+   <div class="card">
+    <h4>抗凝 —— 针对凝血因子</h4>
+    <ul class="bullets sm"><li>华法林、肝素</li><li>作用于<b>二期止血</b>（凝血级联 + 纤溶平衡）</li></ul>
+   </div>
+   <div class="card soft">
+    <h4>手绘图中的细节</h4>
+    <ul class="bullets sm"><li>内源途径 12→11→9→8→10 级联</li><li>血友病甲缺<b>因子Ⅷ</b>、乙缺<b>因子Ⅸ</b>、丙缺<b>因子Ⅺ</b></li><li>维生素 K 与钙离子共同参与</li></ul>
+   </div>
+  </div>
+  <div class="imgcard"><img src="assets/s07__2.jpg" alt="一期止血与二期止血手绘示意图"><div class="cap">一期止血（血小板栓）与二期止血（凝血级联）机制手绘图</div></div>
+ </div>
+</section>
+
+<!-- 07 案例 IV后淤青 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 01 · 临床案例 CLINICAL CASE</span>
+  <h1 class="t">案例：IV 后淤青 —— <em>维生素 K 的关键作用</em></h1>
+  <div class="sub">输液后皮下淤青，先别急着怪护士穿刺技术</div></div>
+ <div class="body g46">
+  <div class="col">
+   <div class="card hl">
+    <h4>维生素 K 是什么</h4>
+    <ul class="bullets sm">
+     <li><b>脂溶性</b>维生素，依赖胆汁与胰液吸收</li>
+     <li>亚型：<b>K₁</b>（叶绿醌，植物/绿叶蔬菜来源）、<b>K₂</b>（甲萘醌，肠道菌群合成 / 动物组织储存）</li>
+    </ul>
+   </div>
+   <div class="card">
+    <h4>为什么影响凝血</h4>
+    <ul class="bullets sm">
+     <li>作为 <b>γ-谷氨酰羧化酶的辅酶</b></li>
+     <li>参与多种蛋白质的「活化修饰」：<b>凝血因子</b>、骨代谢蛋白（骨钙素）、抗凝蛋白（蛋白 C/S）</li>
+     <li>缺乏 → 凝血因子无法活化 → IV 后易淤青、出血</li>
+    </ul>
+   </div>
+  </div>
+  <div class="imgcard"><img src="assets/s08__7.jpg" alt="维生素K来源与功能示意图"><div class="cap">维生素 K：K₁ 来自绿叶蔬菜、K₂ 由肠道菌群合成；参与凝血、钙代谢与心血管保护</div></div>
+ </div>
+</section>
+
+<!-- 08 VitK缺乏六因 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 01 · 临床案例 · 续</span>
+  <h1 class="t">口服 supplements 却仍缺乏？<em>维生素 K 缺失的六个环节</em></h1>
+  <div class="sub">从「吃进去」到「起作用」，任何一环断裂都算缺乏</div></div>
+ <div class="body grid2">
+  <div class="imgcard"><img src="assets/s09__2.jpg" alt="维生素K缺乏六大原因手绘图"><div class="cap">维生素 K 缺乏六大原因：摄入不足 / 吸收障碍 / 肝功能受损 / 药物影响 / 菌群失调 / 特殊人群（新生儿）</div></div>
+  <div class="col">
+   <div class="card">
+    <h4>功能医学视角的四步排查</h4>
+    <div class="flow" style="flex-direction:column;gap:8px">
+     <div class="fnode"><b>① 口服 supplements</b><small>剂量、剂型、是否随脂肪餐服</small></div>
+     <div class="fnode"><b>② 消化吸收</b><small>胆汁、胰酶、肠黏膜屏障（K 为脂溶性）</small></div>
+     <div class="fnode"><b>③ 保护肝功</b><small>肝细胞合成凝血因子 Ⅱ/Ⅶ/Ⅸ/Ⅹ</small></div>
+     <div class="fnode hot"><b>④ 菌群</b><small>肠道菌群合成 K₂ —— 菌群失调即「内源性断供」</small></div>
+    </div>
+   </div>
+   <div class="card gold">
+    <h4>骨骼之外的角色</h4>
+    <ul class="bullets sm"><li>未羧化骨钙素作用于胰岛 β 细胞 / 脂肪细胞 / 睾丸 → 糖脂代谢与生育力</li><li>Gas6 蛋白参与细胞增殖、抗凋亡；或降低阿尔茨海默病风险</li></ul>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- 09 章节：血常规 -->
+<section class="slide divider">
+ <div class="chp">CHAPTER 02 · BLOOD ROUTINE EXAMINATION</div>
+ <h1>血常规</h1>
+ <div class="en">白细胞 · 红细胞 · 血小板 —— 三大系统全景</div>
+ <div class="desc">
+  <div class="badges" style="margin-bottom:14px"><span class="badge b-clin">免疫 / 感染</span><span class="badge b-clin">贫血 / 携氧</span><span class="badge b-clin">凝血 / 止血</span><span class="badge b-meta">案例：过敏 · 贫血</span></div>
+  最便宜、最普及的一张化验单，却常常只被看三个箭头。三大系统分别回答三个问题：免疫状态、携氧能力、止血功能。
+ </div>
+</section>
+
+<!-- 10 三大系统 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 02 · 血常规（1）</span>
+  <h1 class="t">三大系统，<em>三问</em></h1>
+  <div class="sub">BLOOD ROUTINE EXAMINATION</div></div>
+ <div class="body grid2">
+  <div class="col">
+   <div class="card hl">
+    <h4>白细胞系统 —— 免疫与感染</h4>
+    <ul class="bullets sm"><li>白细胞总数、中性粒细胞、淋巴细胞、单核细胞、嗜酸（碱）性粒细胞</li></ul>
+   </div>
+   <div class="card">
+    <h4>红细胞系统 —— 贫血与携氧</h4>
+    <ul class="bullets sm"><li>红细胞计数（RBC）、血红蛋白（HGB/Hb）</li></ul>
+   </div>
+   <div class="card">
+    <h4>血小板系统 —— 凝血与止血</h4>
+    <ul class="bullets sm"><li>血小板计数（PLT）</li></ul>
+   </div>
+   <div class="imgcard" style="height:170px"><img src="assets/s10__3.jpg" alt="正常血常规化验单"><div class="cap">正常血常规示例：WBC 5.60 × RBC 4.45 × HGB 141 g/L × PLT 271 ×</div></div>
+  </div>
+  <div class="imgcard"><img src="assets/s11__3.jpg" alt="血常规参考值信息图"><div class="cap">血常规解读速查：五类白细胞比例 · Hb 男 120–160 g/L · 贫血轻中重分度 · PLT 100–300</div></div>
+ </div>
+</section>
+
+<!-- 11 过敏机制 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 02 · 血常规（2）</span>
+  <h1 class="t">过敏反应：<em>嗜酸粒细胞升高的四层含义</em></h1>
+  <div class="sub">从肥大细胞到 Th2 —— 一场被放大的免疫误伤</div></div>
+ <div class="body g46">
+  <div class="col">
+   <div class="card hl">
+    <h4>执行者</h4>
+    <ul class="bullets sm"><li><b>肥大细胞 + 嗜碱性粒细胞</b>：释放组胺、肝素、白三烯、前列腺素 → 瘙痒、红肿、呼吸困难、腹痛</li></ul>
+   </div>
+   <div class="card">
+    <h4>迟发相</h4>
+    <ul class="bullets sm"><li><b>嗜酸性粒细胞</b>：激活后 4–6 小时浸润组织，释放颗粒酶，加重慢性炎症</li></ul>
+   </div>
+   <div class="card">
+    <h4>抗体工厂</h4>
+    <ul class="bullets sm"><li><b>B 细胞</b>：产生 IgE，Fc 段结合肥大细胞 / 嗜碱性粒细胞 →「致敏装填」</li></ul>
+   </div>
+   <div class="card gold">
+    <h4>放大器</h4>
+    <ul class="bullets sm"><li><b>Th2 细胞</b>：分泌 IL-4 / IL-5 / IL-13 → 促 IgE、激活嗜酸粒细胞，放大过敏（哮喘、AD）</li></ul>
+   </div>
+  </div>
+  <div class="imgcard"><img src="assets/s12__2.jpg" alt="血细胞发育分化树"><div class="cap">血细胞分化全景：HSC → 髓系 / 淋系 → 红细胞、血小板、粒单核、淋系、NK</div></div>
+ </div>
+</section>
+
+<!-- 12 贫血案例 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 02 · 临床案例 CLINICAL CASE</span>
+  <h1 class="t">案例：贫血 —— <em>缺铁的四种逻辑</em></h1>
+  <div class="sub">Clinical Case: Anemia · 不是所有贫血都要「补」</div></div>
+ <div class="body g46">
+  <div class="col">
+   <div class="card"><h4>A · 摄入 / 吸收障碍</h4><ul class="bullets sm"><li>PPI 抑酸、乳糜泻、幽门螺杆菌等吸收环节受阻</li></ul></div>
+   <div class="card hl"><h4>B · 铁扣押（隔离）</h4><ul class="bullets sm"><li>「急性期反应」将铁封存于巨噬细胞，减少释放入血，<b>优先供给免疫</b></li><li>炎症状态下补铁 = 为病原体供铁，需先控炎</li></ul></div>
+   <div class="card"><h4>C · 生理需求增加</h4><ul class="bullets sm"><li>妊娠、儿童生长期</li></ul></div>
+   <div class="card"><h4>D · 失血</h4><ul class="bullets sm"><li>显性 / 隐性失血排查</li></ul></div>
+   <div class="card soft"><h4>排泄机制</h4><ul class="bullets sm"><li>肠道黏膜脱落为主要排出途径（<b>无主动排泄</b>）</li></ul></div>
+  </div>
+  <div class="imgcard"><img src="assets/s13__3.jpg" alt="缺铁机制示意图"><div class="cap">缺铁两大机制：铁可利用性降低（吸收障碍 / 炎症隔离）× 铁需求增加（妊娠、失血）</div></div>
+ </div>
+</section>
+
+<!-- 13 章节：肠道干预 -->
+<section class="slide divider">
+ <div class="chp">CHAPTER 03 · INTESTINAL MICROBIOTA THERAPY</div>
+ <h1>肠道干预案例</h1>
+ <div class="en">过敏性哮喘 · 2025.03 → 2025.10 · 七个月随访</div>
+ <div class="desc">
+  <div class="badges" style="margin-bottom:14px"><span class="badge b-clin">嗜酸粒细胞 ↑</span><span class="badge b-clin">肺功能中度阻塞</span><span class="badge b-meta">Remove · Reinoculate · Repair</span></div>
+  以肠道为切入，干预呼吸道疾病——「肠-肺轴」的完整闭环案例。
+ </div>
+</section>
+
+<!-- 14 2025.3 初诊 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 03 · 肠道干预案例 · 2025.03 初诊</span>
+  <h1 class="t">初诊：过敏倾向 + <em>中度阻塞性通气功能障碍</em></h1>
+  <div class="sub">血常规与婴幼儿潮气呼吸肺功能（2025.3）</div></div>
+ <div class="body grid2">
+  <div class="imgcard"><img src="assets/s14__11.jpg" alt="初诊血常规"><div class="cap">血常规：WBC 4.90 · 淋巴细胞比值 51.8%↑ · 嗜酸粒细胞 0.80↑ · 粒细胞比值 23.3%↓ → 过敏 / 病毒感染倾向</div></div>
+  <div class="imgcard"><img src="assets/s14__16.jpg" alt="初诊肺功能"><div class="cap">潮气呼吸肺功能：吸呼比 0.49（呼气延长）· 达峰时间比 15.5% / 达峰容积比 19.9% 均中度下降 → 中度阻塞性通气功能障碍</div></div>
+ </div>
+ <div class="strip"><b>解读：</b>嗜酸粒细胞升高与呼气延长、达峰比下降互相印证——Th2 型气道炎症的血液与肺功能双重证据。</div>
+</section>
+
+<!-- 15 2025.10 复查 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 03 · 肠道干预案例 · 2025.10 复查（7 个月后）</span>
+  <h1 class="t">七个月后：<em>肺通气功能恢复正常</em></h1>
+  <div class="sub">FEV1 0.82L（108.6% 预计值）· FEV1/FVC 86.34%</div></div>
+ <div class="body g46">
+  <div class="imgcard"><img src="assets/s15__13.jpg" alt="复查肺功能"><div class="cap">肺功能复查：FVC 0.93L · FEV1/FVC 86.34% → 通气功能正常（流量-容积环恢复）</div></div>
+  <div class="col">
+   <div class="card">
+    <h4>机制背景</h4>
+    <ul class="bullets sm">
+     <li>过敏性哮喘占哮喘的 <b>50%–70%</b>，与非过敏性哮喘（感染、空气污染触发）同属「气道炎症性疾病」，本质为 <b>Th2 炎症亢进</b></li>
+    </ul>
+   </div>
+   <div class="card hl">
+    <h4>3R 干预路径</h4>
+    <ul class="bullets sm">
+     <li><b>Remove：</b>去除食物过敏原，减少 Th2 型炎症触发</li>
+     <li><b>Reinoculate：</b>补充罗伊氏乳杆菌，降低血清 IgE</li>
+     <li><b>Repair：</b>补充谷氨酰胺修复肠屏障，减少「肠-肺过敏传递」</li>
+    </ul>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- 16 章节：免疫 -->
+<section class="slide divider">
+ <div class="chp">CHAPTER 04 · IMMUNITY &amp; CYTOKINES</div>
+ <h1>临床案例：免疫</h1>
+ <div class="en">营养不良级联 · 超长寿菌群 · 感染筛查 · 细胞因子谱</div>
+ <div class="desc">
+  <div class="badges" style="margin-bottom:14px"><span class="badge b-clin">传染病八项</span><span class="badge b-clin">细胞因子 12 项</span><span class="badge b-meta">117 岁的微生物组</span></div>
+  免疫不是一个指标，而是一张网络：营养、菌群、感染史、细胞因子共同构成免疫的「底色」。
+ </div>
+</section>
+
+<!-- 17 营养不良级联+117岁 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 04 · 免疫（1）</span>
+  <h1 class="t">免疫的底线是营养，<em>营养的底线是血液</em></h1>
+  <div class="sub">一条从血指标通向死亡的级联链，与一个 117 岁的反例</div></div>
+ <div class="body grid2">
+  <div class="imgcard"><img src="assets/s16__2.jpg" alt="营养不良级联示意图"><div class="cap">营养不良级联：菌群失调 / 免疫缺陷 → 反复感染 → 肌少症 → 跌倒 → 卧床 → 压疮 → 死亡</div></div>
+  <div class="col">
+   <div class="imgcard"><img src="assets/s16__5.jpg" alt="The Microbiome 117岁杂志封面"><div class="cap">《The Microbiome》：117 岁老人的细胞功能比实际年龄年轻 20 余岁——肠道菌群与长寿</div></div>
+   <div class="card gold">
+    <h4>两级启示</h4>
+    <ul class="bullets sm">
+     <li>负向：营养不良经血液免疫指标恶化，启动级联下坡</li>
+     <li>正向：超长寿者的「年轻血液」，菌群是关键变量之一</li>
+    </ul>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- 18 感染筛查+细胞因子 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 04 · 免疫（2）</span>
+  <h1 class="t">免疫评估实操：<em>感染屏障与因子谱</em></h1>
+  <div class="sub">传染病八项 × 细胞因子 12 项</div></div>
+ <div class="body grid2">
+  <div class="imgcard"><img src="assets/s17__4.jpg" alt="传染病八项化验单"><div class="cap">传染病八项：乙肝表面抗体 42.721↑（有免疫力），余乙肝、丙肝、梅毒、HIV 均阴性</div></div>
+  <div class="imgcard"><img src="assets/s17__5.jpg" alt="细胞因子12项化验单"><div class="cap">细胞因子 12 项：IL-8 8.02 最高；IL-1β 2.46 / IL-17 3.15 / IFN-α 3.43 / IFN-γ 2.27 / TNF-α 2.39 —— 整体低水平平衡</div></div>
+ </div>
+</section>
+
+<!-- 19 章节：乙肝 -->
+<section class="slide divider">
+ <div class="chp">CHAPTER 05 · HEPATITIS B PANEL</div>
+ <h1>乙肝五项：读懂「模式」而非单值</h1>
+ <div class="en">HBsAg · HBsAb · HBeAg · HBeAb · HBcAb —— 五项组合的六种临床叙事</div>
+ <div class="desc">
+  <div class="badges" style="margin-bottom:14px"><span class="badge b-warn">大三阳 1·3·5</span><span class="badge b-clin">小三阳 1·4·5</span><span class="badge b-meta">恢复期 2·4·5 / 2·4</span><span class="badge b-guide">既往感染 2·5 / 4·5</span></div>
+  同一套检测，五项阴阳的不同组合，指向完全不同的感染阶段、传染性与随访策略。
+ </div>
+</section>
+
+<!-- 20 大三阳vs小三阳 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 05 · 乙肝五项（1）</span>
+  <h1 class="t">「大三分」与「小三阳」：<em>活动复制 vs 低速携带</em></h1>
+  <div class="sub">第 1·3·5 阳性 ⇄ 第 1·4·5 阳性</div></div>
+ <div class="body grid2">
+  <div class="col">
+   <div class="imgcard"><img src="assets/s18__6.jpg" alt="乙肝大三阳化验单"><div class="cap">大三阳（1·3·5）：HBsAg 32400（+）· HBeAg 3560（+）· HBcAb 954（+）</div></div>
+   <div class="card hl"><h4>大三阳 · 急/慢性感染，传染性强</h4><ul class="bullets sm"><li>HBeAg 阳性 = 病毒<b>活跃复制</b>标志</li><li>提示急性或慢性乙肝，传染性相对较强</li></ul></div>
+  </div>
+  <div class="col">
+   <div class="imgcard"><img src="assets/s18__7.jpg" alt="乙肝小三阳化验单"><div class="cap">小三阳（1·4·5）：HBsAg 32400（+）· HBeAb 3670（+）· HBcAb 954（+）</div></div>
+   <div class="card gold"><h4>小三阳 · 恢复期，但需长期随访</h4><ul class="bullets sm"><li>传染性弱，多见于恢复期</li><li><b>长期持续者警惕癌变风险</b>，不可因「小」而放松监测</li></ul></div>
+  </div>
+ </div>
+</section>
+
+<!-- 21 恢复期模式 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 05 · 乙肝五项（2）</span>
+  <h1 class="t">恢复期模式：<em>抗体登场的两种组合</em></h1>
+  <div class="sub">2·4·5 阳性 ⇄ 2·4 阳性 —— 免疫已接管</div></div>
+ <div class="body grid2">
+  <div class="col">
+   <div class="imgcard"><img src="assets/s19__2.jpg" alt="乙肝五项245阳性化验单"><div class="cap">2·4·5 阳性：HBsAb 3210（+）· HBeAb 2953（+）· HBcAb 954（+）</div></div>
+   <div class="card"><h4>急性感染后康复期</h4><ul class="bullets sm"><li>表面抗体（HBsAb）显著升高 = <b>已产生免疫力</b></li><li>核心抗体持续 = 既往感染的「档案记录」</li></ul></div>
+  </div>
+  <div class="col">
+   <div class="imgcard"><img src="assets/s19__3.jpg" alt="乙肝五项24阳性化验单"><div class="cap">2·4 阳性：HBsAb 3210（+）· HBeAb 1960（+）</div></div>
+   <div class="card"><h4>感染已恢复</h4><ul class="bullets sm"><li>乙肝病毒感染已恢复，<b>具有免疫力</b></li><li>核心抗体阴转或未检出，感染印记更淡</li></ul></div>
+  </div>
+ </div>
+</section>
+
+<!-- 22 既往感染 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 05 · 乙肝五项（3）</span>
+  <h1 class="t">既往感染模式：<em>没有表面抗原的两种结局</em></h1>
+  <div class="sub">2·5 阳性 ⇄ 4·5 阳性 —— 都不是「大三阳」，但意义不同</div></div>
+ <div class="body grid2">
+  <div class="col">
+   <div class="imgcard"><img src="assets/s20__5.jpg" alt="乙肝五项25阳性化验单"><div class="cap">2·5 阳性：HBsAb 3210（+）· HBcAb 954（+）</div></div>
+   <div class="card"><h4>既往感染，仍有免疫力</h4><ul class="bullets sm"><li>非典型恢复期；区别于疫苗接种（接种者核心抗体阴性）</li></ul></div>
+  </div>
+  <div class="col">
+   <div class="imgcard"><img src="assets/s20__6.jpg" alt="乙肝五项45阳性化验单"><div class="cap">4·5 阳性：HBeAb 3670（+）· HBcAb 954（+）</div></div>
+   <div class="card gold"><h4>窗口期样改变 · 需复查</h4><ul class="bullets sm"><li>既往感染、急性感染后康复期，<b>基本无传染性</b>（少数仍可检出病毒）</li><li>关键点：此模式<b>无保护性抗体</b>，建议随访 HBsAb 滴度</li></ul></div>
+  </div>
+ </div>
+ <div class="strip gold"><b>教学要点：</b>五项的核心是「抗原（病毒存在的证据）× 抗体（免疫应答的痕迹）」—— 抗原在转阴、抗体在登场的动态过程，就是乙肝感染的自然史。</div>
+</section>
+
+<!-- 23 章节：创新技术 -->
+<section class="slide divider">
+ <div class="chp">CHAPTER 06 · INNOVATIVE TREATMENT TECHNIQUES</div>
+ <h1>创新医疗技术</h1>
+ <div class="en">CAR-T · NK 细胞 · 合法获批细胞疗法 · 细胞因子</div>
+ <div class="desc">
+  <div class="badges" style="margin-bottom:14px"><span class="badge b-clin">CAR-T 清除 EBV</span><span class="badge b-clin">NK 广谱免疫</span><span class="badge b-meta">2024 Nature 供体 CAR-T</span></div>
+  从「自体改造」到「现货通用」——细胞疗法正在从血液肿瘤走向自身免疫与抗病毒领域。
+ </div>
+</section>
+
+<!-- 24 CAR-T/NK -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 06 · 创新技术（1）</span>
+  <h1 class="t">CAR-T 清除 EB 病毒 · NK 细胞<em>广谱提升免疫</em></h1>
+  <div class="sub">采集 → 改造 → 扩增 → 回输</div></div>
+ <div class="body grid2">
+  <div class="imgcard" style="background:#0E0609"><img src="assets/s22__13.jpg" alt="CAR-T细胞疗法流程图" style="max-height:100%"><div class="cap">CAR-T 四步流程：白细胞分离采集 T 细胞 → 慢病毒载体导入 CAR → 体外扩增 → 回输</div></div>
+  <div class="col">
+   <div class="card">
+    <h4>为什么 EBV 是理想靶点</h4>
+    <ul class="bullets sm"><li>EBV 潜伏感染期与裂解期表达多种抗原（<b>LMP1 · LMP2A · gp350</b>），是 CAR-T 的理想靶点</li></ul>
+   </div>
+   <div class="card hl">
+    <h4>已在多种 EBV 相关肿瘤展现疗效</h4>
+    <ul class="bullets sm">
+     <li><b>EBV 阳性淋巴瘤：</b>EBV 阳性弥漫大 B 细胞淋巴瘤（DLBCL）为高危亚型、预后差；CAR-T 在复发/难治者中显示<b>高缓解率</b></li>
+     <li><b>EBV 阳性鼻咽癌：</b>中国高发，90% 以上与 EBV 感染相关；CAR-T 客观缓解率达 <b>75%</b></li>
+    </ul>
+   </div>
+   <div class="card gold">
+    <h4>NK 细胞疗法</h4>
+    <ul class="bullets sm"><li>非特异性杀伤，<b>广泛性解决免疫力低下</b></li></ul>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- 25 合法获批细胞疗法 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 06 · 创新技术（2）</span>
+  <h1 class="t">合法、获批的<em>细胞疗法边界</em></h1>
+  <div class="sub">LEGAL AND APPROVED CELL THERAPY · 2024-10 Nature 报道</div></div>
+ <div class="body grid2">
+  <div class="col">
+   <div class="imgcard"><img src="assets/s23__5.jpg" alt="Nature 2024 供体CAR-T新闻截图"><div class="cap">Nature（2024-10-04）：全球首例<b style="color:#F2948A">供体来源（异体现货型）CAR-T</b>治疗自身免疫病，3 名患者获缓解——规模化生产成为可能</div></div>
+   <div class="imgcard" style="height:200px"><img src="assets/s23__4.jpg" alt="静脉输注细胞制剂"><div class="cap">细胞制剂静脉输注：白色不透明细胞悬液（肠外营养/脂肪乳类外观）</div></div>
+  </div>
+  <div class="col">
+   <div class="imgcard" style="background:#0E0609"><img src="assets/s23__1.jpg" alt="病毒颗粒3D渲染图"><div class="cap">病毒颗粒结构：蛋白外壳与刺突——细胞疗法的靶向对象</div></div>
+   <div class="card"><h4>合规提示</h4><ul class="bullets sm"><li>选择细胞疗法前确认：<b>获批适应症 · 合规制备 · 可溯源</b></li><li>「前沿」不等于「可随意使用」，边界即安全</li></ul></div>
+  </div>
+ </div>
+</section>
+
+<!-- 26 细胞因子 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 06 · 创新技术（3）</span>
+  <h1 class="t">细胞因子：<em>免疫系统的「信使语言」</em></h1>
+  <div class="sub">CYTOKINES · 报告内主要分类</div></div>
+ <div class="body g46">
+  <div class="col">
+   <div class="card hl">
+    <h4>白细胞介素（IL）</h4>
+    <ul class="bullets sm"><li>调节免疫细胞分化、活化、增殖</li><li>IL-2 促 T 细胞增殖 · IL-4 促 Th2 型免疫 · IL-17 促中性粒细胞募集</li></ul>
+   </div>
+   <div class="card">
+    <h4>干扰素（IFN）</h4>
+    <ul class="bullets sm"><li>IFN-α：<b>抗病毒</b> · IFN-γ：增强免疫杀伤、调节免疫平衡</li></ul>
+   </div>
+   <div class="card gold">
+    <h4>TNF-α</h4>
+    <ul class="bullets sm"><li>强效促炎因子，参与感染、自身免疫病的<b>炎症级联反应</b></li></ul>
+   </div>
+   <div class="card soft">
+    <h4>家族全景</h4>
+    <ul class="bullets sm"><li>六大类：IL · IFN · TNF · 集落刺激因子（CSF）· 趋化因子 · 生长因子</li></ul>
+   </div>
+  </div>
+  <div class="imgcard"><img src="assets/s24__3.jpg" alt="细胞因子分类示意图"><div class="cap">细胞因子六大分类总览</div></div>
+ </div>
+</section>
+
+<!-- 27 章节：衰老与血液年轻化 -->
+<section class="slide divider">
+ <div class="chp">CHAPTER 07 · SENESCENCE &amp; BLOOD REJUVENATION</div>
+ <h1>衰老与血液年轻化</h1>
+ <div class="en">SASP · 衰老细胞清扫 · 治疗性血浆置换（TPE）· 年轻白蛋白</div>
+ <div class="desc">
+  <div class="badges" style="margin-bottom:14px"><span class="badge b-clin">SASP 衰老表型</span><span class="badge b-clin">senolytics</span><span class="badge b-meta">TPE 八大应用</span><span class="badge b-warn">营销话术鉴别</span></div>
+  从「衰老是什么」到「换血是否可行」——本章以证据分级的方式，走完血液抗衰的正面与反面。
+ </div>
+</section>
+
+<!-- 28 SASP -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 07 · 衰老（1）</span>
+  <h1 class="t">衰老：不是时间问题，<em>而是「细胞身份」的迷失</em></h1>
+  <div class="sub">SASP —— Senescence-Associated Secretory Phenotype</div></div>
+ <div class="body g64">
+  <div class="col">
+   <div class="card hl">
+    <h4>衰老的细胞学定义</h4>
+    <ul class="bullets">
+     <li>反复的慢性炎症 → 分化的特定细胞转变为<b>功能退化细胞</b></li>
+     <li>分泌大量炎症因子 · <b>抵抗凋亡</b>（赖着不走）</li>
+     <li>即为「<b>衰老表型 SASP</b>」</li>
+    </ul>
+   </div>
+   <div class="card">
+    <h4>免疫衰老的闭环</h4>
+    <ul class="bullets sm">
+     <li>年轻 HSC → 衰老 HSC → 衰老免疫细胞</li>
+     <li>释放 SASP（IL-1 / IL-6 / TNF-α）+ 氧化应激 → 组织慢性炎症</li>
+     <li>反转钥匙：<b>年轻免疫细胞可清除衰老细胞</b></li>
+    </ul>
+   </div>
+  </div>
+  <div class="imgcard"><img src="assets/s25__3.jpg" alt="免疫衰老与SASP机制示意图"><div class="cap">免疫衰老机制：衰老 HSC → SASP（IL-1/IL-6/TNF-α）→ 慢性炎症 → 组织退行</div></div>
+ </div>
+</section>
+
+<!-- 29 衰老细胞清扫 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 07 · 衰老（2）</span>
+  <h1 class="t">「一次细胞裂解，<em>清扫经年累月积攒的衰老细胞」</em></h1>
+  <div class="sub">SASP 的构成 与 衰老细胞的识别特征</div></div>
+ <div class="body grid2">
+  <div class="imgcard"><img src="assets/s26__3.jpg" alt="SASP组成与影响因素示意图"><div class="cap">SASP 由应激源（致癌 / DNA 损伤 / ROS / 代谢）× 细胞类型 / 组织 / 疾病背景共同决定，含细胞因子、蛋白酶、microRNA、外泌体</div></div>
+  <div class="col">
+   <div class="imgcard"><img src="assets/s26__4.jpg" alt="衰老细胞特征示意图"><div class="cap">衰老细胞特征：线粒体 / 溶酶体改变 · BCL-2 / p53 抗凋亡 · 膜电位与表面标志物改变 · 胞质 DNA</div></div>
+   <div class="card gold"><h4>Senolytics 的逻辑</h4><ul class="bullets sm"><li>衰老细胞靠 <b>BCL-2 抗凋亡</b>存活 → 靶向促其裂解清除</li><li>「一次细胞裂解」= 周期性清扫策略的通俗表达</li></ul></div>
+  </div>
+ </div>
+</section>
+
+<!-- 30 代谢异常铺垫 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 07 · 衰老（3）· 案例资料</span>
+  <h1 class="t">干预前的「血液底账」：<em>两份代谢异常的生化全套</em></h1>
+  <div class="sub">血糖、血脂、肾功能——血液年轻化干预前的基线评估</div></div>
+ <div class="body grid2">
+  <div class="col">
+   <div class="imgcard"><img src="assets/s27__2.jpg" alt="生化全套化验单1"><div class="cap">生化全套 A：空腹血糖 8.52↑ · 肌酐 89.19↑ · 总胆固醇 5.75↑ · 载脂蛋白A1 1.84↑ · 钾 5.48↑</div></div>
+   <div class="card soft"><h4>解读</h4><ul class="bullets sm"><li>糖脂代谢异常 + 肾功能需关注 → <b>慢性炎症性衰老</b>的典型土壤</li></ul></div>
+  </div>
+  <div class="col">
+   <div class="imgcard"><img src="assets/s28__3.jpg" alt="生化全套化验单2"><div class="cap">生化全套 B：甘油三酯 2.46↑ · γ-GT 61.69↑ · 总胆红素 21.70↑ · 葡萄糖 6.74↑</div></div>
+   <div class="card soft"><h4>解读</h4><ul class="bullets sm"><li>血糖血脂偏高 + 轻度肝功能异常 → 代谢与肝脏<b>双重负担</b></li></ul></div>
+  </div>
+ </div>
+ <div class="strip"><b>衔接：</b>正是这样的代谢性血液异常，构成了后续「血浆置换 / 血液净化」干预的评估起点——但干预本身，需要被理性审视（见本章末）。</div>
+</section>
+
+<!-- 31 年轻血浆与TPE -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 07 · 衰老（4）</span>
+  <h1 class="t">年轻血浆：<em>从父子的血浆到治疗性血浆置换</em></h1>
+  <div class="sub">Therapeutic Plasma Exchange（TPE）—— 去旧 · 回新</div></div>
+ <div class="body grid2">
+  <div class="col">
+   <div class="imgcard" style="background:#0E0609"><img src="assets/s29__3.jpg" alt="父子血浆照片"><div class="cap">「That is what my son gave me: plasma.」—— 分层析出血浆的采血管：年轻血浆输注抗衰的公众实践样本</div></div>
+   <div class="imgcard" style="height:210px"><img src="assets/s30__6.jpg" alt="血浆采集照片"><div class="cap">采浆场景：分离机采集血浆，亲属供浆陪同</div></div>
+  </div>
+  <div class="imgcard"><img src="assets/s29__4.jpg" alt="治疗性血浆置换流程图"><div class="cap">TPE 流程：血液引出 → 抗凝 → 膜式/离心分离 → 弃除血浆 → 置换液（白蛋白/血浆）回输；含处方要点与监测</div></div>
+ </div>
+</section>
+
+<!-- 32 TPE八大应用 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 07 · 衰老（5）</span>
+  <h1 class="t">TPE 的<em>循证版图</em>：八大应用领域</h1>
+  <div class="sub">证据等级 Ⅰ–Ⅲ —— 它是治疗手段，不是养生项目</div></div>
+ <div class="body" style="height:calc(100% - 118px)">
+  <div class="imgcard"><img src="assets/s30__5.jpg" alt="TPE八大应用领域信息图"><div class="cap">TPE 八大应用：神经（吉兰-巴雷）· 免疫（狼疮）· 代谢（高胆固醇）· 血液 · 肾脏 · 肿瘤（皮肤T细胞淋巴瘤）· 中毒（毒蘑菇）· 器官移植 —— 各标注机制与证据等级 Ⅰ~Ⅲ</div></div>
+ </div>
+</section>
+
+<!-- 33 血年轻 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 07 · 衰老（6）</span>
+  <h1 class="t">「血年轻」：<em>年轻人功能白蛋白</em></h1>
+  <div class="sub">BLOOD YOUTH : YOUNG ALBUMIN · UC Davis 的 AD 试验</div></div>
+ <div class="body grid2">
+  <div class="imgcard"><img src="assets/s31_ucdavis.jpg" alt="UC Davis 血浆置换治疗老年痴呆研究截图"><div class="cap">UC Davis Health（2021-05）：血浆置换联合白蛋白替代治疗阿尔茨海默病——将老年痴呆病人血中的功能性蛋白置换，认知症状获明显改善；关联 2019 版治疗性单采指南（JCP）拟新增 AD 适应症</div></div>
+  <div class="col">
+   <div class="card hl">
+    <h4>核心逻辑</h4>
+    <ul class="bullets sm">
+     <li>白蛋白是血浆中含量最高的<b>功能性蛋白</b>——携带、清除、抗氧化</li>
+     <li>衰老 = 白蛋白「质」的退化（结合力 ↓ · 翻新率 ↓）</li>
+     <li>置换 = 用<b>年轻供体的功能性白蛋白</b>替换老化蛋白负荷</li>
+    </ul>
+   </div>
+   <div class="card gold">
+    <h4>证据现状</h4>
+    <ul class="bullets sm">
+     <li>案例层面：AD 患者症状明显改善（UC Davis）</li>
+     <li>指南层面：单采指南已开始纳入 AD 相关条目</li>
+     <li>仍属<b>研究性应用</b>，远未到「人人可做」阶段</li>
+    </ul>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- 34 临床场景 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 07 · 衰老（7）· 临床一景</span>
+  <h1 class="t">置换过程中：<em>被滤出的与被留下的</em></h1>
+  <div class="sub">从 ICU 到手术室的康复之路</div></div>
+ <div class="body grid2">
+  <div class="imgcard"><img src="assets/s32__2.jpg" alt="患者康复照片"><div class="cap">治疗中的患者：手臂留置输注管路，家属陪护下从 ICU 走向手术室——血液治疗背后是具体的人</div></div>
+  <div class="imgcard"><img src="assets/s32__3.jpg" alt="血浆置换废液照片"><div class="cap">置换出的废血浆呈深黄色（高胆红素/高脂负荷）；管路滤器中血浆颜色对比直观可见</div></div>
+ </div>
+</section>
+
+<!-- 35 理性看待 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 07 · 衰老（8）· 理性审视</span>
+  <h1 class="t">同一个人的「前后对比」，<em>就等于疗效吗？</em></h1>
+  <div class="sub">一张血液净化营销截图的循证拆解</div></div>
+ <div class="body g64">
+  <div class="imgcard"><img src="assets/s33__2.jpg" alt="血液净化营销前后对比截图"><div class="cap">营销话术截图：「滤除衰老蛋白、身体更年轻」—— 总胆红素 20.11→16.63 · 肌酐 79.90→68.19 · 尿酸 355.67→294.57 · 胆固醇 5.89→2.71</div></div>
+  <div class="col">
+   <div class="card hl">
+    <h4>数字确实降了，但是——</h4>
+    <ul class="bullets sm">
+     <li>指标下降 ≠ 疗效：<b>TPE 本身就是「物理性移除」</b>，单次置换后脂溶/蛋白结合指标必然一过性下降</li>
+     <li>截图未展示：<b>白蛋白、球蛋白同步下降</b>的风险（半衰期 19 天，恢复缓慢）</li>
+     <li>无对照组、无随访终点的对比，属于典型<b>营销证据</b>而非临床证据</li>
+    </ul>
+   </div>
+   <div class="card gold">
+    <h4>给同僚的三句话</h4>
+    <ul class="bullets sm">
+     <li>问适应症：是否符合 TPE 循证八类？</li>
+     <li>问代价：丢失了什么蛋白、药物、电解质？</li>
+     <li>问终点：下降的指标，与患者预后挂钩吗？</li>
+    </ul>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- 36 结尾 -->
+<section class="slide cover" style="background:linear-gradient(120deg,rgba(38,18,26,.92),rgba(23,10,16,.55)),url(assets/s34__4.jpg) center/cover no-repeat">
+ <div class="brand">SUPERIORMED · 结语</div>
+ <h1>享受 120 年 25 岁的生命<span>LIVE A 120-YEAR LIFE IN A 25-YEAR-OLD BODY</span></h1>
+ <div class="cta" style="max-width:720px">血液是全身健康的读出器：凝血给安全底线，血常规给免疫全景，蛋白与因子给衰老刻度。<br>读懂数字背后的机制，才能把「年轻」从营销词变回医学词。</div>
+ <div class="meta">主讲：张楚乔 · 免疫调控与抗衰医学中心 · 2026.02.26<br>感谢聆听 · 欢迎病例讨论与转诊交流</div>
+</section>
+</div></div>
+
+<div id="prev" title="上一页">‹</div>
+<div id="next" title="下一页">›</div>
+<div id="bar"></div>
+<div id="hud"><b id="cur">1</b> / <span id="tot">18</span></div>
+<div id="navhint">← → 方向键 / 空格 翻页 · 点击图片放大</div>
+<div id="toc"><button id="tocBtn">目录 ☰</button><div id="tocPanel"></div></div>
+<div id="lb"><img id="lbimg" src="" alt=""><div class="lbcap" id="lbcap"></div></div>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+let cur=0;
+const bar=document.getElementById('bar'),hudCur=document.getElementById('cur'),hudTot=document.getElementById('tot');
+hudTot.textContent=slides.length;
+function go(n){
+ if(n<0||n>=slides.length)return;
+ slides[cur].classList.remove('active');
+ cur=n;
+ slides[cur].classList.add('active');
+ bar.style.width=((cur+1)/slides.length*100)+'%';
+ hudCur.textContent=cur+1;
+ if(!matchMedia('(max-width:760px)').matches)window.scrollTo(0,0);
+ else slides[cur].scrollIntoView({behavior:'smooth',block:'start'});
+}
+document.getElementById('next').onclick=()=>go(cur+1);
+document.getElementById('prev').onclick=()=>go(cur-1);
+addEventListener('keydown',e=>{
+ if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();go(cur+1)}
+ if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(cur-1)}
+ if(e.key==='Home')go(0); if(e.key==='End')go(slides.length-1);
+});
+function fit(){
+ if(matchMedia('(max-width:760px)').matches)return;
+ const s=Math.min(innerWidth/1280,innerHeight/720)*0.97;
+ document.getElementById('stage').style.transform=`translate(-50%,-50%) scale(${s})`;
+}
+addEventListener('resize',fit);fit();
+/* lightbox */
+const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg'),lbcap=document.getElementById('lbcap');
+document.addEventListener('click',e=>{
+ const img=e.target.closest('.imgcard img');
+ if(img){lbimg.src=img.src;lbcap.textContent=img.closest('.imgcard').querySelector('.cap')?.textContent||img.alt;lb.classList.add('on');return}
+ if(e.target.closest('#lb'))lb.classList.remove('on');
+});
+addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on')});
+/* toc */
+const tocPanel=document.getElementById('tocPanel');
+document.getElementById('tocBtn').onclick=e=>{e.stopPropagation();tocPanel.classList.toggle('open')};
+document.addEventListener('click',e=>{if(!e.target.closest('#toc'))tocPanel.classList.remove('open')});
+function buildToc(){
+ slides.forEach((s,i)=>{
+  const k=s.querySelector('.kicker,.chp');
+  const h=s.querySelector('h1');
+  let label=(k?k.textContent+' · ':'')+(h?h.textContent.slice(0,22):'封面');
+  if(s.classList.contains('cover')&&!k)label=i===0?'封面':label;
+  const a=document.createElement('a');
+  a.href='javascript:void(0)';
+  a.innerHTML='<b>'+(i+1)+'</b>'+label.replace(/<[^>]*>/g,'');
+  a.onclick=()=>{go(i);tocPanel.classList.remove('open')};
+  tocPanel.appendChild(a);
+ });
+}
+buildToc();
+go(0);
+</script>
+</body>
+</html>
