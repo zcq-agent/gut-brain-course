@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>内分泌·生殖·消化：荷尔蒙与年轻化 · SuperiorMed 功能医学系列课程</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;background:#0D1310;overflow:hidden;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;color:#F0EBDF;-webkit-font-smoothing:antialiased}
+#viewport{position:fixed;inset:0}
+#stage{position:absolute;top:50%;left:50%;width:1280px;height:720px;transform:translate(-50%,-50%) scale(1);transform-origin:center}
+.slide{position:absolute;inset:0;padding:44px 56px 70px;background:linear-gradient(135deg,#1C2B24 0%,#15221B 55%,#0F1813 100%);opacity:0;pointer-events:none;transition:opacity .35s ease;border-radius:6px;overflow:hidden}
+.slide.active{opacity:1;pointer-events:auto}
+.slide::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#C99A3F,#E9C778 45%,rgba(233,199,120,0) 90%)}
+.head{margin-bottom:20px;position:relative}
+.kicker{display:inline-block;font-size:12px;letter-spacing:.12em;color:#F2D59A;border:1px solid rgba(233,199,120,.45);border-radius:999px;padding:3px 12px;margin-bottom:12px;background:rgba(201,154,63,.16)}
+h1.t{font-size:29px;font-weight:700;letter-spacing:.02em;line-height:1.25}
+h1.t em{font-style:normal;color:#F2D59A}
+.sub{margin-top:7px;font-size:15px;color:#B8C0B5}
+.body{position:relative;height:calc(100% - 150px)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;height:100%}
+.g64{display:grid;grid-template-columns:6fr 4fr;gap:18px;height:100%}
+.g46{display:grid;grid-template-columns:4fr 6fr;gap:18px;height:100%}
+.col{display:flex;flex-direction:column;gap:16px;min-height:0}
+.card{background:#20302A;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:18px 20px;min-height:0;overflow:hidden}
+.card.hl{background:linear-gradient(160deg,#5E4413,#8A6520 140%);border-color:rgba(242,213,154,.35)}
+.card.clin{background:linear-gradient(160deg,#173B2E,#1F5240 140%);border-color:rgba(127,200,169,.3)}
+.card.soft{background:#2A3C33}
+.card h4{font-size:16.5px;color:#FFFFFF;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.card h4::before{content:"";width:4px;height:16px;border-radius:2px;background:#E3B25A;flex:none}
+.card.hl h4::before{background:#FFEFC9}
+.card.clin h4::before{background:#9FE0C3}
+.bullets{list-style:none;font-size:14.5px;line-height:1.62;color:#DFE5D8}
+.bullets li{padding-left:16px;position:relative;margin-bottom:8px}
+.bullets li::before{content:"▪";position:absolute;left:0;color:#F2D59A;font-size:12px}
+.bullets li b{color:#fff}
+.bullets.sm{font-size:13.5px}
+.strip{position:absolute;left:0;right:0;bottom:0;background:rgba(201,154,63,.14);border:1px solid rgba(233,199,120,.3);border-radius:12px;padding:12px 18px;font-size:14.5px;line-height:1.55;color:#F7F2E4}
+.strip b{color:#F2D59A}
+.strip.clin{background:rgba(31,82,64,.3);border-color:rgba(127,200,169,.35);color:#EAF6EF}
+.strip.clin b{color:#9FE0C3}
+.foot{position:absolute;left:56px;right:56px;bottom:24px;display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:#8C9789;letter-spacing:.05em}
+.foot .fpn{font-variant-numeric:tabular-nums;color:#B8C0B5}
+.imgcard{background:#F5F4EE;border:1px solid rgba(255,255,255,.14);border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:8px;position:relative}
+.imgcard.dark{background:#0B110E}
+.imgcard img{max-width:100%;max-height:100%;object-fit:contain;display:block;cursor:zoom-in;border-radius:6px}
+.imgcard .cap{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(13,19,16,.9) 55%);color:#F0EBDF;font-size:12px;padding:22px 12px 8px;text-align:center;letter-spacing:.03em}
+.imgcard .cap b{color:#F2D59A}
+.flow{display:flex;align-items:stretch;gap:10px}
+.fnode{flex:1;background:#2A3C33;border:1px solid rgba(233,199,120,.25);border-radius:12px;padding:12px 14px;text-align:center;font-size:14px;line-height:1.45;display:flex;flex-direction:column;justify-content:center}
+.fnode b{color:#F2D59A;font-size:15px}
+.fnode small{color:#B8C0B5;font-size:12px}
+.fnode.hot{background:linear-gradient(160deg,#5E4413,#8A6520 150%);border-color:rgba(242,213,154,.5)}
+.fnode.gd{background:linear-gradient(160deg,#173B2E,#1F5240 150%);border-color:rgba(127,200,169,.4)}
+.farr{flex:none;display:flex;align-items:center;color:#F2D59A;font-size:20px;font-weight:700}
+.badges{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.badge{flex:none;font-size:11.5px;font-weight:600;letter-spacing:.08em;border-radius:6px;padding:2px 9px;border:1px solid}
+.b-gold{color:#F2D59A;border-color:rgba(233,199,120,.6);background:rgba(201,154,63,.16)}
+.b-clin{color:#9FE0C3;border-color:rgba(127,200,169,.55);background:rgba(31,82,64,.3)}
+.b-warn{color:#FFC9A1;border-color:rgba(255,160,102,.55);background:rgba(140,74,34,.22)}
+.cover{display:flex;flex-direction:column;justify-content:center;position:relative}
+.cover .brand{font-size:14px;letter-spacing:.35em;color:#F2D59A;margin-bottom:26px}
+.cover h1{font-size:46px;line-height:1.3;font-weight:800}
+.cover h1 span{display:block;color:#F2D59A;font-size:28px;margin-top:10px;font-weight:600}
+.cover .cta{margin-top:24px;font-size:17px;color:#B8C0B5}
+.cover .meta{margin-top:36px;max-width:660px;background:rgba(42,60,51,.6);border:1px solid rgba(233,199,120,.2);border-radius:12px;padding:14px 18px;font-size:13.5px;color:#DFE5D8;line-height:1.8}
+.divider{display:flex;flex-direction:column;justify-content:center}
+.divider .chp{font-size:15px;letter-spacing:.5em;color:#F2D59A;margin-bottom:18px}
+.divider h1{font-size:42px;font-weight:800;line-height:1.25}
+.divider .en{margin-top:10px;font-size:16px;letter-spacing:.22em;color:#B8C0B5}
+.divider .desc{margin-top:26px;max-width:760px;font-size:15.5px;line-height:1.8;color:#DFE5D8}
+#bar{position:fixed;left:0;bottom:0;height:4px;background:linear-gradient(90deg,#C99A3F,#E9C778);width:0%;z-index:60;transition:width .3s ease}
+#hud{position:fixed;right:18px;bottom:14px;z-index:60;font-size:12px;color:#B8C0B5;background:rgba(15,24,19,.85);border:1px solid rgba(233,199,120,.3);border-radius:999px;padding:5px 14px;letter-spacing:.06em;user-select:none}
+#hud b{color:#F2D59A;font-variant-numeric:tabular-nums}
+#navhint{position:fixed;left:18px;bottom:14px;z-index:60;font-size:11.5px;color:#79857A;background:rgba(15,24,19,.85);border:1px solid rgba(233,199,120,.2);border-radius:999px;padding:5px 12px;letter-spacing:.05em}
+#toc{position:fixed;top:14px;right:14px;z-index:70}
+#tocBtn{background:rgba(15,24,19,.9);color:#F2D59A;border:1px solid rgba(233,199,120,.4);border-radius:999px;font-size:12.5px;letter-spacing:.1em;padding:7px 16px;cursor:pointer}
+#tocPanel{position:absolute;top:44px;right:0;background:rgba(15,24,19,.97);border:1px solid rgba(233,199,120,.35);border-radius:12px;padding:14px;display:none;max-height:70vh;overflow:auto;min-width:250px}
+#tocPanel.open{display:block}
+#tocPanel a{display:block;color:#DFE5D8;text-decoration:none;font-size:13px;line-height:1.5;padding:6px 10px;border-radius:8px}
+#tocPanel a:hover{background:rgba(201,154,63,.3);color:#fff}
+#tocPanel a b{color:#F2D59A;margin-right:8px;font-variant-numeric:tabular-nums}
+#lb{position:fixed;inset:0;background:rgba(8,12,10,.94);z-index:100;display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px;cursor:zoom-out;padding:30px}
+#lb.on{display:flex}
+#lb img{max-width:94vw;max-height:88vh;border-radius:8px;box-shadow:0 18px 70px rgba(0,0,0,.6)}
+#lb .lbcap{color:#B8C0B5;font-size:13px;letter-spacing:.04em}
+#prev,#next{position:fixed;top:50%;transform:translateY(-50%);z-index:55;background:rgba(15,24,19,.55);border:1px solid rgba(233,199,120,.25);color:#F2D59A;font-size:22px;width:44px;height:64px;border-radius:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s}
+#prev{left:12px}#next{right:12px}
+#prev:hover,#next:hover{background:rgba(201,154,63,.4)}
+@media (max-width:760px){
+ html,body{overflow:auto;height:auto;background:#0D1310}
+ #viewport{position:static}
+ #stage{position:static;width:100%;height:auto;transform:none}
+ .slide{position:relative;opacity:1;pointer-events:auto;height:auto;min-height:100vh;border-radius:0;margin-bottom:10px;padding:34px 22px 56px}
+ .body{height:auto;display:block}
+ .grid2,.g64,.g46{display:block}
+ .col{gap:14px}
+ .card{margin-bottom:14px}
+ .imgcard{max-height:78vh}
+ .strip{position:relative;margin-top:16px}
+ .foot{display:none}
+ #prev,#next,#hud,#navhint{display:none}
+ .cover h1{font-size:33px}.cover h1 span{font-size:21px}
+ .divider h1{font-size:29px}
+ #tocPanel{min-width:200px}
+}
+</style>
+</head>
+<body>
+<div id="viewport"><div id="stage">
+
+<!-- 01 封面 -->
+<section class="slide cover active">
+ <div class="brand">SUPERRIORMED · 功能医学系列课程</div>
+ <h1>内分泌 · 生殖 · 消化<span>Hormones · Reproduction · Digestion</span></h1>
+ <div class="cta">荷尔蒙：细胞的通讯 —— 三大腺轴、环境毒素、生殖年轻化与肠道菌群</div>
+ <div class="meta">
+  主讲：张楚乔<br>
+  免疫调控与抗衰医学中心<br>
+  2026.07.04
+ </div>
+</section>
+
+<!-- 02 开篇 -->
+<section class="slide cover" style="background:linear-gradient(120deg,rgba(21,34,27,.93),rgba(15,24,19,.6)),url(assets/s02__4.jpg) center/cover no-repeat">
+ <div class="brand">OUR VISION</div>
+ <h1>享受 120 年 25 岁的生命<span>LIVE A 120-YEAR LIFE IN A 25-YEAR-OLD BODY</span></h1>
+ <div class="cta" style="max-width:700px">科学家提出：「衰老不是必然，而是一种<b style="color:#F2D59A">可管理、可干预、甚至可逆转</b>的状态。」</div>
+ <div class="meta">衰老干预的三把钥匙，都写在激素的通讯网络里：性腺管青春，甲状腺管代谢，肾上腺管压力——而它们共同的「底座」，是肠道。</div>
+</section>
+
+<!-- 03 理念 -->
+<section class="slide cover">
+ <div class="brand">OUR PHILOSOPHY</div>
+ <h1>前瞻的 · 专属的 · 卓越的<em style="font-style:normal;color:#F2D59A">「生命管理艺术」</em></h1>
+ <div class="cta" style="margin-top:18px">与公立体系遵循完全不同的哲学——</div>
+ <div class="meta" style="font-size:20px;text-align:center;padding:26px 18px;letter-spacing:.14em">「 工匠精神，精益求精。 」</div>
+ <div class="cta" style="font-size:14px">荷尔蒙是全身细胞的通讯语言。管理好这套语言，就是管理衰老的节奏。</div>
+</section>
+
+<!-- 04 章节一:荷尔蒙总览 -->
+<section class="slide divider">
+ <div class="chp">CHAPTER 01 · HORMONES: CELL COMMUNICATION</div>
+ <h1>荷尔蒙：细胞的通讯</h1>
+ <div class="en">三大腺轴 —— 青春 · 代谢 · 压力</div>
+ <div class="body" style="height:auto;margin-top:30px;max-width:960px">
+  <div class="flow">
+   <div class="fnode"><b>性 腺</b><small>青春 SEX GLANDS</small></div>
+   <div class="fnode"><b>甲状腺</b><small>代谢 THYROID</small></div>
+   <div class="fnode"><b>肾上腺</b><small>压力 ADRENAL</small></div>
+   <div class="fnode hot"><b>肠道菌群</b><small>共同的底座 GUT</small></div>
+  </div>
+  <div class="desc" style="margin-top:22px">但当「假信号」混入网络——环境荷尔蒙（内分泌干扰物 EDCs）模仿、阻断或放大真实激素的作用，整套通讯就会被劫持。</div>
+ </div>
+</section>
+
+<!-- 05 环境荷尔蒙 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 01 · 环境荷尔蒙 ENDOCRINE DISRUPTORS</span>
+  <h1 class="t">环境荷尔蒙：<em>混入通讯网络的「假信号」</em></h1>
+  <div class="sub">三大类最常见内分泌干扰物，就藏在日常接触里</div></div>
+ <div class="body g46">
+  <div class="col">
+   <div class="card hl"><h4>对羟基苯甲酸酯 · 防腐剂</h4><ul class="bullets sm"><li><b>食品、化妆品及药品</b></li><li>结构类似雌激素，可结合雌激素受体</li></ul></div>
+   <div class="card"><h4>邻苯二甲酸酯 · 塑化剂</h4><ul class="bullets sm"><li><b>胶合、涂料、油墨</b></li><li>抗雄激素作用——干扰睾酮通路</li></ul></div>
+   <div class="card"><h4>酚类 · 内涂层</h4><ul class="bullets sm"><li><b>罐头、瓶盖和供水管道</b></li><li>双酚 A（BPA）类，雌激素活性</li></ul></div>
+  </div>
+  <div class="col">
+   <div class="imgcard" style="height:56%"><img src="assets/s06__5.jpg" alt="化妆品护肤品摆拍"><div class="cap">化妆品 / 护肤品：防腐剂类环境荷尔蒙的日常暴露源</div></div>
+   <div class="grid2" style="height:40%">
+    <div class="imgcard dark"><img src="assets/s06__9.jpg" alt="环境荷尔蒙示意图2"></div>
+    <div class="imgcard dark"><img src="assets/s06__6.jpg" alt="环境荷尔蒙示意图3"></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- 06 章节二:性荷尔蒙 -->
+<section class="slide divider">
+ <div class="chp">CHAPTER 02 · SEX HORMONES: THE FOUNTAIN OF YOUTH</div>
+ <h1>性荷尔蒙：青春之源</h1>
+ <div class="en">女性：雌二醇 · 孕激素 ｜ 男性：睾酮</div>
+ <div class="desc">
+  <div class="badges" style="margin-bottom:14px"><span class="badge b-warn">断崖式衰老</span><span class="badge b-clin">脑 · 代谢 · 骨</span><span class="badge b-gold">睾酮：赢家效应</span></div>
+  女性荷尔蒙的衰退是一条陡峭的曲线——绝经期前后，衰老速度陡增；男性睾酮的流失则更像缓坡，但同样改变身材、情绪与意志。
+ </div>
+</section>
+
+<!-- 07 断崖衰老 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 02 · 性荷尔蒙（1）</span>
+  <h1 class="t">断崖式衰老：<em>女性荷尔蒙的急衰退，风险更高</em></h1>
+  <div class="sub">月 6.2 倍速 —— 绝经后的胶原蛋白流失曲线</div></div>
+ <div class="body grid2">
+  <div class="col">
+   <div class="imgcard"><img src="assets/s08__2.jpg" alt="绝经分期曲线"><div class="cap">雌激素曲线与绝经分期：围绝经期前（35–45 岁，易怒失眠）→ 围绝经期（潮热盗汗）→ 绝经期（约 51 岁）→ 绝经后期（骨质疏松、心脏病风险）</div></div>
+   <div class="card hl"><h4>为什么是「断崖」</h4>
+    <ul class="bullets sm">
+     <li>雌激素对胶原蛋白、骨密度、血管内皮是<b>持续性维持信号</b></li>
+     <li>信号骤停 → 胶原蛋白流失加速（约 <b>6.2 倍</b>）→ 皮肤、骨、血管同步「断供」</li>
+    </ul></div>
+  </div>
+  <div class="col">
+   <div class="imgcard"><img src="assets/s09__2.jpg" alt="胶原蛋白流失对比图"><div class="cap">同一人年轻 vs 年老的对比：胶原蛋白流失写在脸上</div></div>
+   <div class="imgcard" style="height:44%"><img src="assets/s09__3.jpg" alt="断崖式衰老示意图"><div class="cap">绝经期前后：衰老速度的陡峭切换</div></div>
+  </div>
+ </div>
+</section>
+
+<!-- 08 脑 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 02 · 性荷尔蒙（2）</span>
+  <h1 class="t">靶器官之一 · 脑：<em>女性痴呆风险高出 2.7 倍</em></h1>
+  <div class="sub">全身内分泌腺体分泌的激素，直接影响大脑功能</div></div>
+ <div class="body g64">
+  <div class="col">
+   <div class="card">
+    <h4>内分泌紊乱 → 脑功能下降</h4>
+    <ul class="bullets sm"><li>记忆力下降、情绪紊乱、失眠等</li></ul>
+   </div>
+   <div class="card hl">
+    <h4>雌孕激素下降 → Beta 淀粉样蛋白</h4>
+    <ul class="bullets sm">
+     <li>雌孕激素对神经元有保护作用，撤退后 <b>Aβ 清除下降、沉积加速</b></li>
+     <li>导致女性老年痴呆发生率<b>高于男性 2.7 倍</b></li>
+    </ul>
+   </div>
+   <div class="card soft"><h4>临床提示</h4><ul class="bullets sm"><li>围绝经期「脑雾」不是心理问题——是<b>激素信号</b>问题，可评估、可干预</li></ul></div>
+  </div>
+  <div class="col">
+   <div class="imgcard" style="height:60%"><img src="assets/s10__12.jpg" alt="激素与大脑功能示意图"><div class="cap">激素与脑：内分泌信号全面参与认知与情绪调节</div></div>
+   <div class="imgcard" style="height:36%"><img src="assets/s10_IMG_4306.PNG.jpg" alt="Beta淀粉样蛋白示意图"><div class="cap">Beta 淀粉样蛋白（Aβ）沉积 —— 阿尔茨海默病核心病理</div></div>
+  </div>
+ </div>
+</section>
+
+<!-- 09 代谢 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 02 · 性荷尔蒙（3）</span>
+  <h1 class="t">靶器官之二 · 代谢：<em>「瘦」，也会高血脂</em></h1>
+  <div class="sub">激素不足导致的代谢减慢，与吃多吃少无关</div></div>
+ <div class="body g46">
+  <div class="col">
+   <div class="card hl"><h4>代谢减慢的真相</h4>
+    <ul class="bullets sm">
+     <li>女性因相关激素不足导致<b>代谢减慢</b></li>
+     <li>→ 肥胖、臃肿及水肿（即使吃得不多）</li>
+    </ul></div>
+   <div class="card gold" style="background:linear-gradient(160deg,#5E4413,#8A6520 140%)"><h4 style="color:#fff">「瘦，也会高血脂」</h4>
+    <ul class="bullets sm"><li>体重正常 ≠ 代谢健康；激素驱动的脂质代谢紊乱，瘦人同样出现血脂异常</li></ul></div>
+  </div>
+  <div class="col">
+   <div class="imgcard" style="height:54%"><img src="assets/s11__2.jpg" alt="激素与代谢示意图"><div class="cap">激素不足 → 代谢减慢 → 肥胖 / 臃肿 / 水肿</div></div>
+   <div class="imgcard" style="height:42%"><img src="assets/s11__1.jpg" alt="代谢对比图"><div class="cap">体成分改变：代谢率的激素决定权</div></div>
+  </div>
+ </div>
+</section>
+
+<!-- 10 骨 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 02 · 性荷尔蒙（4）</span>
+  <h1 class="t">靶器官之三 · 骨：<em>不同年龄的骨流失</em></h1>
+  <div class="sub">雌激素是骨密度的「守护者」——撤退即流失</div></div>
+ <div class="body grid2">
+  <div class="imgcard"><img src="assets/s12__4.jpg" alt="不同年龄骨流失示意图A"><div class="cap">不同年龄的衰老带来骨流失</div></div>
+  <div class="col">
+   <div class="imgcard"><img src="assets/s12__3.jpg" alt="骨密度年龄曲线"><div class="cap">骨密度随年龄的下降曲线</div></div>
+   <div class="card"><h4>关键点</h4><ul class="bullets sm"><li>绝经后 5–10 年为<b>快速骨丢失期</b></li><li>骨量储备宜早不宜迟：筛查 → 干预 → 监测</li></ul></div>
+  </div>
+ </div>
+</section>
+
+<!-- 11 睾酮 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 02 · 性荷尔蒙（5）· 男性</span>
+  <h1 class="t">「力量不是隐喻，<em>而在荷尔蒙的语言里」</em></h1>
+  <div class="sub">睾酮 —— 男性的第二张身份证</div></div>
+ <div class="body g46">
+  <div class="imgcard"><img src="assets/s14__3.jpg" alt="睾酮与男性气质示意图"><div class="cap">睾酮：塑造男性身体与行为的核心激素</div></div>
+  <div class="col">
+   <div class="card hl">
+    <h4>睾酮做了什么</h4>
+    <ul class="bullets">
+     <li>磨砺<b>支配欲</b>、麻痹恐惧</li>
+     <li>塑造<b>肌肉、下颌线、声音</b>与竞争的意志</li>
+     <li>放大<b>专注性、攻击性和冒险精神</b></li>
+     <li>带来「<b>赢家效应</b>」—— 赢，让睾酮更高；睾酮高，更敢赢</li>
+    </ul>
+   </div>
+   <div class="card soft"><h4>下降时</h4><ul class="bullets sm"><li>腹型肥胖 · 肌力流失 · 情绪钝化 · 动力下降 —— 常被误认为「只是老了」</li></ul></div>
+  </div>
+ </div>
+</section>
+
+<!-- 12 章节:生物芯片 -->
+<section class="slide divider">
+ <div class="chp">CHAPTER 03 · BIOIDENTICAL HORMONES: THE BIOLOGICAL CHIP</div>
+ <h1>生物同源荷尔蒙：生物芯片</h1>
+ <div class="en">缓释植入 · 个性化剂量 · 绕过肝脏首过效应</div>
+ <div class="desc">
+  <div class="badges" style="margin-bottom:14px"><span class="badge b-gold">女性芯片 6–9 个月</span><span class="badge b-gold">男性芯片 约 6 个月</span><span class="badge b-clin">围绝经期案例</span><span class="badge b-clin">对比外院优势</span></div>
+  与化学合成激素不同，生物同源荷尔蒙（BHT）与人体自身激素结构完全一致；皮下芯片缓释，模拟生理性分泌节律。
+ </div>
+</section>
+
+<!-- 13 芯片方案 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 03 · 生物芯片（1）· 方案</span>
+  <h1 class="t">芯片植入：<em>剂型与维持时间</em></h1>
+  <div class="sub">以缺乏情况与个体目标个性化调整</div></div>
+ <div class="body grid2">
+  <div class="col">
+   <div class="card hl">
+    <h4>女性荷尔蒙芯片</h4>
+    <ul class="bullets sm">
+     <li><b>芯片植入：</b>可维持 <b>6–9 个月</b>（视缺乏情况而定）</li>
+     <li><b>口服 / 栓剂辅助：</b>视想要月经与否，个性化调整</li>
+    </ul>
+   </div>
+   <div class="card">
+    <h4>男性荷尔蒙芯片</h4>
+    <ul class="bullets sm">
+     <li><b>芯片植入：</b>剂量可控，个性化调整</li>
+     <li>维持时间 <b>6 个月左右</b>（视缺乏情况而定）</li>
+    </ul>
+   </div>
+  </div>
+  <div class="col">
+   <div class="card clin">
+    <h4>加强 / 短效选择</h4>
+    <ul class="bullets sm">
+     <li><b>常规版：</b>芯片植入，可维持 <b>3 个月</b>（视缺乏情况而定）</li>
+     <li><b>MINI 版：</b>芯片植入，可维持 <b>1 个月</b>（视缺乏情况而定）—— 适合起步试敏或短期调整</li>
+    </ul>
+   </div>
+   <div class="card soft">
+    <h4>芯片的逻辑</h4>
+    <ul class="bullets sm"><li>皮下恒定缓释 → <b>避免血药浓度大起大落</b></li><li>直达体循环，<b>不经消化道与门静脉</b>（详见「对比外院」一屏）</li></ul>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- 14 围绝经期案例 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 03 · 生物芯片（2）· 临床案例</span>
+  <h1 class="t">案例：44 岁，<em>围绝经期症状改善</em></h1>
+  <div class="sub">停经 · 潮热盗汗 · 失眠抑郁 · 皮肤衰老加速 · 阴道干涩</div></div>
+ <div class="body g46">
+  <div class="imgcard"><img src="assets/s16_IMG_3727.HEIC.jpg" alt="治疗前后化验单对比"><div class="cap">治疗前（左）vs 治疗 6 个月后（右）：FSH 66.02→7.10 · LH 19.19→6.09 · AMH 升至 1.97</div></div>
+  <div class="col">
+   <div class="card clin">
+    <h4>治疗六个月后 · 指标</h4>
+    <div class="flow" style="flex-direction:column;gap:8px">
+     <div class="fnode gd"><b>FSH 66.02 → 7.1</b><small>由绝经水平恢复至约 30 岁水平</small></div>
+     <div class="fnode gd"><b>雌二醇 10 → 40.88</b><small>雌激素水平重建</small></div>
+     <div class="fnode gd"><b>AMH ↑ 提升至 1.96</b><small>卵巢储备功能回升</small></div>
+    </div>
+   </div>
+   <div class="strip clin" style="position:relative;margin-top:2px"><b>解读：</b>FSH 由绝经数值回落至 7.1——下丘脑-垂体-卵巢轴（HPO 轴）的反馈环路被重新「接通」，而非单纯补充症状。</div>
+  </div>
+ </div>
+</section>
+
+<!-- 15 对比外院 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 03 · 生物芯片（3）</span>
+  <h1 class="t">生物芯片 <em>vs</em> 外院常规路径</h1>
+  <div class="sub">为什么「给药途径」与「给药内容」同样重要</div></div>
+ <div class="body g64">
+  <div class="col">
+   <div class="card">
+    <h4>外院 · 口服补充 —— 首过效应</h4>
+    <ul class="bullets sm">
+     <li>药物经胃肠道吸收 → 门静脉入肝 →「<b>首过效应</b>」：</li>
+     <li>① <b>血栓风险升高</b>：肝代谢激活凝血因子，显著增加静脉血栓</li>
+     <li>② <b>心血管负担</b>：干扰脂质代谢（降 HDL、升 LDL）</li>
+     <li>③ 诱发<b>肝酶升高</b>（罕见肝损伤）</li>
+     <li>④ 刺激肝脏合成 <b>SHBG</b>（性激素结合球蛋白）→ 降低游离激素活性</li>
+    </ul>
+   </div>
+   <div class="card">
+    <h4>外院 · 涂抹外用</h4>
+    <ul class="bullets sm"><li>吸收稳定性差（受环境温度影响）</li><li>增加他人接触激素的风险（伴侣、孩子皮肤接触）</li></ul>
+   </div>
+  </div>
+  <div class="col">
+   <div class="imgcard" style="height:58%"><img src="assets/s25__2.jpg" alt="组织切片显微照片"><div class="cap">显微照片：激素环境在组织层面留下的印记（原课件配图）</div></div>
+   <div class="card hl"><h4>生物芯片的路径优势</h4><ul class="bullets sm"><li>皮下缓释 <b>绕过肝脏首过</b>：不激活凝血因子、不升 SHBG</li><li>浓度平稳、剂量可控、依从性高（数月一换）</li></ul></div>
+  </div>
+ </div>
+</section>
+
+<!-- 16 章节:甲状腺 -->
+<section class="slide divider">
+ <div class="chp">CHAPTER 04 · THYROID HORMONE: METABOLISM</div>
+ <h1>甲状腺素：新陈代谢的总开关</h1>
+ <div class="en">THYROID HORMONE · 甲亢 与 甲减</div>
+ <div class="desc">
+  <div class="badges" style="margin-bottom:14px"><span class="badge b-warn">甲亢：消耗态</span><span class="badge b-clin">甲减：低速态</span></div>
+  甲状腺素决定基础代谢率——它过高或过低，全身细胞的「运转速度」都会失真。
+ </div>
+</section>
+
+<!-- 17 甲亢甲减 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 04 · 甲状腺（1）</span>
+  <h1 class="t">一快一慢：<em>甲亢与甲减的临床面孔</em></h1>
+  <div class="sub">同是甲状腺，两个极端的方向盘</div></div>
+ <div class="body grid2">
+  <div class="col">
+   <div class="card hl"><h4>甲亢 —— 代谢过速</h4>
+    <ul class="bullets sm">
+     <li>「大脖子」、眼球突出</li><li>月经少、怕热多汗、心跳加快</li>
+    </ul></div>
+   <div class="imgcard" style="height:52%"><img src="assets/s19__1.jpg" alt="神经内分泌手绘解剖图"><div class="cap">手绘解剖：脑干与小脑——神经内分泌调控网络的中枢舞台</div></div>
+  </div>
+  <div class="col">
+   <div class="card clin"><h4>甲减 —— 代谢低速</h4>
+    <ul class="bullets sm">
+     <li>肥胖、情绪低迷、反应迟钝、健忘</li><li>经常便秘、怕冷、脱发</li>
+    </ul></div>
+   <div class="grid2" style="height:52%">
+    <div class="imgcard"><img src="assets/s19__2.jpg" alt="甲亢甲减对比图"></div>
+    <div class="imgcard"><img src="assets/s19__3.jpg" alt="甲状腺功能示意图"></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- 18 皮质醇 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 04 · 肾上腺（1）</span>
+  <h1 class="t">皮质醇：压力、炎症<em>与「战或逃」</em></h1>
+  <div class="sub">CORTISOL · FIGHT OR FLIGHT</div></div>
+ <div class="body grid2">
+  <div class="col">
+   <div class="imgcard" style="height:56%"><img src="assets/s20__1.jpg" alt="深夜疲惫学习照片"><div class="cap">慢性压力的具象：深夜疲惫——皮质醇节律被透支的现代场景</div></div>
+   <div class="imgcard" style="height:40%"><img src="assets/s20__3.jpg" alt="皮质醇节律示意图"><div class="cap">皮质醇的昼夜节律：晨高夜低，随压力失控</div></div>
+  </div>
+  <div class="col">
+   <div class="imgcard" style="height:56%"><img src="assets/s20__2.jpg" alt="战或逃卡通示意图"><div class="cap">「战或逃」（Fight or Flight）：刻在进化里的应激反应</div></div>
+   <div class="card soft"><h4>双重身份</h4><ul class="bullets sm"><li><b>短期：</b>正常的生存机制（升糖、提神、抗炎）</li><li><b>长期：</b>「慢性毒药」—— 代谢、免疫、大脑全面受损（见下页）</li></ul></div>
+  </div>
+ </div>
+</section>
+
+<!-- 19 失控皮质醇 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 04 · 肾上腺（2）</span>
+  <h1 class="t">「应激模式」：<em>失控的皮质醇</em></h1>
+  <div class="sub">《Frontiers in Neuroendocrinology》：慢性压力对大脑的「神经毒性」（neurotoxicity）</div></div>
+ <div class="body g46">
+  <div class="imgcard"><img src="assets/s21__4.jpg" alt="Frontiers综述截图"><div class="cap">《Frontiers in Neuroendocrinology》综述（慢性应激对人脑的影响）：高糖皮质激素具神经毒性，早期逆境增加应激易感性</div></div>
+  <div class="col">
+   <div class="card hl">
+    <h4>皮质醇长期升高 → 三处打击</h4>
+    <ul class="bullets">
+     <li><b>海马体萎缩</b> → 记忆变差</li>
+     <li><b>前额叶功能下降</b> → 判断力下降</li>
+     <li><b>杏仁核过度激活</b> → 焦虑易怒</li>
+     <li>→ 大脑功能全面下降，<b>加速脑衰老</b></li>
+    </ul>
+   </div>
+   <div class="card soft">
+    <h4>现代人的压力回路</h4>
+    <ul class="bullets sm"><li>事业焦虑 · 家庭责任 · 社交内耗 · 年龄焦虑 → 身体持续分泌皮质醇</li><li>短期分泌是生存机制，长期持续升高即「慢性毒药」</li></ul>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- 20 稳态负荷 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 04 · 肾上腺（3）</span>
+  <h1 class="t">「稳态负荷」—— <em>身体的「磨损」理论</em></h1>
+  <div class="sub">Allostatic Load · 神经内分泌学家 McEwen &amp; Stellar，1993 年正式提出</div></div>
+ <div class="body grid2">
+  <div class="col">
+   <div class="imgcard" style="height:56%"><img src="assets/s22__9.jpg" alt="稳态负荷示意图"><div class="cap">稳态负荷：动态平衡机制因长期反复压力被过度激活</div></div>
+   <div class="imgcard" style="height:38%"><img src="assets/s23__3.jpg" alt="四点唾液皮质醇测试"><div class="cap">四点唾液皮质醇测试：绘制全天皮质醇曲线</div></div>
+  </div>
+  <div class="col">
+   <div class="card hl">
+    <h4>什么是「磨损与撕裂」</h4>
+    <ul class="bullets sm">
+     <li>当动态平衡机制因<b>长期、反复的压力</b>而过度激活，会对身体各系统（<b>神经、内分泌、免疫</b>等）造成<b>累积性损害</b>——这就是「稳态负荷」</li>
+    </ul>
+   </div>
+   <div class="card clin">
+    <h4>测一测你的压力激素</h4>
+    <ul class="bullets sm">
+     <li><b>四点唾液皮质醇测试</b>：晨起 / 午 / 傍晚 / 睡前四次取样</li>
+     <li>看的不是单点高低，而是<b>节律形态</b>：晨峰钝化？夜间不落？</li>
+    </ul>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- 21 支持包 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 04 · 甲状腺 / 肾上腺支持</span>
+  <h1 class="t">营养素加强包：<em>让机体自行产出所需的激素</em></h1>
+  <div class="sub">非激素替代思路 —— 支持腺体功能本身</div></div>
+ <div class="body grid2">
+  <div class="card">
+   <h4>甲状腺支持</h4>
+   <ul class="bullets">
+    <li><b>口服 T3 制剂：</b>与市面上的 T4 补充剂不同——<b>无需经肝、肾、脑、肌肉等外周组织的脱碘酶催化</b>，直接利用，为机体减轻压力</li>
+    <li><b>微量元素支持：</b>不止 T3，更补充支持甲状腺功能的微量元素，<b>用非激素替代手段，让机体自行产出更多应机体需求的激素</b></li>
+   </ul>
+  </div>
+  <div class="card clin">
+   <h4>肾上腺支持</h4>
+   <ul class="bullets">
+    <li><b>口服补充：</b>萃取植物来源（适应原 adaptogen 思路）</li>
+    <li>目标：<b>调节皮质醇的正常节律</b>——不是压制，而是恢复「晨高夜低」</li>
+   </ul>
+  </div>
+ </div>
+ <div class="strip"><b>一句话对比：</b>芯片负责「补给」激素，加强包负责「唤醒」腺体自身的生产能力——两条路径可并行，评估先行。</div>
+</section>
+
+<!-- 22 章节:环境毒素 -->
+<section class="slide divider" style="background:linear-gradient(120deg,rgba(28,43,36,.9),rgba(15,24,19,.55)),url(assets/s26__9.jpg) center/cover no-repeat">
+ <div class="chp">CHAPTER 05 · ENVIRONMENTAL TOXINS</div>
+ <h1>环境毒素：无孔不入的干扰信号</h1>
+ <div class="en">食品添加剂 · 重金属 · 永久化合物（PFAS）</div>
+ <div class="desc">
+  <div class="badges" style="margin-bottom:14px"><span class="badge b-warn">EDCs 内分泌干扰</span><span class="badge b-gold">三大来源</span></div>
+  它们不急性致命，却日复一日地模拟、阻断、扰乱荷尔蒙信号——是三大腺轴之外，最容易被忽视的「第四个玩家」。
+ </div>
+</section>
+
+<!-- 23 食品添加剂 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 05 · 环境毒素（1）</span>
+  <h1 class="t">食品添加剂：<em>六类日常暴露</em></h1>
+  <div class="sub">读配料表的六个关键词</div></div>
+ <div class="body grid2">
+  <div class="imgcard"><img src="assets/s27__2.jpg" alt="食品添加剂示意图"><div class="cap">加工食品：添加剂密度最高的暴露源</div></div>
+  <div class="col">
+   <div class="flow" style="flex-direction:column;gap:8px">
+    <div class="fnode"><b>防腐剂</b><small>延长保质期 · 常见苯甲酸/山梨酸类</small></div>
+    <div class="fnode"><b>着色剂 · 护色剂</b><small>色泽诱惑 · 部分偶氮类需留意</small></div>
+    <div class="fnode"><b>膨松剂 · 增稠剂</b><small>口感改造 · 多见于烘焙与饮品</small></div>
+    <div class="fnode hot"><b>甜味剂</b><small>代糖与代谢的争议仍在积累</small></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- 24 重金属 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 05 · 环境毒素（2）</span>
+  <h1 class="t">重金属：<em>五种进入路径</em></h1>
+  <div class="sub">铅 · 汞 · 镉 · 砷 —— 累积性内分泌与神经毒性</div></div>
+ <div class="body grid2">
+  <div class="imgcard"><img src="assets/s28__1.jpg" alt="重金属暴露来源"><div class="cap">重金属暴露：从工业到日常</div></div>
+  <div class="col">
+   <div class="imgcard" style="height:52%"><img src="assets/s28__9.jpg" alt="重金属示意图"><div class="cap">重金属在体内的蓄积与干扰</div></div>
+   <div class="card"><h4>五种路径</h4>
+    <ul class="bullets sm">
+     <li><b>日常用品 · 穿搭配饰</b>（劣质金属接触）</li>
+     <li><b>废料填埋 · 工地施工</b>（环境粉尘）</li>
+     <li><b>核污染</b>（放射性暴露）</li>
+    </ul></div>
+  </div>
+ </div>
+</section>
+
+<!-- 25 PFAS -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 05 · 环境毒素（3）</span>
+  <h1 class="t">永久化合物 PFAS：<em>「永不降解」的污染</em></h1>
+  <div class="sub">全氟烷基和多氟烷基物质 —— 不粘锅 / 防水面料 / 食品包装的常客</div></div>
+ <div class="body grid2">
+  <div class="imgcard"><img src="assets/s29__11.jpg" alt="PFAS永久化合物示意图"><div class="cap">PFAS：碳-氟键极难断裂，环境中「永久」存在</div></div>
+  <div class="col">
+   <div class="card hl"><h4>两大特征</h4>
+    <ul class="bullets sm">
+     <li><b>极难降解</b>—— 在环境与人体内半衰期以年计</li>
+     <li><b>健康危害：</b>内分泌紊乱、生殖问题、免疫下降、致癌……</li>
+    </ul></div>
+   <div class="imgcard" style="height:52%"><img src="assets/s29__12.jpg" alt="PFAS健康危害示意图"><div class="cap">PFAS 与健康的关联证据持续累积</div></div>
+  </div>
+ </div>
+</section>
+
+<!-- 26 章节:生殖年轻化 -->
+<section class="slide divider">
+ <div class="chp">CHAPTER 06 · REPRODUCTIVE REJUVENATION: ORT THERAPY</div>
+ <h1>生殖年轻化：卵母细胞激活术</h1>
+ <div class="en">ORT · OVARIAN REJUVENATION THERAPY</div>
+ <div class="desc">
+  <div class="badges" style="margin-bottom:14px"><span class="badge b-clin">高龄生育</span><span class="badge b-clin">AMH 过低</span><span class="badge b-gold">PRP 生长因子</span></div>
+  「通过再生生物学机制，逆转卵巢衰老并改善卵子质量。」——「生物滋养」技术，为被判「生育死刑」的女性打开新的大门。
+ </div>
+</section>
+
+<!-- 27 高龄生育 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 06 · ORT（1）</span>
+  <h1 class="t">高龄生育？<em>先看这四条适应路径</em></h1>
+  <div class="sub">谁最可能从 ORT 获益</div></div>
+ <div class="body g46">
+  <div class="imgcard"><img src="assets/s31__3.jpg" alt="高龄生育与卵巢"><div class="cap">卵巢储备随年龄衰减：数量与质量同步下滑</div></div>
+  <div class="col">
+   <div class="card"><h4>四类候选人群</h4>
+    <ul class="bullets">
+     <li>① <b>反复促排卵失败</b></li>
+     <li>② <b>卵泡发育停滞</b></li>
+     <li>③ <b>排卵障碍</b></li>
+     <li>④ <b>卵巢反应不良</b></li>
+    </ul></div>
+   <div class="card soft"><h4>传统方案的边界</h4>
+    <ul class="bullets sm"><li>常规试管婴儿方案只能「<b>用现有的卵子</b>」，却无法改变卵子的<b>数量和质量</b></li></ul></div>
+  </div>
+ </div>
+</section>
+
+<!-- 28 AMH/ORT/PRP -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 06 · ORT（2）</span>
+  <h1 class="t">AMH 过低？<em>我院方案：ORT</em></h1>
+  <div class="sub">PRP（富血小板血浆）—— 自体再生的引擎</div></div>
+ <div class="body g64">
+  <div class="col">
+   <div class="card hl">
+    <h4>生长因子是什么</h4>
+    <ul class="bullets">
+     <li>促进<b>组织再生、回春</b>的物质</li>
+     <li>PRP 通过离心<b>自体静脉血</b>获得高浓度血小板</li>
+     <li>持续释放 <b>PDGF · TGF-β · VEGF</b> 等生长因子</li>
+    </ul>
+   </div>
+   <div class="card clin">
+    <h4>ORT 的逻辑链</h4>
+    <div class="flow">
+     <div class="fnode gd"><b>自体血</b><small>采血离心</small></div>
+     <div class="farr">→</div>
+     <div class="fnode gd"><b>PRP</b><small>生长因子浓缩</small></div>
+     <div class="farr">→</div>
+     <div class="fnode gd"><b>卵巢靶向</b><small>局部激活</small></div>
+     <div class="farr">→</div>
+     <div class="fnode hot"><b>卵子质量 ↑</b><small>储备功能改善</small></div>
+    </div>
+   </div>
+  </div>
+  <div class="col">
+   <div class="imgcard" style="height:56%"><img src="assets/s32__12.jpg" alt="PRP制备流程"><div class="cap">PRP 制备：抗凝全血两次离心 → PPP 血浆层 / 白膜层 / 红细胞层 → 富血小板血浆</div></div>
+   <div class="imgcard" style="height:38%"><img src="assets/s32__2.jpg" alt="AMH评估"><div class="cap">AMH（抗缪勒管激素）：卵巢储备的核心读数</div></div>
+  </div>
+ </div>
+</section>
+
+<!-- 29 章节:私密整形 -->
+<section class="slide divider" style="background:linear-gradient(120deg,rgba(28,43,36,.92),rgba(15,24,19,.6)),url(assets/s33__1.jpg) center/cover no-repeat">
+ <div class="chp">CHAPTER 06 · REPRODUCTIVE REJUVENATION: VAGINOPLASTY</div>
+ <h1>生殖年轻化：私密整形</h1>
+ <div class="en">功能与美观修复 · 兼顾身心健康</div>
+ <div class="desc">
+  <div class="badges" style="margin-bottom:14px"><span class="badge b-clin">松弛素与盆底</span><span class="badge b-clin">激素性色沉</span><span class="badge b-gold">阴道年轻化手术</span></div>
+  生育留下的改变——会阴侧切、松弛、色沉——既是功能问题，也是身心问题；激素学是理解它们钥匙。
+ </div>
+</section>
+
+<!-- 30 松弛素 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 06 · 私密整形（1）</span>
+  <h1 class="t">松弛素：<em>为分娩准备，也留下松弛</em></h1>
+  <div class="sub">Relaxin —— 怀孕期间人体产生的激素</div></div>
+ <div class="body g46">
+  <div class="col">
+   <div class="card">
+    <h4>生理作用（好的一面）</h4>
+    <ul class="bullets sm">
+     <li>软化<b>韧带和关节</b>，尤其是骨盆周围</li>
+     <li>为更顺利、更安全的分娩做好准备</li>
+    </ul>
+   </div>
+   <div class="card hl">
+    <h4>根本功能（代价的一面）</h4>
+    <ul class="bullets sm">
+     <li><b>降低胶原密度、使组织松弛</b></li>
+     <li>产后松弛素回落，但胶原密度未必完全恢复——盆底与阴道支持组织的「底子」被改写</li>
+    </ul>
+   </div>
+   <div class="card soft"><h4>相关场景</h4><ul class="bullets sm"><li>会阴侧切术后的结构支持 · 阴道松弛 · 压力性尿失禁风险</li></ul></div>
+  </div>
+  <div class="imgcard"><img src="assets/s35__4.jpg" alt="松弛素作用示意图"><div class="cap">松弛素：孕期软化宫颈、放松韧带、抑制宫缩；产后数月仍残留，影响关节活动度与核心稳定性</div></div>
+ </div>
+</section>
+
+<!-- 31 色沉 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 06 · 私密整形（2）</span>
+  <h1 class="t">色沉？<em>激素写在皮肤上的字</em></h1>
+  <div class="sub">黑色素的三大激素驱动</div></div>
+ <div class="body g46">
+  <div class="col">
+   <div class="card">
+    <h4>三种驱动激素</h4>
+    <ul class="bullets">
+     <li><b>雌激素</b> · <b>孕酮</b> · <b>皮质醇</b></li>
+     <li>影响<b>黑色素细胞活性、血管信号传导和炎症</b>——这些都是黑色素产生的关键驱动因素</li>
+    </ul>
+   </div>
+   <div class="card hl">
+    <h4>受体证据</h4>
+    <ul class="bullets sm">
+     <li>「人黑素细胞的<b>细胞质和细胞核</b>中均表达<b>雌激素受体和孕激素受体</b>」</li>
+     <li>→ 激素波动直接「指挥」色素沉着的部位与强度（孕斑、外阴色沉同源）</li>
+    </ul>
+   </div>
+   <div class="card soft"><h4>临床含义</h4><ul class="bullets sm"><li>只做表层美白、不调激素底色，色沉易复发</li></ul></div>
+  </div>
+  <div class="col">
+   <div class="imgcard" style="height:56%"><img src="assets/s36__6.jpg" alt="激素性色素沉着示意图"><div class="cap">激素性色素沉着（黄褐斑）：雌激素、孕激素驱动黑色素细胞活性</div></div>
+   <div class="imgcard" style="height:38%"><img src="assets/s36__8.jpg" alt="色素沉着示意"><div class="cap">色素沉着：活性 · 血管信号 · 炎症的三重驱动</div></div>
+  </div>
+ </div>
+</section>
+
+<!-- 32 阴道年轻化手术 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 06 · 私密整形（3）</span>
+  <h1 class="t">阴道年轻化手术：<em>两种成形，可分可合</em></h1>
+  <div class="sub">功能和美观修复，兼顾身心健康</div></div>
+ <div class="body grid2">
+  <div class="col">
+   <div class="card clin">
+    <h4>① 阴道成形术</h4>
+    <ul class="bullets"><li>目标：<b>紧 · 弹 · 润</b></li><li>适合：产后阴道松弛、感觉减退、盆底支持不足</li></ul>
+   </div>
+   <div class="card clin">
+    <h4>② 阴唇成形术</h4>
+    <ul class="bullets"><li>目标：<b>粉 · 嫩 · 拢</b></li><li>适合：形态矫正诉求 + 色沉改善</li></ul>
+   </div>
+   <div class="card soft">
+    <h4>组合策略</h4>
+    <ul class="bullets sm">
+     <li>两种手术<b>可以同时进行</b>，也可独立选择</li>
+     <li>有些客户希望矫正阴唇形状，有些希望收紧阴道——<b>以女性的选择为中心</b></li>
+    </ul>
+   </div>
+  </div>
+  <div class="col">
+   <div class="imgcard" style="height:54%"><img src="assets/s37__4.jpg" alt="阴唇成形术前后对比示意"><div class="cap">阴唇成形术：术前 vs 术后（Before / After）——缩小、对称</div></div>
+   <div class="imgcard" style="height:42%"><img src="assets/s37__2.jpg" alt="私密整形示意"><div class="cap">私密年轻化：个性化的方案组合</div></div>
+  </div>
+ </div>
+</section>
+
+<!-- 33 章节:肠道 -->
+<section class="slide divider">
+ <div class="chp">CHAPTER 07 · GUT MICROBIOTA: BILLION YEARS OF SYMBIOSIS</div>
+ <h1>肠道年轻化：跨越亿年的共生</h1>
+ <div class="en">GUT MICROBIOTA · GUT–X AXIS · FMT</div>
+ <div class="desc">
+  <div class="badges" style="margin-bottom:14px"><span class="badge b-clin">CELL：117 岁的秘诀</span><span class="badge b-gold">GUT–X 轴</span><span class="badge b-clin">菌群移植 FMT ×2 案例</span></div>
+  荷尔蒙的故事讲到最后，底座是肠道——菌群多样性、慢性炎症水平、代谢率，都从这 38 万亿微小生命开始。
+ </div>
+</section>
+
+<!-- 34 117岁 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 07 · 肠道（1）</span>
+  <h1 class="t">《CELL》封面：<em>「117 岁的秘诀，是她的肠道」</em></h1>
+  <div class="sub">极致长寿者的菌群画像</div></div>
+ <div class="body g46">
+  <div class="imgcard"><img src="assets/s39__3.jpg" alt="CELL 117岁肠道封面"><div class="cap">《CELL》：117 岁老人——肠道菌群多样性高、益生菌丰富</div></div>
+  <div class="col">
+   <div class="card hl"><h4>长寿菌群三特征</h4>
+    <ul class="bullets">
+     <li><b>多样性高、益生菌多</b></li>
+     <li>发出好信号，与<b>脑、肝、肺、免疫</b>等「对话」</li>
+     <li>提高代谢率，<b>降低慢性炎症</b> → 「极致长寿」</li>
+    </ul></div>
+   <div class="card soft"><h4>启示</h4><ul class="bullets sm"><li>衰老干预的终点不是单一激素，而是<b>菌群-宿主的共生质量</b></li></ul></div>
+  </div>
+ </div>
+</section>
+
+<!-- 35 GUT-X -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 07 · 肠道（2）</span>
+  <h1 class="t">「GUT–X」AXIS：<em>一菌连五系</em></h1>
+  <div class="sub">肠道菌群与全身器官的对话通道</div></div>
+ <div class="body grid2">
+  <div class="imgcard"><img src="assets/s40__3.jpg" alt="GUT-X轴示意图"><div class="cap">菌群失调（altered gut microbiota）→ 肝 · 内分泌 · 胰腺 · 肺 · 脑 · 肾 · 骨 · 心 · 肌肉 · 皮肤 · 生殖的多器官对话</div></div>
+  <div class="col">
+   <div class="flow" style="flex-direction:column;gap:8px">
+    <div class="fnode"><b>认知：大脑</b><small>肠脑轴——神经递质与迷走信号</small></div>
+    <div class="fnode"><b>代谢：肝、胰腺、肾、内分泌</b><small>胆汁酸、短链脂肪酸、激素代谢</small></div>
+    <div class="fnode"><b>生殖：性腺</b><small>雌激素代谢与再循环（estrobolome）</small></div>
+    <div class="fnode"><b>躯体：皮肤、肌肉、骨骼</b><small>炎症水平与营养可用性</small></div>
+    <div class="fnode"><b>循环：心脏</b><small>TMAO 与心血管风险</small></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- 36 FMT -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 07 · 肠道（3）</span>
+  <h1 class="t">菌群：<em>人类唯一可以「共享」的器官</em></h1>
+  <div class="sub">菌群移植（FMT）—— 精准的、基于微生物组的疗法</div></div>
+ <div class="body g64">
+  <div class="col">
+   <div class="card hl">
+    <h4>FMT 做什么</h4>
+    <ul class="bullets">
+     <li>通过移植<b>抗衰明星菌群</b></li>
+     <li>达到全身多器官的<b>系统性获益</b></li>
+     <li>和 <b>38 万亿微小生命</b>一起，开启生态重建的旅程</li>
+    </ul>
+   </div>
+   <div class="card soft">
+    <h4>与前面的关系</h4>
+    <ul class="bullets sm">
+     <li>菌群调节<b>雌激素代谢</b>（性腺轴）</li>
+     <li>参与<b>甲状腺素转换</b>与皮质醇应激阈值（甲状腺 / 肾上腺轴）</li>
+     <li>→ 修复荷尔蒙，别忘修底座</li>
+    </ul>
+   </div>
+  </div>
+  <div class="imgcard"><img src="assets/s41__7.jpg" alt="短链脂肪酸肠脑轴示意图"><div class="cap">SCFA 肠-脑轴：膳食纤维经菌群发酵 → 醋酸/丙酸/丁酸 → 受体、迷走神经与 GLP-1 通路</div></div>
+ </div>
+</section>
+
+<!-- 37 案例(1) 2024.7 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 07 · 肠道干预案例（1）· 2024.7 基线</span>
+  <h1 class="t">案例（1）：干预前基线 <em>2024.7</em></h1>
+  <div class="sub">肠道菌群移植（FMT）前的评估资料</div></div>
+ <div class="body grid2">
+  <div class="col">
+   <div class="imgcard" style="height:58%"><img src="assets/s42__33799.jpg" alt="案例1基线CT"><div class="cap">2024.7 胸部 CT：肺野内小结节影（炎性结节基础）</div></div>
+   <div class="strip clin" style="position:relative"><b>基线小结：</b>菌群多样性 4.85（仅「适中」）· 阿克曼氏菌 0 · 乳杆菌 0.00062（偏低）· 条件致病菌偏高</div>
+  </div>
+  <div class="col">
+   <div class="imgcard" style="height:46%"><img src="assets/s42__6.jpg" alt="菌群多样性基线"><div class="cap">菌群多样性指数：4.85 —— 人群水平仅「适中」</div></div>
+   <div class="grid2" style="gap:10px;height:50%">
+    <div class="imgcard"><img src="assets/s42__16.jpg" alt="有益菌基线"><div class="cap">有益菌：阿克曼氏菌 0</div></div>
+    <div class="imgcard"><img src="assets/s42__13.jpg" alt="条件致病菌基线"><div class="cap">条件致病菌：克雷伯菌/肠杆菌偏高</div></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- 38 案例(1) 2025.4 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 07 · 肠道干预案例（1）· 2025.4（9 个月后）</span>
+  <h1 class="t">案例（1）：9 个月后复查 <em>2025.4</em></h1>
+  <div class="sub">FMT 针对炎性结节 —— Treg / Th17 平衡的免疫重建</div></div>
+ <div class="body g64">
+  <div class="col">
+   <div class="imgcard" style="height:46%"><img src="assets/s43__5.jpg" alt="菌群多样性复查"><div class="cap">菌群多样性指数：5.76 —— 升至「非常高」</div></div>
+   <div class="grid2" style="gap:10px;height:48%">
+    <div class="imgcard"><img src="assets/s43__19.jpg" alt="有益菌复查"><div class="cap">有益菌：阿克曼 0.00903 · 乳杆菌 0.02546（偏高）</div></div>
+    <div class="imgcard"><img src="assets/s43__17.jpg" alt="条件致病菌复查"><div class="cap">条件致病菌：克雷伯 0 · 肠杆菌 0</div></div>
+   </div>
+  </div>
+  <div class="col">
+   <div class="imgcard" style="height:52%"><img src="assets/s43__33796.jpg" alt="案例1复查CT"><div class="cap">2025.4 CT 复查：与菌群改善同步随访</div></div>
+   <div class="card clin">
+   <h4>机制解读（三条）</h4>
+   <ul class="bullets">
+    <li>① <b>FMT 主要针对炎性结节</b></li>
+    <li>② 炎性结节占 60% 以上，由<b>慢性炎症刺激增生</b>而来</li>
+    <li>③ 恢复 <b>Treg / Th17 平衡</b>，增强肺部 APC（抗原提呈细胞）功能，帮助免疫系统识别并清除「癌前病变细胞」，<b>降低向恶性转化的风险</b></li>
+   </ul>
+  </div>
+ </div>
+ </div>
+</section>
+
+<!-- 39 案例(2) 2025.3 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 07 · 肠道干预案例（2）· 2025.3 基线</span>
+  <h1 class="t">案例（2）：干预前基线 <em>2025.3</em></h1>
+  <div class="sub">血常规（过敏倾向）+ 肺功能（中度阻塞）</div></div>
+ <div class="body grid2">
+  <div class="imgcard"><img src="assets/s44__16.jpg" alt="案例2基线血常规"><div class="cap">2025.3 血常规：淋巴细胞比值↑、嗜酸粒细胞↑ —— 过敏倾向</div></div>
+  <div class="imgcard"><img src="assets/s44__11.jpg" alt="案例2基线肺功能"><div class="cap">潮气呼吸肺功能：呼气延长、达峰比下降 —— 中度阻塞性通气功能障碍</div></div>
+ </div>
+</section>
+
+<!-- 40 案例(2) 2025.10 -->
+<section class="slide">
+ <div class="head"><span class="kicker">CHAPTER 07 · 肠道干预案例（2）· 2025.10（7 个月后）</span>
+  <h1 class="t">案例（2）：7 个月后复查 <em>2025.10</em></h1>
+  <div class="sub">肺通气功能恢复正常 —— 3R 路径的完整闭环</div></div>
+ <div class="body grid2">
+  <div class="imgcard"><img src="assets/s45__13.jpg" alt="案例2复查肺功能"><div class="cap">肺功能复查：通气功能恢复正常（流量-容积环恢复）</div></div>
+  <div class="col">
+   <div class="card hl"><h4>机制背景</h4>
+    <ul class="bullets sm"><li>过敏性哮喘占哮喘 <b>50%–70%</b>，与非过敏性哮喘（感染、空气污染触发）同属「气道炎症性疾病」，本质 <b>Th2 炎症亢进</b></li></ul></div>
+   <div class="card clin"><h4>3R 干预路径</h4>
+    <ul class="bullets sm">
+     <li><b>Remove：</b>去除食物过敏原，减少 Th2 型炎症触发</li>
+     <li><b>Reinoculate：</b>补充罗伊氏乳杆菌，降低血清 IgE</li>
+     <li><b>Repair：</b>补充谷氨酰胺修复肠屏障，减少「肠-肺过敏传递」</li>
+    </ul></div>
+  </div>
+ </div>
+</section>
+
+<!-- 41 结尾:旋转木马 -->
+<section class="slide cover" style="background:linear-gradient(120deg,rgba(21,34,27,.9),rgba(15,24,19,.5)),url(assets/s46__3.jpg) center/cover no-repeat">
+ <div class="brand">EPILOGUE</div>
+ <h1>像旋转木马一样<span style="font-size:34px">倒流时光</span></h1>
+ <div class="cta" style="max-width:700px">REVERSING AGE LIKE A CAROUSEL</div>
+ <div class="meta">荷尔蒙不是「青春的燃料」，而是细胞的语言——听懂它、校准它，衰老的节奏就可以被重新编排。</div>
+</section>
+
+<!-- 42 结尾 -->
+<section class="slide cover" style="background:linear-gradient(120deg,rgba(21,34,27,.9),rgba(15,24,19,.55)),url(assets/s47__1.jpg) center/cover no-repeat">
+ <div class="brand">SUPERRIORMED · 结语</div>
+ <h1>享受 120 年 25 岁的生命<span>LIVE A 120-YEAR LIFE IN A 25-YEAR-OLD BODY</span></h1>
+ <div class="cta" style="max-width:760px">性腺管青春 · 甲状腺管代谢 · 肾上腺管压力 · 肠道是共同的底座。<br>从环境毒素的识别，到腺轴的精准支持，再到菌群生态的重建——年轻化是一条系统工程。</div>
+ <div class="meta">主讲：张楚乔 · 免疫调控与抗衰医学中心 · 2026.07.04<br>感谢聆听 · 欢迎病例讨论与转诊交流</div>
+</section>
+</div></div>
+
+<div id="prev" title="上一页">‹</div>
+<div id="next" title="下一页">›</div>
+<div id="bar"></div>
+<div id="hud"><b id="cur">1</b> / <span id="tot">11</span></div>
+<div id="navhint">← → 方向键 / 空格 翻页 · 点击图片放大</div>
+<div id="toc"><button id="tocBtn">目录 ☰</button><div id="tocPanel"></div></div>
+<div id="lb"><img id="lbimg" src="" alt=""><div class="lbcap" id="lbcap"></div></div>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+let cur=0;
+const bar=document.getElementById('bar'),hudCur=document.getElementById('cur'),hudTot=document.getElementById('tot');
+hudTot.textContent=slides.length;
+function go(n){
+ if(n<0||n>=slides.length)return;
+ slides[cur].classList.remove('active');
+ cur=n;
+ slides[cur].classList.add('active');
+ bar.style.width=((cur+1)/slides.length*100)+'%';
+ hudCur.textContent=cur+1;
+ if(!matchMedia('(max-width:760px)').matches)window.scrollTo(0,0);
+ else slides[cur].scrollIntoView({behavior:'smooth',block:'start'});
+}
+document.getElementById('next').onclick=()=>go(cur+1);
+document.getElementById('prev').onclick=()=>go(cur-1);
+addEventListener('keydown',e=>{
+ if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();go(cur+1)}
+ if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(cur-1)}
+ if(e.key==='Home')go(0); if(e.key==='End')go(slides.length-1);
+});
+function fit(){
+ if(matchMedia('(max-width:760px)').matches)return;
+ const s=Math.min(innerWidth/1280,innerHeight/720)*0.97;
+ document.getElementById('stage').style.transform=`translate(-50%,-50%) scale(${s})`;
+}
+addEventListener('resize',fit);fit();
+const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg'),lbcap=document.getElementById('lbcap');
+document.addEventListener('click',e=>{
+ const img=e.target.closest('.imgcard img');
+ if(img){lbimg.src=img.src;lbcap.textContent=img.closest('.imgcard').querySelector('.cap')?.textContent||img.alt;lb.classList.add('on');return}
+ if(e.target.closest('#lb'))lb.classList.remove('on');
+});
+addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on')});
+const tocPanel=document.getElementById('tocPanel');
+document.getElementById('tocBtn').onclick=e=>{e.stopPropagation();tocPanel.classList.toggle('open')};
+document.addEventListener('click',e=>{if(!e.target.closest('#toc'))tocPanel.classList.remove('open')});
+slides.forEach((s,i)=>{
+ const k=s.querySelector('.kicker,.chp');
+ const h=s.querySelector('h1');
+ let label=(k?k.textContent+' · ':'')+(h?h.textContent.slice(0,22):'封面');
+ const a=document.createElement('a');
+ a.href='javascript:void(0)';
+ a.innerHTML='<b>'+(i+1)+'</b>'+label.replace(/<[^>]*>/g,'');
+ a.onclick=()=>{go(i);tocPanel.classList.remove('open')};
+ tocPanel.appendChild(a);
+});
+go(0);
+</script>
+</body>
+</html>
